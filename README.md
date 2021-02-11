@@ -1,1 +1,1 @@
-# athletes-and-altruism
+# athletes-and-activism
