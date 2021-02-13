@@ -9,6 +9,13 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+   findCharity: function(req, res) {
+     db.Athlete
+      .find()
+      .where("charities.charityName").equals(req.body.charity) //req.body.charity
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   findById: function(req, res) {
     db.Athlete
       .findById(req.params.id)

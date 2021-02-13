@@ -25,6 +25,23 @@ const athleteSeed = [
   causes: {
     causeType: "Children"
   }
+},
+{
+  fullName: "John Johnerson",
+  image: "image-john",
+  sport: "Curling",
+  team: "Icemen",
+  dob: "1-1-1995",
+  bio: "You know.",
+  charities: {
+    charityName: "Curls for Gurls",
+    charityImage: "image-charity2",
+    charityBio: "We teach girls how to curl.",
+    charityURL: "charity url2"
+  },
+  causes: {
+    causeType: "Women"
+  }
 }
 ];
 
