@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/athletes" component={Athlete} />
           <Route exact path="/causes" component={Causes} />
           <Route exact path="/charities" component={Charities} />
-          <Route exact path="/Profile" component={Profile} />
+          <Route exact path="/profile" component={Profile} />
       </div>
     </Router>
   );
