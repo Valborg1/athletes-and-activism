@@ -1,20 +1,20 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
-  getBooks: function() {
-    return axios.get("/api/books");
+  // Gets all athletes
+  getAthletes: function() {
+    return axios.get("/api/athletes");
   },
-  // Gets the book with the given id
-  getBook: function(id) {
-    return axios.get("/api/books/" + id);
+  // Gets the athlete with the given id
+  getathlete: function(id) {
+    return axios.get("/api/athletes/" + id);
   },
-  // Deletes the book with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/books/" + id);
+  // Deletes the athlete with the given id
+  deleteathlete: function(id) {
+    return axios.delete("/api/athletes/" + id);
   },
-  // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
+  // Saves a athlete to the database
+  saveathlete: function(athleteData) {
+    return axios.post("/api/athletes", athleteData);
   }
 };
