@@ -1,20 +1,23 @@
 import React from 'react'
-import Row from "../Row"
+import {Row, Container} from "../Grid"
 
 export default function AthleteCharities() {
     return (
-        <Row>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
-                <div><a href="">Column 1</a></div>
-                <div><a href="">Column 1</a></div>
-                <div><a href="">Column 1</a></div>
-                <div><a href="">Column 1</a></div>
-                <div><a href="">Column 1</a></div>
-                <div><a href="">Column 1</a></div>
-                <div><a href="">Column 1</a></div>
-                <div><a href="">Column 1</a></div>
-                <div><a href="">Column 1</a></div> 
+        <>
+        <Container title="charities">
+            <h1>CHARITIES</h1>
+            <div className="grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gridGap: 20 }}>
+                <div><a className="charityLink" href="">Example Charity</a></div>
+                <div><a className="charityLink" href="">Example Charity</a></div>
+                <div><a className="charityLink" href="">Example Charity</a></div>
+                <div><a className="charityLink" href="">Example Charity</a></div>
+                <div><a className="charityLink" href="">Example Charity</a></div>
+                <div><a className="charityLink" href="">Example Charity</a></div>
+                <div><a className="charityLink" href="">Example Charity</a></div>
+                <div><a className="charityLink" href="">Example Charity</a></div>
+                <div><a className="charityLink" href="">Example Charity</a></div>
             </div>
-        </Row>
+        </Container>
+        </>
     )
 }
