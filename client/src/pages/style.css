@@ -1,0 +1,99 @@
+
+/* CSS FOR ATHLETE PAGE */
+.container {
+    background-color: #f7f7f7;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+button.like {
+    border: none;
+    background-color: #dfdfdf;   
+    float: right; 
+}
+
+button.update {
+    border: none;
+    background-color: #dfdfdf; 
+    float: right;   
+}
+
+.fa-heart {
+    padding-top: 5px;
+    font-size: 25px;
+    color: #b6332b;
+}
+
+.fa-plus {
+    padding-top: 5px;
+    font-size: 25px;
+    color: #4CAF50;
+    display: none;
+}
+
+.title:hover .fa-plus{
+    display: block;
+    /* color: red; */
+  }
+
+
+.title {
+    background-color: #dfdfdf;
+    margin-bottom: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.stats {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.padding-10 {
+    padding: 10px;
+}
+
+/* ATHLETE BARS */
+* {box-sizing:border-box}
+
+/* Container for skill bars */
+
+div.skills {
+  text-align: left; /* Right-align text */
+  padding-top: 10px; /* Add top padding */
+  padding-left: 10px;
+  padding-bottom: 10px; /* Add bottom padding */
+  color: white; /* White text color */
+}
+
+.causesBar {background-color: #4CAF50;} /* Green */
+.charitiesBar {background-color: #2196F3;} /* Blue */
+
+
+/* Container for Causes and Charities */
+
+.charities {
+    padding-right: 5px;
+}
+
+.causes {
+    padding-left: 5px;
+}
+
+.no-background {
+    background-color: white;
+}
+
+div.col-md-6 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.grid {
+    text-align: center;
+}
+
+a.causeLink, a.charityLink {
+    color: #2196F3;
+}

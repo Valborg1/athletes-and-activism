@@ -11,10 +11,6 @@
 # production
 /client/build
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 3207328bae446c7abde8749fcf9fa36e61d489ff
 # misc
 .DS_Store
 .env.local
