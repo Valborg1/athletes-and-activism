@@ -6,6 +6,7 @@ import Causes from "./pages/Causes";
 import Charities from "./pages/Charities";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import AddAthlete from "./pages/AddAthlete";
 // import Nav from "./components/Nav";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/athletes" component={Athlete} />
+          <Route exact path="/add-athlete" component={AddAthlete} />
           <Route exact path="/causes" component={Causes} />
           <Route exact path="/charities" component={Charities} />
           <Route exact path="/profile" component={Profile} />
