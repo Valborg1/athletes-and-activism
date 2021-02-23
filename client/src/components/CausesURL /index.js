@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CausesURL() {
+export default function CharityURL() {
     return (
         <div>
             URL: https....
