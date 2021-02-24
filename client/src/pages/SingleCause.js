@@ -1,36 +1,36 @@
 import React from "react";
 import { Row, Col, Container } from "../components/Grid";
-import CharitiesDesc from "../components/CharityDesc";
+import CausesDesc from "../components/CausesDesc ";
 import AthleteCharities from '../components/AthleteCharities'
 import AthleteCauses from '../components/AthleteCauses'
 import AthleteList from '../components/AthleteList'
-import CharityURL from "../components/CharityURL";
+import CausesURL from "../components/CausesURL ";
 import "./style.css"
 
 export default function Charities() {
-  return (
+    return (
     <>
-    <Container title="title">
-    <Row>    
-        <Col size="md-2"/>
-        <Col size="md-8">
-            <h1 className="text-center">CHARITIES</h1>
-        </Col>
-        <Col size="md-2">
+        <Container title="title">
+            <Row>    
+            <Col size="md-2"/>
+            <Col size="md-8">
+                <h1 className="text-center">CAUSES</h1>
+            </Col>
+            <Col size="md-2">
             <button className="like btn" type="button"><i className="fa fa-heart"></i></button>
             <button className="update btn" type="button"><i className="fa fa-plus"></i></button>
-        </Col>
-    </Row>
-</Container>
+            </Col>
+            </Row>
+        </Container>
 <Container>
     <Row>
-        <CharitiesDesc />
+        <CausesDesc />
     </Row>
     </Container>
     <br></br>
     <Container>
     <Row>
-        <CharityURL></CharityURL>
+        <CausesURL></CausesURL>
     </Row>
     </Container>
     <Container title="no-background">
@@ -39,11 +39,12 @@ export default function Charities() {
                 <AthleteList/>
                 </Col>
                 <Col size="md-6">
-                    <AthleteCauses />
+                    <AthleteCharities />
                 </Col>
             </Row>
             </Container>
     
 </>
-  );
+    );
 }
+
