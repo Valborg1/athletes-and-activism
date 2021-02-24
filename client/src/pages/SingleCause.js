@@ -1,10 +1,10 @@
 import React from "react";
 import { Row, Col, Container } from "../components/Grid";
-import CausesDesc from "../components/CausesDesc ";
+import CausesDesc from "../components/CausesDesc";
 import AthleteCharities from '../components/AthleteCharities'
 import AthleteCauses from '../components/AthleteCauses'
 import AthleteList from '../components/AthleteList'
-import CausesURL from "../components/CausesURL ";
+import CausesURL from "../components/CausesURL";
 import "./style.css"
 
 export default function Charities() {
