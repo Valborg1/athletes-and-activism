@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Container } from "../components/Grid";
 import CharitiesDesc from "../components/CharityDesc";
-import AthleteCharities from '../components/AthleteCharities'
+// import AthleteCharities from '../components/AthleteCharities'
 import AthleteCauses from '../components/AthleteCauses'
 import AthleteList from '../components/AthleteList'
 import CharityURL from "../components/CharityURL";
