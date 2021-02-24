@@ -1,5 +1,4 @@
 import React from 'react';
-// import { } from 'react-bootstrap/Image'
 import { Row, Col, Container } from '../components/Grid';
 import CausesList from '../components/CausesList';
 import CausesDesc from '../components/CausesDesc';
