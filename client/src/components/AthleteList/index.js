@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row, Container} from "../Grid"
+import { Container } from "../Grid"
 
 export default function AthleteList
 () {
