@@ -1,20 +1,39 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {Button, Modal, Form} from 'react-bootstrap'
 import {Row, Col, Container} from "../components/Grid"
 import AthleteBio from "../components/AthleteBio"
 import imagePath from "../../src/images/patrick.png"
 import Image from 'react-bootstrap/Image'
+// import API from "../utils/API"
 import "./style.css"
 import AthleteBars from '../components/AthleteBars'
 
 
 export default function AddAthlete(props) {
     const [show, setShow] = useState(false);
+    // const [athlete, setAthlete] = useState({})
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    // API Key = 6b24b1384fmshf59a581bd70a69ap1d4756jsn25a12c1f048e
+    // API Key Working = 6d36da78a6msha238c0ff02538fdp165a31jsn530d7e5b5c6e
 
+    useEffect(() => {
+        fetch("https://thesportsdb.p.rapidapi.com/searchplayers.php?p=Danny%20Welbeck", {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "6b24b1384fmshf59a581bd70a69ap1d4756jsn25a12c1f048e",
+                "x-rapidapi-host": "thesportsdb.p.rapidapi.com"
+            }
+        })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(err => {
+            console.error(err);
+        });
+    }, []);
 
     return (
         <>
@@ -88,6 +107,9 @@ export default function AddAthlete(props) {
                 </Button>
                 </Modal.Footer>
             </Modal>
+
+
+
         </>
     )
 }
