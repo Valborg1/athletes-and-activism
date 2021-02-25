@@ -7,6 +7,7 @@ import AthleteList from '../components/AthleteList'
 import CausesURL from "../components/CausesURL";
 import "./style.css"
 
+
 export default function Charities() {
     return (
     <>
@@ -27,7 +28,7 @@ export default function Charities() {
         <CausesDesc />
     </Row>
     </Container>
-    <br></br>
+   
     <Container>
     <Row>
         <CausesURL></CausesURL>
