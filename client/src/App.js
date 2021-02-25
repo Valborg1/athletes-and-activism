@@ -5,6 +5,7 @@ import Athlete from "./pages/Athletes";
 import Causes from "./pages/Causes";
 import SingleCause from "./pages/SingleCause";
 import Charities from "./pages/Charities";
+import SingleCharity from "./pages/SingleCharity";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import AddAthlete from "./pages/AddAthlete";
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/causes" component={Causes} />
           <Route exact path="/singlecause" component={SingleCause} />
           <Route exact path="/charities" component={Charities} />
+          <Route exact path="/singlecharity" component={SingleCharity} />
           <Route exact path="/profile" component={Profile} />
       </div>
     </Router>
@@ -30,3 +32,4 @@ function App() {
 }
 
 export default App;
+
