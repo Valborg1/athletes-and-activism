@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { apiAuth } from "./utils/api";
+import { apiAuth } from "./utils/LoginApi";
 import { useAuth } from "./utils/context";
 import { LoginNavbar, PrivateRoute } from "./components";
 import Nav from "./components/Nav"
@@ -15,14 +15,14 @@ import Register from "./pages/Register";
 
 
 // import Nav from "./components/Nav";
-
+console.log(useAuth)
 function App() {
 
   const [state, setState] = useState({
     isReady: false,
   });
   const { auth, setAuth } = useAuth();
-
+console.log(auth)
   useEffect(() => {
     const res = apiAuth.getAuth();
     if (res) {
@@ -39,7 +39,7 @@ function App() {
     <Router>
     <Nav />
     <LoginNavbar />
-      <div>
+      <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/athletes" component={Athlete} />
@@ -49,7 +49,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <PrivateRoute exact path="/profile" component={Profile} />
           <Route component={NoMatchLog} />
-      </div>
+      </Switch>
     </Router>
 
   );
