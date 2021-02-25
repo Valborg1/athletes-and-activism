@@ -98,7 +98,6 @@ a.causeLink, a.charityLink {
     color: #2196F3;
 }
 
-
 /* Add an Athlete Page */
 .addCC, .saveCC, .cancelCC {
     float: right
@@ -106,4 +105,33 @@ a.causeLink, a.charityLink {
 
 .saveCC {
     margin-left: 10px;
+}
+
+/* css for homepage */
+
+.center {
+        text-align: center;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: auto;  
+}
+
+.jumbotron {
+    min-height: 500px;
+    width: 100%;
+    background-size: cover;
+    margin: auto;
+    background-image: url("https://cdn.wallpapersafari.com/80/61/yc6Qre.jpg");
+}
+
+h3.carouselText {
+    color: white;
+    text-align: center;
+    height: 500px;
+}
+
+.charitySearch {
+    float: left;
 }
