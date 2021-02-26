@@ -15,9 +15,6 @@ export function LoginNavbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Container>
-        <Link className="navbar-brand" to="/">
-          Express React Passport
-        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -30,19 +27,24 @@ export function LoginNavbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <NavLink className="nav-link" exact to="/">
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" exact to="/profile">
-                (Protected Route)
-              </NavLink>
-            </li>
+          <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+            <NavLink className="nav-link" exact to="/">
+                HOME
+            </NavLink>
+            <NavLink className="nav-link" exact to="/athletes">
+                ATHLETES
+            </NavLink>
+            <NavLink className="nav-link" exact to="/charities">
+                CHARITIES
+            </NavLink>
+            <NavLink className="nav-link" exact to="/causes">
+                CAUSES
+            </NavLink>
             {auth ? (
               <>
+              <NavLink className="nav-link" exact to="/profile">
+                PROFILE
+              </NavLink>
                 <li className="nav-item dropdown">
                   <a
                     className="nav-link dropdown-toggle"
@@ -79,13 +81,8 @@ export function LoginNavbar() {
               <>
                 {" "}
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/register">
-                    Register
-                  </NavLink>
-                </li>
-                <li className="nav-item">
                   <NavLink className="nav-link" to="/login">
-                    Login
+                    LOGIN
                   </NavLink>
                 </li>
               </>

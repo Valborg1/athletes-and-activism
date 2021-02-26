@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { apiAuth } from "../utils/LoginApi";
 import { useAuth } from "../utils/context";
 import {
@@ -57,7 +57,7 @@ export default function Login() {
           <h1 className="mb-4">Login</h1>
           <form onSubmit={_handleSubmit}>
             <FormGroup>
-              <Label>Email</Label>
+              <Label>Username:</Label>
               <Input
                 type="text"
                 name="username"
@@ -66,7 +66,7 @@ export default function Login() {
               />
             </FormGroup>
             <FormGroup>
-              <Label>Password</Label>
+              <Label>Password:</Label>
               <Input
                 type="password"
                 name="password"
@@ -78,6 +78,9 @@ export default function Login() {
               <Button className="btn-primary">Submit</Button>
             </FormGroup>
           </form>
+          <NavLink className="nav-link" exact to="/register">
+                Register for an account here!
+            </NavLink>
         </Column>
       </Row>
     </Container>

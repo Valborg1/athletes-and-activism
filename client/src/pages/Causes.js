@@ -1,15 +1,25 @@
-import React from 'react';
-// import { } from 'react-bootstrap/Image'
+
+import React, { useState, useEffect } from "react";
 import { Row, Col, Container } from '../components/Grid';
 import CausesList from '../components/CausesList';
-import CausesDesc from '../components/CausesDesc';
-import AthleteCharities from '../components/AthleteCharities'
-import AthleteCauses from '../components/AthleteCauses';
-import AthleteList from '../components/AthleteList'
-import CausesURL from '../components/CausesURL';
+import API from '../utils/API'
 import "./style.css"
 
 export default function Causes() {
+
+  const [causes, setCauses] = useState({})
+
+    useEffect(() => {
+        loadCauses()
+    }, [])
+
+    function loadCauses() {
+        API.getAthletes()
+            .then(res => {
+              console.log(res)
+                setCauses(res.data)
+              })
+    }
   return (
     <>
     <Container title="title">
@@ -34,7 +44,9 @@ export default function Causes() {
 <Container>
 <div className="row g-0">
   <div className="col-sm-6 col-md-8">CAUSES</div>
-
+  {causes.length && causes?.map(cause => (
+              <p>{cause.causes.causeType}</p>
+            ))}
   <div className="col-6 col-md-4">POPULAR</div>
 </div>
 <div className="container px-4">

@@ -12,6 +12,13 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  favorites:[
+    {
+      type: Schema.Types.ObjectId, ref:"Athlete"
+    }
+  ]
+  
+  
 });
 
 UserSchema.pre("save", function (next) {

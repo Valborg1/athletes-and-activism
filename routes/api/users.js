@@ -5,6 +5,7 @@ const { getToken, decode } = require("../../app/services/token");
 const { withAuth } = require('../../app/middleware/auth')
 const usersController = require("../../app/controllers/usersController");
 
+
 router.get(
   "/profile",
   withAuth,
@@ -12,6 +13,7 @@ router.get(
     try {
       var token = decode(getToken(req.headers));
       if (token) {
+        console.log(token)
         User.findById(token.id, {password: 0}, function (err, user) {
           return res.json(user);
         });
@@ -23,6 +25,17 @@ router.get(
     }
   }
 );
+
+router.get(
+  "/favorites/:id",
+  function (req, res) {
+    console.log("Favorites")
+    // User.findOneAndUpdate({_id:req.session.userId}, {$addToSet:{favorites:req.params.id}})
+    // .then(data => console.log(data))
+  }
+  )
+  
+
 
 router
   .route("/")

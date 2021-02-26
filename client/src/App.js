@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { apiAuth } from "./utils/LoginApi";
 import { useAuth } from "./utils/context";
 import { LoginNavbar, PrivateRoute } from "./components";
-import Nav from "./components/Nav"
 import Athlete from "./pages/Athletes";
 import Causes from "./pages/Causes";
 import Charities from "./pages/Charities";
@@ -37,7 +36,6 @@ console.log(auth)
 
   return (
     <Router>
-    <Nav />
     <LoginNavbar />
       <Switch>
           <Route exact path="/" component={Home} />

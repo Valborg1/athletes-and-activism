@@ -17,6 +17,7 @@ export default function Profile() {
       apiUsers
         .getProfile()
         .then((res) => {
+          console.log(res)
           if (res.data._id) {
             // For local read/update/delete
             setState({ ...state, user: res.data });
@@ -28,7 +29,7 @@ export default function Profile() {
         })
         .catch((err) => {
           // Choose your error notification
-          // console.log("err", err);
+          console.log("err", err);
         });
     }
   }, []);

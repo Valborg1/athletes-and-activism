@@ -3,7 +3,7 @@ const athleteController = require("../../app/controllers/athleteController");
 
 // Matches with "/api/athletes"
 router.route("/")
-  .get(athleteController.findCharity)
+  .get(athleteController.findAll)
   .post(athleteController.create);
 
 // Matches with "/api/athletes/:id"

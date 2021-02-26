@@ -16,5 +16,10 @@ export default {
   // Saves a athlete to the database
   saveathlete: function(athleteData) {
     return axios.post("/api/athletes", athleteData);
-  }
+  },
+
+  addFavorite: function(id) {
+    return axios.get("/api/users/favorites/" + id);
+  },
+
 };
