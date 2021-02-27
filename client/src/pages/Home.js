@@ -37,9 +37,11 @@ export default function Home(props) {
                <Col size="md-5">
                </Col>
                <Col size="md-2">
+               <a href="/search-athlete">
                <button className="btn btn-success charitySearch">
-                   Find a Charity
+                   Search for an athlete
                </button>
+               </a>
                </Col>
                <Col size="md-5">
                </Col>
