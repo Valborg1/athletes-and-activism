@@ -8,18 +8,16 @@ const athleteSchema = new Schema({
   team: { type: String },
   dob: { type: String },
   bio: { type: String },
-  charities: {
-    charityName: { type: String },
-    charityImage: { type: String },
-    charityBio: { type: String },
-    charityURL: { type: String }
-  },
-  causes: {
-    causeType: { type: String }
-  }
+  charities: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Charity"
+    }
+  ],
 });
 
 const Athlete = mongoose.model("Athlete", athleteSchema);
+const Charity = mongoose.model("Charity", athleteSchema);
 
-module.exports = Athlete;
+module.exports = Athlete, Charity;
 
