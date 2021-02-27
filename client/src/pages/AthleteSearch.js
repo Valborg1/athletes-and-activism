@@ -9,3 +9,6 @@ import "./style.css"
 import AthleteBars from '../components/AthleteBars'
 
 
+
+export default function SearchAthlete(props) {
+};

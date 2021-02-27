@@ -4,6 +4,7 @@ const athleteController = require("../../controllers/athleteController");
 // Matches with "/api/athletes"
 router.route("/")
   .get(athleteController.findCharity)
+  .get(athleteController.searchAthletes)
   .post(athleteController.create);
 
 // Matches with "/api/athletes/:id"

@@ -68,7 +68,7 @@ div.skills {
 }
 
 .causesBar {background-color: #4CAF50;} /* Green */
-.charitiesBar {background-color: #2196F3;} /* Blue */
+.charitiesBar {background-color: #369;} /* Blue */
 
 
 /* Container for Causes and Charities */
@@ -96,6 +96,15 @@ div.col-md-6 {
 
 a.causeLink, a.charityLink {
     color: #2196F3;
+}
+
+/* Add an Athlete Page */
+.addCC, .saveCC, .cancelCC {
+    float: right
+}
+
+.saveCC {
+    margin-left: 10px;
 }
 
 /* css for homepage */
