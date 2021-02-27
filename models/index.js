@@ -1,3 +1,4 @@
 module.exports = {
-  Athlete: require("./athlete")
+  Athlete: require("./athlete"),
+  Charity: require("./athlete")
 };
