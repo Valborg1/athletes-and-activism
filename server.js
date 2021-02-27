@@ -19,6 +19,7 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/athletes-and-activism",
 {
   useNewUrlParser: true,
+  useCreateIndex: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
 });
