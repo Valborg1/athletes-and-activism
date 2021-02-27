@@ -23,7 +23,8 @@ const athleteSeed = [
     charityURL: "charity url"
   },
   causes: {
-    causeType: "Children"
+    causeType: "Children",
+    causeURL: "http://google.com"
   }
 },
 {
@@ -40,7 +41,8 @@ const athleteSeed = [
     charityURL: "charity url2"
   },
   causes: {
-    causeType: "Women"
+    causeType: "Women",
+    causeURL: "http://google.com"
   }
 }
 ];

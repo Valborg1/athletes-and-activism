@@ -15,7 +15,8 @@ const athleteSchema = new Schema({
     charityURL: { type: String }
   },
   causes: {
-    causeType: { type: String }
+    causeType: { type: String },
+    causeURL: { type: String }
   }
 });
 
