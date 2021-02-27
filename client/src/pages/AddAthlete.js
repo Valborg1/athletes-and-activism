@@ -91,7 +91,7 @@ export default function AddAthlete(props) {
           <Modal.Title>Add Charity and Causes Information</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={addInfo}>
+          <Form>
             <Form.Group controlId="exampleForm.ControlInput1">
               <Form.Label>Search for a Charity</Form.Label>
               <Form.Control
