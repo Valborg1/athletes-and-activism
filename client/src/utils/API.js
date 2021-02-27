@@ -26,7 +26,12 @@ export default {
     }})
     .then(res => {console.log(res);})
     .catch(err => {console.error(err);})
-  }
+  },
+
+  // Gets all Charities
+  getCharities: function() {
+    return axios.get("api/charities");
+  },
 };
 
 
