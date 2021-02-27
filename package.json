@@ -20,7 +20,13 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^0.21.1",
+=======
+    "axios": "^0.18.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+>>>>>>> 6e6bda1ce1e860b98a82735d7ac7a27618aa3a74
     "express": "^4.16.3",
     "font-awesome": "^4.7.0",
     "if-env": "^1.0.4",
