@@ -12,6 +12,7 @@ import { Form, Button, InputGroup, FormControl } from "react-bootstrap";
 import "./style.css";
 
 export default function Causes() {
+
   return (
     <>
       <Container title="title">
