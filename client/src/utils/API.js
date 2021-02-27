@@ -17,15 +17,8 @@ export default {
   saveathlete: function(athleteData) {
     return axios.post("/api/athletes", athleteData);
   },
-  searchAthletes: function() {
-    fetch("https://thesportsdb.p.rapidapi.com/searchplayers.php?p=Danny%20Welbeck", {
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-key": "c6b5c1a14emsh9e1a9ac4a537b4fp1763c3jsnae3ee4dc04c3",
-      "x-rapidapi-host": "thesportsdb.p.rapidapi.com"
-    }})
-    .then(res => {console.log(res);})
-    .catch(err => {console.error(err);})
+  searchCharities: function(query) {
+    return axios.get("/api/athletes/add");
   }
 };
 
