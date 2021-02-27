@@ -1,14 +1,7 @@
 import React from 'react'
 import { Jumbotron, Carousel } from "react-bootstrap"
 import { Row, Col, Container } from "../components/Grid"
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import AthleteBio from "../components/AthleteBio"
-import imagePath from "../../src/images/sports.jpg"
-import Image from 'react-bootstrap/Image'
-import AthleteCharities from '../components/AthleteCharities'
-import AthleteCauses from '../components/AthleteCauses'
 import "./style.css"
-import AthleteBars from '../components/AthleteBars'
 
 
 export default function Home(props) {
