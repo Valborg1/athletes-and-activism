@@ -45,37 +45,9 @@ export function LoginNavbar() {
               <NavLink className="nav-link" exact to="/profile">
                 PROFILE
               </NavLink>
-                <li className="nav-item dropdown">
-                  <a
-                    className="nav-link dropdown-toggle"
-                    href="#"
-                    id="navbarDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    My Account
-                  </a>
-                  <ul
-                    className="dropdown-menu"
-                    style={{ left: "auto", right: 0 }}
-                    aria-labelledby="navbarDropdown"
-                  >
-                    <li>
-                      <Link className="dropdown-item" to="/profile">
-                        Profile
-                      </Link>
-                    </li>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li>
-                      <button className="dropdown-item" onClick={_logout}>
-                        Logout
-                      </button>
-                    </li>
-                  </ul>
-                </li>
+              <NavLink className="nav-link" exact to="/profile" onClick={_logout}>
+                LOGOUT
+              </NavLink>
               </>
             ) : (
               <>

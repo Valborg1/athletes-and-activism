@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Column } from '../components'
 
-export default function NoMatch() {
+export default function NoMatchLog() {
   return (
     <Container>
       <Row>

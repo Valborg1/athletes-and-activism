@@ -57,7 +57,7 @@ export default function Register() {
           <h1 className="mb-4">Register</h1>
           <form onSubmit={_handleSubmit}>
             <FormGroup>
-              <Label>Email</Label>
+              <Label>Username:</Label>
               <Input
                 type="text"
                 name="username"

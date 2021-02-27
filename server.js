@@ -19,6 +19,9 @@ app.use(cors());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+require("./config/passport")(User);
+
 // Add routes, both API and view
 app.use(routes);
 
