@@ -20,7 +20,7 @@ export default {
   },
   searchCharities: function(query) {
     return axios.post(baseURL + "/api/add-athlete", {query});
-  }
+  },
   
   // Gets all Charities
   getCharities: function() {

@@ -8,42 +8,125 @@ mongoose.connect(
   "mongodb://localhost/athletes-and-activism"
 );
 
+const causesSeed = [
+  {
+    category: "Healthcare"
+  },
+  {
+    category: "Children"
+  },
+  {
+    category: "World Hunger"
+  },
+  {
+    category: "Clean Water"
+  },
+]
+
+const charitySeed = [
+  {
+    charity: {
+      charityName: "Toys for Tots",
+      charityImage: "image",
+      charityBio: "We take toys from poor kids and give them to rich kids!",
+      charityURL: "www.toysfortots.com",
+    },
+    cause: [
+      {
+        type: "603aa0663f970b2e287bf315",
+        ref: "Cause"
+      }
+    ]
+  },
+  {
+    charity: {
+      charityName: "Food for Yo Momma",
+      charityImage: "image2",
+      charityBio: "Feed hungry moms",
+      charityURL: "www.yummyfood.com",
+    },
+    cause: [
+      {
+        type: "603aa0663f970b2e287bf316",
+        ref: "Cause"
+      }
+    ]
+  },
+  {
+    charity: {
+      charityName: "Clean Water For U",
+      charityImage: "image3",
+      charityBio: "We water plants, not humans",
+      charityURL: "www.water.com",
+    },
+    cause: [
+      {
+        type: "603aa20d015620045436c9fc",
+        ref: "Cause"
+      }
+    ]
+  }
+]
+
 const athleteSeed = [
-{
-  fullName: "Jack Jackerson",
-  image: "image-jack",
+  {
+  fullName: "John Johnson",
+  image: "john image",
   sport: "Basketball",
-  team: "Raptors",
-  dob: "1-1-1990",
-  bio: "Jack throws balls in hoops.",
-  charities: {
-    charityName: "Basketballs for Babies",
-    charityImage: "image-charity",
-    charityBio: "We give basketballs to babies, why? i have no idea.",
-    charityURL: "charity url"
+  team: "The ball shooters",
+  dob: "1/1/1990",
+  bio: "He do all the fings",
+  charities: [
+    {
+      type: "603aa20d015620045436c9fd",
+      ref: "Charity"
+    },
+    {
+      type: "603aa20d015620045436c9fe",
+      ref: "Charity"
+    }
+  ],
   },
-  causes: {
-    causeType: "Children"
-  }
-},
-{
-  fullName: "John Johnerson",
-  image: "image-john",
-  sport: "Curling",
-  team: "Icemen",
-  dob: "1-1-1995",
-  bio: "You know.",
-  charities: {
-    charityName: "Curls for Gurls",
-    charityImage: "image-charity2",
-    charityBio: "We teach girls how to curl.",
-    charityURL: "charity url2"
-  },
-  causes: {
-    causeType: "Women"
-  }
-}
+  {
+    fullName: "Bill Billerson",
+    image: "bill image",
+    sport: "Sky Diving",
+    team: "The Splats",
+    dob: "1/1/1993",
+    bio: "Hope my chute opens!",
+    charities: [
+      {
+        type: "603aa39831afa2083cc5045f",
+        ref: "Charity"
+      }
+    ],
+    }
 ];
+
+
+db.Athlete
+  .remove({})
+  .then(() => db.Athlete.collection.insertMany(causesSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
+  db.Athlete
+  .remove({})
+  .then(() => db.Athlete.collection.insertMany(charitySeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
 
 db.Athlete
   .remove({})
