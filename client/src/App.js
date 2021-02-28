@@ -22,9 +22,10 @@ function App() {
           <Route exact path="/athletes" component={Athlete} />
           <Route exact path="/add-athlete" component={AddAthlete} />
           <Route exact path="/causes" component={Causes} />
-          <Route exact path="/singlecause" component={SingleCause} />
+          <Route exact path="/causes/:id" component={SingleCause} />
+          
           <Route exact path="/charities" component={Charities} />
-          <Route exact path="/singlecharity" component={SingleCharity} />
+          
           <Route exact path="/search-athlete" component={AthleteSearch} />
       </div>
     </Router>
