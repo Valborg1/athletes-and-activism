@@ -9,7 +9,8 @@ export default {
   },
 
   searchAthletes: function(query) {
-    return axios.get(ATHURL,  {params: {p: "Alex Smith"},
+    console.log(query)
+    return axios.get(`${ATHURL}${query.search}`, {
     headers: {
       'x-rapidapi-key': APIKEY,
       'x-rapidapi-host': 'thesportsdb.p.rapidapi.com',
