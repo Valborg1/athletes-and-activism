@@ -26,6 +26,9 @@ export default {
   getCharities: function() {
     return axios.get("api/charities");
   },
+  getCauses: function() {
+    return axios.get("api/causes");
+  }
 };
 
 
