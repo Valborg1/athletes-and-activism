@@ -13,7 +13,7 @@ export default function Causes() {
   }, [])
 
   function loadCauses(){
-    API.getAthletes()
+    API.getCauses()
     .then(res => {
       console.log(res)
     setCauses(res.data)
@@ -71,18 +71,18 @@ export default function Causes() {
         </Container>
         <div className="p-10 lg:pt-48 container mx-auto relative">
           <h1 className="text-6xl text-300 mb-4">Cause results</h1>
-        
+{/*         
         app.get('/api', (req, res) => {
           causesSeed.find({}, (err, data) => {
             res.json(data);
           })
-        });
+        }); */}
 
-          {/* <div>
+          <div>
             {causes.length && causes?.map(cause => (
-              <h2> <a href={cause.causes.causeURL}>{cause.causes.causeType}</a></h2>
+              <h2> <a href="/" id={cause._id}>{cause.category}</a></h2>
             ))}
-          </div> */}
+          </div>
         </div>
         
 

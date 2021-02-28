@@ -12,28 +12,60 @@ const causesSeed = [
   {
     category: "Healthcare"
   },
-  causes: {
-    causeType: "Children",
-    // causeURL: "http://google.com"
+  {
+    category: "Children"
   },
+  {
+    category: "World Hunger"
+  },
+  {
+    category: "Clean Water"
+  },
+]
 
-{
-  fullName: "John Johnerson",
-  image: "image-john",
-  sport: "Curling",
-  team: "Icemen",
-  dob: "1-1-1995",
-  bio: "You know.",
-  charities: {
-    charityName: "Curls for Gurls",
-    charityImage: "image-charity2",
-    charityBio: "We teach girls how to curl.",
-    charityURL: "charity url2"
+const charitySeed = [
+  {
+    charity: {
+      charityName: "Toys for Tots",
+      charityImage: "image",
+      charityBio: "We take toys from poor kids and give them to rich kids!",
+      charityURL: "www.toysfortots.com",
+    },
+    cause: [
+      {
+        type: "603aa0663f970b2e287bf315",
+        ref: "Cause"
+      }
+    ]
   },
-  causes: {
-    causeType: "Women",
-    // causeURL: "http://google.com"
+  {
+    charity: {
+      charityName: "Food for Yo Momma",
+      charityImage: "image2",
+      charityBio: "Feed hungry moms",
+      charityURL: "www.yummyfood.com",
+    },
+    cause: [
+      {
+        type: "603aa0663f970b2e287bf316",
+        ref: "Cause"
+      }
+    ]
   },
+  {
+    charity: {
+      charityName: "Clean Water For U",
+      charityImage: "image3",
+      charityBio: "We water plants, not humans",
+      charityURL: "www.water.com",
+    },
+    cause: [
+      {
+        type: "603aa20d015620045436c9fc",
+        ref: "Cause"
+      }
+    ]
+  }
 ]
 
 const athleteSeed = [
@@ -72,9 +104,9 @@ const athleteSeed = [
 ];
 
 
-db.Athlete
+db.Cause
   .remove({})
-  .then(() => db.Athlete.collection.insertMany(causesSeed))
+  .then(() => db.Cause.collection.insertMany(causesSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
@@ -84,9 +116,9 @@ db.Athlete
     process.exit(1);
   });
 
-  db.Athlete
+  db.Charity
   .remove({})
-  .then(() => db.Athlete.collection.insertMany(charitySeed))
+  .then(() => db.Charity.collection.insertMany(charitySeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

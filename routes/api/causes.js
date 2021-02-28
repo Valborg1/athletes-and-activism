@@ -3,7 +3,7 @@ const causesController = require("../../controllers/causesController");
 
 router.route("/")
     .get(causesController.findAll)
-    .get(causesController.searchCauses)
+    // .get(causesController.searchCauses)
     .post(causesController.create);
 
 router

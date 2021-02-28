@@ -1,11 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
-const causeSchema = new mongoose.SchemaType({
-    causeName: { type: String, required: true },
-    
-})
-
-const Cause = mongoose.model("Cause", causeSchema);
-
+const CausesSchema = new Schema({
+  category: String,
+});
+const Cause = mongoose.model("Cause", CausesSchema);
 module.exports = Cause;
