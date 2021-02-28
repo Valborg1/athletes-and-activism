@@ -1,9 +1,15 @@
 import axios from "axios";
+const ATHURL = "https://thesportsdb.p.rapidapi.com/searchplayers.php?p="
+const APIKEY = "6b24b1384fmshf59a581bd70a69ap1d4756jsn25a12c1f048e"
 
 export default {
   // Gets all athletes
   getAthletes: function() {
     return axios.get("/api/athletes");
+  },
+
+  searchAthletes: function(query) {
+    return axios.get(ATHURL + query + APIKEY)
   },
   // Gets the athlete with the given id
   getathlete: function(id) {
@@ -21,5 +27,4 @@ export default {
   addFavorite: function(id) {
     return axios.get("/api/users/favorites/" + id);
   },
-
 };

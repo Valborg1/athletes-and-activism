@@ -11,6 +11,9 @@ import AthleteBars from '../components/AthleteBars'
 
 
 export default function Athletes(props) {
+
+    
+
     return (
         <>
         <Container title="title">
