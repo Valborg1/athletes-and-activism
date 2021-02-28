@@ -13,7 +13,7 @@ export default {
     headers: {
       'x-rapidapi-key': APIKEY,
       'x-rapidapi-host': 'thesportsdb.p.rapidapi.com',
-      useQueryString: false
+      useQueryString: true
     }})
   },
   // Gets the athlete with the given id

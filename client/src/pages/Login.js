@@ -51,7 +51,9 @@ export default function Login() {
   }
 
   return (
+    
     <Container className="mt-5">
+    {console.log(state)}
       <Row>
         <Column className="col-md-6 offset-md-3">
           <h1 className="mb-4">Login</h1>
