@@ -15,7 +15,7 @@ export default function Athletes(props) {
     const [athlete, setAthlete] = useState({})
 
     useEffect(() => {
-        // loadAthlete()
+        loadAthlete()
     }, [])
 
     function loadAthlete() {
