@@ -1,5 +1,5 @@
 import axios from "axios";
-const ATHURL = "https://thesportsdb.p.rapidapi.com/searchplayers.php?p="
+const ATHURL = "https://thesportsdb.p.rapidapi.com/searchplayers.php?p=Alex%20Smith"
 const APIKEY = "6b24b1384fmshf59a581bd70a69ap1d4756jsn25a12c1f048e"
 
 export default {
@@ -8,8 +8,13 @@ export default {
     return axios.get("/api/athletes");
   },
 
-  searchAthletes: function(query) {
-    return axios.get(ATHURL + query + APIKEY)
+  searchAthletes: function() {
+    return axios.get(ATHURL,  {qs: {p: 'Alex Smith'},
+    headers: {
+      'x-rapidapi-key': '6b24b1384fmshf59a581bd70a69ap1d4756jsn25a12c1f048e',
+      'x-rapidapi-host': 'thesportsdb.p.rapidapi.com',
+      useQueryString: false
+    }})
   },
   // Gets the athlete with the given id
   getathlete: function(id) {

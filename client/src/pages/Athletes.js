@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import {Row, Col, Container} from "../components/Grid"
 import AthleteBio from "../components/AthleteBio"
 import imagePath from "../../src/images/patrick.png"
@@ -12,6 +12,19 @@ import AthleteBars from '../components/AthleteBars'
 
 export default function Athletes(props) {
 
+    const [athlete, setAthlete] = useState({})
+
+    useEffect(() => {
+        // loadAthlete()
+    }, [])
+
+    function loadAthlete() {
+        API.searchAthletes()
+            .then(res => {
+              console.log(res)
+                setAthlete(res.data)
+              })
+    }
     
 
     return (
@@ -29,6 +42,8 @@ export default function Athletes(props) {
             </Row>
         </Container>
         <Container title="stats">
+
+
             <Row>
                 <Col size="md-4">
                     <Image alt="Patrick" src={imagePath} roundedCircle />
