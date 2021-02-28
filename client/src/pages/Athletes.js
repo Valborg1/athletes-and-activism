@@ -14,6 +14,7 @@ import {
     Input,
     Button,
 } from "../components";
+import { STATES } from "mongoose";
 
 export default function Athletes(props) {
 
@@ -25,7 +26,8 @@ export default function Athletes(props) {
         strTeam: "",
         strPosition: "",
         strCutout: "",
-        strThumb: ""
+        strThumb: "",
+        strDescriptionEN: ""
     })
 
     const [search, setSearch] = useState({
@@ -55,7 +57,8 @@ export default function Athletes(props) {
                     strTeam: res.data.player[0].strTeam,
                     strPosition: res.data.player[0].strPosition,
                     strCutout: res.data.player[0].strCutout,
-                    strThumb: res.data.player[0].strThumb
+                    strThumb: res.data.player[0].strThumb,
+                    strDescriptionEN: res.data.player[0].strDescriptionEN
                 })
             })
     }
@@ -69,7 +72,7 @@ export default function Athletes(props) {
                 <Row>
                     <Col size="md-2" />
                     <Col size="md-8">
-                        <h1 className="text-center">PATRICK MAHOMES</h1>
+                        <h1 className="text-center">{athlete.strPlayer}</h1>
                     </Col>
                     <Col size="md-2">
                         <button onClick={() => (API.addFavorite(/** props.id - the Id of the Athlete */))} className="like btn" type="button"><i className="fa fa-heart"></i></button>
@@ -96,10 +99,15 @@ export default function Athletes(props) {
                 </Row>
                 <Row>
                     <Col size="md-4">
-                        <Image alt="Patrick" src={imagePath} roundedCircle />
+                        <Image alt="athlete" src={athlete.strCutout} roundedCircle />
                     </Col>
                     <Col size="md-4">
-                        <AthleteBio />
+                        <AthleteBio 
+                            sport={athlete.strSport} 
+                            team={athlete.strTeam}
+                            birth={athlete.dateBorn}
+                            description={athlete.strDescriptionEN}
+                            />
                     </Col>
                     <Col size="md-4">
                         <AthleteBars />
