@@ -28,6 +28,10 @@ export default {
   },
   getCauses: function() {
     return axios.get("api/causes");
+    
+  },
+  getSingleCause: function(id) {
+    return axios.post(baseURL + "api/causes/" + id);
   }
 };
 
