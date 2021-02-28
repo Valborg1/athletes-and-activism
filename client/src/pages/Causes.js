@@ -4,6 +4,7 @@ import { Row, Col, Container } from "../components/Grid";
 import { Form, Button, InputGroup, FormControl } from "react-bootstrap";
 import "./style.css";
 
+
 export default function Causes() {
   const [causes, setCauses] = useState({})
 
@@ -70,11 +71,18 @@ export default function Causes() {
         </Container>
         <div className="p-10 lg:pt-48 container mx-auto relative">
           <h1 className="text-6xl text-300 mb-4">Cause results</h1>
-          <div>
+        
+        app.get('/api', (req, res) => {
+          causesSeed.find({}, (err, data) => {
+            res.json(data);
+          })
+        });
+
+          {/* <div>
             {causes.length && causes?.map(cause => (
               <h2> <a href={cause.causes.causeURL}>{cause.causes.causeType}</a></h2>
             ))}
-          </div>
+          </div> */}
         </div>
         
 

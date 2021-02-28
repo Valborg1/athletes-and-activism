@@ -8,25 +8,15 @@ mongoose.connect(
   "mongodb://localhost/athletes-and-activism"
 );
 
-const athleteSeed = [
-{
-  fullName: "Jack Jackerson",
-  image: "image-jack",
-  sport: "Basketball",
-  team: "Raptors",
-  dob: "1-1-1990",
-  bio: "Jack throws balls in hoops.",
-  charities: {
-    charityName: "Basketballs for Babies",
-    charityImage: "image-charity",
-    charityBio: "We give basketballs to babies, why? i have no idea.",
-    charityURL: "charity url"
+const causesSeed = [
+  {
+    category: "Healthcare"
   },
   causes: {
     causeType: "Children",
-    causeURL: "http://google.com"
-  }
-},
+    // causeURL: "http://google.com"
+  },
+
 {
   fullName: "John Johnerson",
   image: "image-john",
@@ -42,10 +32,69 @@ const athleteSeed = [
   },
   causes: {
     causeType: "Women",
-    causeURL: "http://google.com"
-  }
-}
+    // causeURL: "http://google.com"
+  },
+]
+
+const athleteSeed = [
+  {
+  fullName: "John Johnson",
+  image: "john image",
+  sport: "Basketball",
+  team: "The ball shooters",
+  dob: "1/1/1990",
+  bio: "He do all the fings",
+  charities: [
+    {
+      type: "603aa20d015620045436c9fd",
+      ref: "Charity"
+    },
+    {
+      type: "603aa20d015620045436c9fe",
+      ref: "Charity"
+    }
+  ],
+  },
+  {
+    fullName: "Bill Billerson",
+    image: "bill image",
+    sport: "Sky Diving",
+    team: "The Splats",
+    dob: "1/1/1993",
+    bio: "Hope my chute opens!",
+    charities: [
+      {
+        type: "603aa39831afa2083cc5045f",
+        ref: "Charity"
+      }
+    ],
+    }
 ];
+
+
+db.Athlete
+  .remove({})
+  .then(() => db.Athlete.collection.insertMany(causesSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
+  db.Athlete
+  .remove({})
+  .then(() => db.Athlete.collection.insertMany(charitySeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
 
 db.Athlete
   .remove({})

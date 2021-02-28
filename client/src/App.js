@@ -9,6 +9,7 @@ import SingleCharity from "./pages/SingleCharity";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import AddAthlete from "./pages/AddAthlete";
+import AthleteSearch from "./pages/AthleteSearch";
 // import Nav from "./components/Nav";
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
           <Route exact path="/singlecause" component={SingleCause} />
           <Route exact path="/charities" component={Charities} />
           <Route exact path="/singlecharity" component={SingleCharity} />
-          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/search-athlete" component={AthleteSearch} />
       </div>
     </Router>
 
