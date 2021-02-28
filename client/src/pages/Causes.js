@@ -80,7 +80,7 @@ export default function Causes() {
 
           <div>
             {causes.length && causes?.map(cause => (
-              <h2> <a href="/" id={cause._id}>{cause.category}</a></h2>
+              <h2> <a href={`/causes/${cause._id}`} id={cause._id}>{cause.category}</a></h2>
             ))}
           </div>
         </div>
