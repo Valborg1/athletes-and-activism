@@ -11,7 +11,7 @@ import API from "../utils/API";
 
 export default function AddAthlete(props) {
   const [show, setShow] = useState(false);
-  const [charitySearch, setCharitySearch] = useState("testing");
+  const [charitySearch, setCharitySearch] = useState("");
   const [charities, setCharities] = useState([]);
 
   const handleClose = () => setShow(false);

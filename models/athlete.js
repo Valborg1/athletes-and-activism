@@ -17,7 +17,6 @@ const athleteSchema = new Schema({
 });
 
 const Athlete = mongoose.model("Athlete", athleteSchema);
-const Charity = mongoose.model("Charity", athleteSchema);
 
-module.exports = Athlete, Charity;
+module.exports = Athlete;
 

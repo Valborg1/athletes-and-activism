@@ -104,9 +104,9 @@ const athleteSeed = [
 ];
 
 
-db.Athlete
+db.Cause
   .remove({})
-  .then(() => db.Athlete.collection.insertMany(causesSeed))
+  .then(() => db.Cause.collection.insertMany(causesSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
@@ -116,9 +116,9 @@ db.Athlete
     process.exit(1);
   });
 
-  db.Athlete
+  db.Charity
   .remove({})
-  .then(() => db.Athlete.collection.insertMany(charitySeed))
+  .then(() => db.Charity.collection.insertMany(charitySeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
