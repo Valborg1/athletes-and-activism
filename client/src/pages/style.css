@@ -135,3 +135,9 @@ h3.carouselText {
 .charitySearch {
     float: left;
 }
+
+
+#searchbtn {
+    float: inline-end;
+    margin-top: 30px;
+}
