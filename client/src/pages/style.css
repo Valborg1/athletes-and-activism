@@ -19,6 +19,12 @@ button.update {
     float: right;   
 }
 
+button.blue {
+    border: none;
+    background-color: blue;
+    float: right;
+}
+
 .fa-heart {
     padding-top: 5px;
     font-size: 25px;
@@ -137,6 +143,20 @@ h3.carouselText {
 }
 
 
+.hide{
+    display: none;
+}
+
+.show {
+    display: contents;
+}
+
+.two {
+    width: auto;
+    height: auto;
+}
+
+
 #searchbtn {
     float: inline-end;
     margin-top: 30px;
@@ -145,3 +165,4 @@ h3.carouselText {
 .bg-selected {
     background-color: lavenderblush;
 }
+

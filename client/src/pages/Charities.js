@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Component } from "react";
 import API from "../utils/API";
 import { Row, Col, Container } from "../components/Grid";
 import { Form, Button } from "react-bootstrap";
@@ -76,14 +76,22 @@ export default function Charities() {
           </Container>
           <div className="p-10 lg:pt-48 container mx-auto relative">
             <h1 className="text-6xl text-300 mb-4">Charity results</h1>
+
+
           
           {charities.length && charities?.map(charity => (
             <h2>{" "} <Link to={"/charities/" + charity._id} id={charity.charity.charityName}>{charity.causes}{charity._id}</Link></h2>
           ))}
+
           </div>
         </section>
        
       </>
     );
   };
+
+  }
+
+
+export default Charities;
 
