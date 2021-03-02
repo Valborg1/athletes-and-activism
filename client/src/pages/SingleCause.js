@@ -11,6 +11,8 @@ import "./style.css"
 
 
 export default function SingleCause() {
+    const [athletes, setAthletes] = useState({})
+    const [charities, setCharities] = useState({})
     const [singleCause, setSingleCause] = useState({})
     const {id}=useParams()
     useEffect(() => {
@@ -18,8 +20,17 @@ export default function SingleCause() {
         .then(res => setSingleCause(res.data))
         .catch(err => console.log(err))
     }, [])
-
-
+    useEffect(() => {
+        API.getCharities({})
+        .then(res => setCharities(res.data))
+        .catch(err => console.log(err))
+    }, [])
+    useEffect(() => {
+        API.getAthletes({})
+        .then(res => setAthletes(res.data))
+        .catch(err => console.log(err))
+    }, [])
+    console.log("athletes", athletes)
         return (
             <>
 
@@ -57,10 +68,10 @@ export default function SingleCause() {
                 <Container title="no-background">
                     <Row>
                         <Col size="md-6">
-                            <AthleteList/>
+                            <AthleteList athletes={athletes}/>
                         </Col>
                         <Col size="md-6">
-                            <AthleteCharities/>
+                            <AthleteCharities charities={charities}/>
                         </Col>
                     </Row>
                 </Container>

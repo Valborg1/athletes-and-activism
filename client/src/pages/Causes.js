@@ -71,12 +71,7 @@ export default function Causes() {
         </Container>
         <div className="p-10 lg:pt-48 container mx-auto relative">
           <h1 className="text-6xl text-300 mb-4">Cause results</h1>
-{/*         
-        app.get('/api', (req, res) => {
-          causesSeed.find({}, (err, data) => {
-            res.json(data);
-          })
-        }); */}
+
 
           <div>
             {causes.length && causes?.map(cause => (
