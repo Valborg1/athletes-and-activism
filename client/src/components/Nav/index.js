@@ -18,14 +18,14 @@ export default function index() {
                         HOME
                     </Link>
                     <Link
-                        to="/athletes"
+                        to="/search-athlete"
                         className={
                             window.location.pathname === "/athletes"
                                 ? "nav-link active"
                                 : "nav-link"
                         }
                     >
-                        ATHLETES
+                        ATHLETE SEARCH
                     </Link>
                     <Link
                         to="/charities"
