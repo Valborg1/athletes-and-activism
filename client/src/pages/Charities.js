@@ -1,23 +1,25 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import { Row, Col, Container } from "../components/Grid";
 import { Form, Button } from "react-bootstrap";
 import "./style.css";
 
+export default function Charities() {
 
-class Charities extends Component {
-  state = {
-    charityName: []
-  };
-
-  componentDidMount() {
+  const [charities, setCharity] = useState ({})
+  
+  useEffect(() => {
+    loadCharities()
+  }, [])
+  
+  function loadCharities(){
     API.getCharities()
-      .then((res) => this.setState({ results: res.data.results }))
-      .catch((err) => console.log(err));
-  }
+    .then(res => {
+      console.log(res)
+      setCharity(res.data)
+    })
+}
 
-
-  render(){
 
     return (
       <>
@@ -73,13 +75,14 @@ class Charities extends Component {
           </Container>
           <div className="p-10 lg:pt-48 container mx-auto relative">
             <h1 className="text-6xl text-300 mb-4">Charity results</h1>
+          
+          {charities.length && charities?.map(charity => (
+            <h2> <a id={charities._id}>{charities.category}</a></h2>
+          ))}
           </div>
         </section>
        
       </>
     );
   };
-  }
 
-
-export default Charities;

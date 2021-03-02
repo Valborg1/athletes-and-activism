@@ -24,8 +24,15 @@ export default {
   
   // Gets all Charities
   getCharities: function() {
-    return axios.get("api/charities");
+    return axios.get(baseURL + "/api/charities");
   },
+  getCauses: function() {
+    return axios.get("api/causes");
+    
+  },
+  getSingleCause: function(id) {
+    return axios.post(baseURL + "api/causes/" + id);
+  }
 };
 
 
