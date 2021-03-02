@@ -1,5 +1,7 @@
 import axios from "axios";
 const baseURL = process.env.REACT_APP_HOST || ''
+const ATHURL = "https://thesportsdb.p.rapidapi.com/searchplayers.php?p="
+const APIKEY = "6b24b1384fmshf59a581bd70a69ap1d4756jsn25a12c1f048e"
 
 export default {
   // Gets all athletes
@@ -20,13 +22,22 @@ export default {
   },
   searchCharities: function(query) {
     return axios.post(baseURL + "/api/add-athlete", {query});
-  }
+  },
   
   // Gets all Charities
   getCharities: function() {
     return axios.get("api/charities");
   },
-};
+  searchAthletes: function(query) {
+    console.log(query)
+    return axios.get(`${ATHURL}${query.search}`, {
+    headers: {
+      'x-rapidapi-key': APIKEY,
+      'x-rapidapi-host': 'thesportsdb.p.rapidapi.com',
+      useQueryString: true
+    }})
+  },
+}; 
 
 
 
