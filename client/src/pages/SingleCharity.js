@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useEffect, useState }from "react";
+import { useParams } from "react-router-dom";
 import { Row, Col, Container } from "../components/Grid";
 import CharityDesc from "../components/CharityDesc";
 import AthleteCharities from '../components/AthleteCharities'
 import AthleteList from '../components/AthleteList'
 import CharityURL from "../components/CharityURL";
+import API from "../utils/API";
 import "./style.css"
 
-export default function Charities() {
+export default function SingleCharity() {
+const [charity, setCharity] = useState(null)
+const params = useParams()
+
+useEffect(() => {
+    console.log("params", params)
+    loadCharity()
+}, [])
+
+function loadCharity(){
+    API.getCharity()
+    .then(res => {
+      console.log(res)
+      setCharity(res.data)
+    })
+}
+
+
     return (
     <>
         <Container title="title">

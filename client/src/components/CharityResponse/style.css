@@ -1,0 +1,19 @@
+img {
+    float: left;
+    padding: 10px;
+}
+
+.modal-content {
+    width: 100%;
+    position: center;
+    display: flex;
+}
+
+.modal-dialog {
+    max-width: 50%;
+}
+
+/* .btn {
+    float: inline-end;
+    max-width: 50%;
+} */

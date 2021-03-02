@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+const ObjectId = mongoose.Types.ObjectId;
 
-// This file empties the Books collection and inserts the books below
+    // ({ _id: ObjectId("603aa0663f970b2e287bf316")},{$push: {cause: ObjectId("603aa0663f970b2e287bf315")}},{new: true})
 
 mongoose.connect(
   process.env.MONGODB_URI ||
@@ -10,97 +11,35 @@ mongoose.connect(
 
 const causesSeed = [
   {
+    _id: ObjectId("603aa0663f970b2e287bf315"),
     category: "Healthcare"
-  },
-  {
-    category: "Children"
-  },
-  {
-    category: "World Hunger"
-  },
-  {
-    category: "Clean Water"
-  },
+  }
 ]
 
 const charitySeed = [
   {
+    _id: ObjectId("603aa0663f970b2e287bf316"),
     charity: {
-      charityName: "Toys for Tots",
+      charityName: "Health for Tots",
       charityImage: "image",
       charityBio: "We take toys from poor kids and give them to rich kids!",
       charityURL: "www.toysfortots.com",
     },
-    cause: [
-      {
-        type: "603aa0663f970b2e287bf315",
-        ref: "Cause"
-      }
-    ]
+    cause: []
   },
-  {
-    charity: {
-      charityName: "Food for Yo Momma",
-      charityImage: "image2",
-      charityBio: "Feed hungry moms",
-      charityURL: "www.yummyfood.com",
-    },
-    cause: [
-      {
-        type: "603aa0663f970b2e287bf316",
-        ref: "Cause"
-      }
-    ]
-  },
-  {
-    charity: {
-      charityName: "Clean Water For U",
-      charityImage: "image3",
-      charityBio: "We water plants, not humans",
-      charityURL: "www.water.com",
-    },
-    cause: [
-      {
-        type: "603aa20d015620045436c9fc",
-        ref: "Cause"
-      }
-    ]
-  }
 ]
 
 const athleteSeed = [
   {
+    _id: ObjectId("603aa39831afa2083cc5045f"),
   fullName: "John Johnson",
   image: "john image",
   sport: "Basketball",
   team: "The ball shooters",
   dob: "1/1/1990",
   bio: "He do all the fings",
-  charities: [
-    {
-      type: "603aa20d015620045436c9fd",
-      ref: "Charity"
-    },
-    {
-      type: "603aa20d015620045436c9fe",
-      ref: "Charity"
-    }
-  ],
+  charities: [],
   },
-  {
-    fullName: "Bill Billerson",
-    image: "bill image",
-    sport: "Sky Diving",
-    team: "The Splats",
-    dob: "1/1/1993",
-    bio: "Hope my chute opens!",
-    charities: [
-      {
-        type: "603aa39831afa2083cc5045f",
-        ref: "Charity"
-      }
-    ],
-    }
 ];
 
 
@@ -109,33 +48,55 @@ db.Cause
   .then(() => db.Cause.collection.insertMany(causesSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
-    process.exit(0);
+      seedCharity();
   })
   .catch(err => {
     console.error(err);
-    process.exit(1);
   });
 
+  function seedCharity() {
   db.Charity
   .remove({})
   .then(() => db.Charity.collection.insertMany(charitySeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
-    process.exit(0);
+
+    console.log("charityID", ObjectId("603aa0663f970b2e287bf316"))
+    console.log("causeID", ObjectId("603aa0663f970b2e287bf315"))
+    
+      seedAthletes();
+    db.Charity
+    .findOne({ _id: ObjectId("603aa0663f970b2e287bf316")}).exec().then(charity => {
+      charity.cause.push(ObjectId("603aa0663f970b2e287bf315"))
+      charity.save()
+    })
   })
   .catch(err => {
     console.error(err);
-    process.exit(1);
   });
+}
 
-db.Athlete
+  function seedAthletes() {
+  db.Athlete
   .remove({})
   .then(() => db.Athlete.collection.insertMany(athleteSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
-    process.exit(0);
+
+    db.Athlete
+    .findOne({ _id: ObjectId("603aa39831afa2083cc5045f")}).exec().then(athlete => {
+      athlete.charities.push(ObjectId("603aa0663f970b2e287bf316"))
+      athlete.save().then(() => {
+        process.exit()
+      })
+      
+    })
   })
   .catch(err => {
     console.error(err);
-    process.exit(1);
   });
+
+}
+  
+
+  

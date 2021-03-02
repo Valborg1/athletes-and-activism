@@ -6,9 +6,9 @@ const axios = require ("axios");
 module.exports = {
     searchCharities: async function(req, res) {
       try {
-        // console.log("req body",req.body)
-       const results = await axios.get(`https://api.data.charitynavigator.org/v2/Organizations?app_id=${process.env.CHARITY_APP_ID}&app_key=${process.env.CHARITY_APP_KEY}&pageSize=5&pageNum=1&search=${req.body.query}&searchType=NAME_ONLY`);
-      //  console.log("results", results)
+
+       const results = await axios.get(`https://api.data.charitynavigator.org/v2/Organizations?app_id=${process.env.CHARITY_APP_ID}&app_key=${process.env.CHARITY_APP_KEY}&pageSize=5&pageNum=1&search=${req.body.query}&searchType=NAME_ONLY&rated=true&sort=NAME%3AASC`);
+
        return res.json(results.data)
       }
 

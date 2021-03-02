@@ -1,6 +1,10 @@
 import axios from "axios";
 const baseURL = process.env.REACT_APP_HOST || ''
 
+const ATHURL = "https://thesportsdb.p.rapidapi.com/searchplayers.php?p="
+const APIKEY = "6b24b1384fmshf59a581bd70a69ap1d4756jsn25a12c1f048e"
+
+
 export default {
   // Gets all athletes
   getAthletes: function() {
@@ -24,8 +28,17 @@ export default {
   
   // Gets all Charities
   getCharities: function() {
-    return axios.get("api/charities");
+    return axios.get("/api/charities");
   },
+
+  getCharity: function(id) {
+    return axios.post("api/charities/" + id);
+  },
+
+  // deleteCharities: function(id) {
+  //   return axios.post("api/charities/" + id);
+  // },
+
   getCauses: function() {
     return axios.get("api/causes");
     
@@ -34,6 +47,7 @@ export default {
     return axios.post(baseURL + "api/causes/" + id);
   }
 };
+
 
 
 

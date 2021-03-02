@@ -8,11 +8,13 @@ export default function AthleteList
        <div>
         <Container title="causes">
         {
-            athletes.length > 0 ?
-            <>{athletes.map(({athlete}) => {
+            athletes?.length > 0 ?
+            <>{athletes.map((athlete) => {
+                console.log(athlete)
+                return (
             <h1>{athlete.fullName}</h1>
-            
-            })}</>
+                )
+            })}</> 
     :<><h1>No Athlete Found</h1></>
         }
 
