@@ -3,10 +3,11 @@ import API from "../utils/API";
 import { Row, Col, Container } from "../components/Grid";
 import { Form, Button } from "react-bootstrap";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 export default function Charities() {
 
-  const [charities, setCharity] = useState ({})
+  const [charities, setCharities] = useState ({})
   
   useEffect(() => {
     loadCharities()
@@ -16,7 +17,7 @@ export default function Charities() {
     API.getCharities()
     .then(res => {
       console.log(res)
-      setCharity(res.data)
+      setCharities(res.data)
     })
 }
 
@@ -79,7 +80,7 @@ export default function Charities() {
 
           
           {charities.length && charities?.map(charity => (
-            <h2> <a id={charities._id}>{charities.category}</a></h2>
+            <h2>{" "} <Link to={"/charities/" + charity._id} id={charity.charity.charityName}>{charity.causes}{charity._id}</Link></h2>
           ))}
 
           </div>

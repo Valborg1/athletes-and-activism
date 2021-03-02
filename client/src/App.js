@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav"
 import Athlete from "./pages/Athletes";
 import Causes from "./pages/Causes";
@@ -17,15 +17,14 @@ function App() {
     <Router>
     <Nav />
       <div>
-      <Route exact path="/" component={Home} />
+      <Route exact path={["/",]} component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/athletes" component={Athlete} />
           <Route exact path="/add-athlete" component={AddAthlete} />
           <Route exact path="/causes" component={Causes} />
           <Route exact path="/causes/:id" component={SingleCause} />
-          
           <Route exact path="/charities" component={Charities} />
-          
+          <Route exact path="/charities/:id" component={SingleCharity} />
           <Route exact path="/search-athlete" component={AthleteSearch} />
       </div>
     </Router>

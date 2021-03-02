@@ -28,22 +28,17 @@ export default {
   
   // Gets all Charities
   getCharities: function() {
+    return axios.get("/api/charities");
+  },
 
-    return axios.get("api/charities");
+  getCharity: function(id) {
+    return axios.post("api/charities/" + id);
   },
-  searchAthletes: function(query) {
-    console.log(query)
-    return axios.get(`${ATHURL}${query.search}`, {
-    headers: {
-      'x-rapidapi-key': APIKEY,
-      'x-rapidapi-host': 'thesportsdb.p.rapidapi.com',
-      useQueryString: true
-    }})
-  },
-}; 
 
-    return axios.get(baseURL + "/api/charities");
-  },
+  // deleteCharities: function(id) {
+  //   return axios.post("api/charities/" + id);
+  // },
+
   getCauses: function() {
     return axios.get("api/causes");
     
