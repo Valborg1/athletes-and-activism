@@ -142,6 +142,7 @@ h3.carouselText {
     float: left;
 }
 
+
 .hide{
     display: none;
 }
@@ -154,3 +155,10 @@ h3.carouselText {
     width: auto;
     height: auto;
 }
+
+
+#searchbtn {
+    float: inline-end;
+    margin-top: 30px;
+}
+
