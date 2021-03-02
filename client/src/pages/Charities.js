@@ -90,8 +90,8 @@ export default function Charities() {
     );
   };
 
-  }
 
 
-export default Charities;
+
+
 
