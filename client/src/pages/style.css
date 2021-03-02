@@ -141,3 +141,7 @@ h3.carouselText {
     float: inline-end;
     margin-top: 30px;
 }
+
+.bg-selected {
+    background-color: lavenderblush;
+}

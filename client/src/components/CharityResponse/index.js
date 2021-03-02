@@ -9,8 +9,8 @@ export default function CharityResponse(props) {
     return (
         <>
  
-        <Container>  
-        {/* <Button>   */}
+        <Container title={props.selectedCharity ? "bg-selected" : ""}>  
+        <div onClick={() => props.onClick(props.id)}>  
             <Row>
                 <Col size="md-12">
                     <img src={props.img}></img>
@@ -29,7 +29,7 @@ export default function CharityResponse(props) {
                     <a href={props.url}>{props.url}</a>
                 </Col>
             </Row>
-            {/* </Button> */}
+            </div>
         </Container>
         
         </>
