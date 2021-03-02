@@ -1,7 +1,8 @@
 import React from 'react'
 import {Container} from "../Grid"
 
-export default function AthleteCharities() {
+export default function AthleteCharities(props) {
+    console.log(props.charities)
     return (
         <>
         <Container title="charities">
