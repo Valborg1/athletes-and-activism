@@ -14,6 +14,7 @@ export default function AddAthlete(props) {
   const [show, setShow] = useState(false);
   const [charitySearch, setCharitySearch] = useState("");
   const [charities, setCharities] = useState([]);
+  const [selectedCharity, setSelectedCharity] = useState(null);
 
   const handleClose = () => {
     setShow(false)
@@ -39,6 +40,10 @@ export default function AddAthlete(props) {
 
   function handleChange(event) {
     setCharitySearch(event.target.value);
+  }
+
+  function selectCharity(id) {
+    setSelectedCharity(id)
   }
 
   return (
@@ -132,11 +137,14 @@ export default function AddAthlete(props) {
             <div>
               {charities.map(charity => (
                 <CharityResponse
+                  id={charity.ein}
                   name={charity.charityName}
                   tagline={charity.tagLine}
                   img={charity.cause.image}
                   mission={charity.mission}
                   url={charity.websiteURL}
+                  selectedCharity={selectedCharity === charity.ein}
+                  onClick={selectCharity}
                 >  
                 </CharityResponse>
               ))}
