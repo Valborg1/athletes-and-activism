@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Button } from 'react-bootstrap'
 import {Container, Col, Row} from '../Grid'
 import './style.css'
 
@@ -7,7 +8,9 @@ export default function CharityResponse(props) {
 
     return (
         <>
-        <Container>
+ 
+        <Container>  
+        {/* <Button>   */}
             <Row>
                 <Col size="md-12">
                     <img src={props.img}></img>
@@ -26,7 +29,9 @@ export default function CharityResponse(props) {
                     <a href={props.url}>{props.url}</a>
                 </Col>
             </Row>
+            {/* </Button> */}
         </Container>
+        
         </>
     )
 }

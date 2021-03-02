@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Button, ButtonGroup, Modal, Form } from "react-bootstrap";
+// import ButtonGroup from "react-bootstrap/ButtonGroup"
 import { Row, Col, Container } from "../components/Grid";
 import AthleteBio from "../components/AthleteBio";
 import imagePath from "../../src/images/patrick.png";
@@ -81,14 +82,14 @@ export default function AddAthlete(props) {
           </Col>
         </Row>
       </Container>
-      <Container title="no-background">
+      {/* <Container title="no-background">
         <Row>
           <Col size="md-12">
             <button className="saveCC btn btn-info">Save</button>
             <button className="cancelCC btn btn-secondary">Cancel</button>
           </Col>
         </Row>
-      </Container>
+      </Container> */}
 
       {/* Modal */}
       <Modal show={show} onHide={handleClose}>
@@ -126,6 +127,7 @@ export default function AddAthlete(props) {
           </Form>
           <br/>
           
+          <ButtonGroup toggle>
           {charities.length ? (
             <div>
               {charities.map(charity => (
@@ -142,6 +144,7 @@ export default function AddAthlete(props) {
           ) : (
             <div/>
             )}
+          </ButtonGroup>
           
         </Modal.Body>
         <Modal.Footer>
