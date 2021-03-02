@@ -9,15 +9,26 @@ import CausesURL from "../components/CausesURL"
 import API from "../utils/API"
 import "./style.css"
 
-
-export default function SingleCause() {
-    const [singleCause, setSingleCause] = useState({})
-    const {id}=useParams()
+function Detail(props) {
+    const [charity, setCharity] = useState({})
+  
+    
+    const {id} = useParams()
     useEffect(() => {
-        API.getSingleCause(id)
-        .then(res => setSingleCause(res.data))
-        .catch(err => console.log(err))
-    }, [])
+      API.getCharity(id)
+        .then(res => setCharity(res.data))
+        .catch(err => console.log(err));
+    }, []) 
+
+
+// export default function SingleCause() {
+//     const [singleCause, setSingleCause] = useState({})
+//     const {id}=useParams()
+//     useEffect(() => {
+//         API.getSingleCause(id)
+//         .then(res => setSingleCause(res.data))
+//         .catch(err => console.log(err))
+//     }, [])
 
 
         return (
@@ -30,7 +41,7 @@ export default function SingleCause() {
                         <Col size="md-8">
                             <h1 className="text-center">
                                 {
-                                singleCause.category
+                                charity._id
                             }</h1>
                         </Col>
                         <Col size="md-2">
@@ -68,3 +79,5 @@ export default function SingleCause() {
             </>
         );
     }
+
+    export default Detail;
