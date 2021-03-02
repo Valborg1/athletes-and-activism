@@ -22,6 +22,5 @@ const athleteSchema = new Schema({
 
 const Athlete = mongoose.model("Athlete", athleteSchema);
 
-
 module.exports = Athlete;
 
