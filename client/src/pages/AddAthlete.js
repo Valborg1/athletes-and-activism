@@ -8,7 +8,8 @@ import Image from "react-bootstrap/Image";
 import CharityResponse from "../components/CharityResponse"
 import "./style.css";
 import AthleteBars from "../components/AthleteBars";
-import API from "../utils/API";
+import CharityResponse from "../components/CharityResponse";
+// import API from "../utils/API";
 
 export default function AddAthlete(props) {
   const [show, setShow] = useState(false);
