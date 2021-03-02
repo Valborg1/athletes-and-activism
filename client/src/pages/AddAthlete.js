@@ -5,7 +5,7 @@ import { Row, Col, Container } from "../components/Grid";
 import AthleteBio from "../components/AthleteBio";
 import imagePath from "../../src/images/patrick.png";
 import Image from "react-bootstrap/Image";
-import API from "../utils/API"
+import CharityResponse from "../components/CharityResponse"
 import "./style.css";
 import AthleteBars from "../components/AthleteBars";
 import CharityResponse from "../components/CharityResponse";
@@ -13,12 +13,16 @@ import CharityResponse from "../components/CharityResponse";
 
 export default function AddAthlete(props) {
   const [show, setShow] = useState(false);
-
-  const [charitySearch, setCharitySearch] = useState("testing");
+  const [charitySearch, setCharitySearch] = useState("");
   const [charities, setCharities] = useState([]);
   const [selectedCharity, setSelectedCharity] = useState(null);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false)
+    setCharities([])
+    setCharitySearch("")
+  }
+  
   const handleShow = () => setShow(true);
 
   // useEffect(() => {
@@ -84,14 +88,6 @@ export default function AddAthlete(props) {
           </Col>
         </Row>
       </Container>
-      <Container title="no-background">
-        <Row>
-          <Col size="md-12">
-            <button className="saveCC btn btn-info">Save</button>
-            <button className="cancelCC btn btn-secondary">Cancel</button>
-          </Col>
-        </Row>
-      </Container>
 
       {/* Modal */}
       <Modal show={show} onHide={handleClose}>
@@ -100,23 +96,32 @@ export default function AddAthlete(props) {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group controlId="exampleForm.ControlInput1">
-              <Form.Label>Search for a Charity</Form.Label>
-              <Form.Control
-                type="search"
-                placeholder="charity name"
-                onChange={handleChange}
-                value={charitySearch}
-              />
-            </Form.Group>
+          <Form.Row className="align-items-center">
+              <Col size="md-10">
 
-            <Button 
-                variant="primary" 
-                type="submit"
-                onClick={findCharities}
-                >
-              Search
-            </Button>
+
+                <Form.Label>Search for a Charity</Form.Label>
+                <Form.Control
+                  type="search"
+                  placeholder="charity name"
+                  onChange={handleChange}
+                  value={charitySearch}   
+                />
+  
+              </Col>
+
+              <Col size="md-2">
+                <Button 
+                  id="searchbtn"
+                  variant="primary" 
+                  type="submit"
+                  onClick={findCharities}
+                  >
+                Search
+              </Button>
+            </Col>
+
+          </Form.Row>
           </Form>
           <br/>
           
@@ -142,7 +147,6 @@ export default function AddAthlete(props) {
             )}
           </ButtonGroup>
           
-
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
