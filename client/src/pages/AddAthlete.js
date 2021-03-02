@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Button, ButtonGroup, Modal, Form } from "react-bootstrap";
-// import ButtonGroup from "react-bootstrap/ButtonGroup"
 import { Row, Col, Container } from "../components/Grid";
 import AthleteBio from "../components/AthleteBio";
 import imagePath from "../../src/images/patrick.png";
