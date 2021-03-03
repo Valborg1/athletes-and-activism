@@ -45,7 +45,17 @@ export default {
   },
   getSingleCause: function(id) {
     return axios.post(baseURL + "api/causes/" + id);
-  }
+  },
+
+searchAthletes: function(query) {
+  console.log(query)
+  return axios.get(`${ATHURL}${query.search}`, {
+  headers: {
+    'x-rapidapi-key': APIKEY,
+    'x-rapidapi-host': 'thesportsdb.p.rapidapi.com',
+    useQueryString: true
+  }})
+},
 };
 
 
