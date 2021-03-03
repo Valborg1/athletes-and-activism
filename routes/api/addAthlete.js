@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const addAthleteController = require("../../controllers/addAthleteController");
+const addAthleteController = require("../../app/controllers/addAthleteController");
 
 
 
