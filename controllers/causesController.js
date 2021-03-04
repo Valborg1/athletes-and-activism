@@ -16,6 +16,13 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findCauseAthletes: function(req, res) {
+    db.Athletes
+     .find()
+     .where("cause.category").equals("603aa0663f970b2e287bf315") //req.body.charity
+     .then(dbModel => res.json(dbModel))
+     .catch(err => res.status(422).json(err));
+ },
   findById: function(req, res) {
     db.Cause
       .findById(req.params.id)

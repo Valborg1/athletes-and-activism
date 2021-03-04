@@ -6,9 +6,14 @@ router.route("/")
     // .get(causesController.searchCauses)
     .post(causesController.create);
 
+router.route("/athletes")
+    .get(causesController.findCauseAthletes)
+    // .get(causesController.searchCauses)
+    .post(causesController.create);
+
 router
     .route("/:id")
-    .post(causesController.findById)
+    .get(causesController.findById)
     .put(causesController.update)
     .delete(causesController.remove);
 

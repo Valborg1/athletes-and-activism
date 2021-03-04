@@ -28,7 +28,7 @@ export default {
   
   // Gets all Charities
   getCharities: function() {
-    return axios.get("/api/charities");
+    return axios.get(baseURL + "/api/charities");
   },
 
   getCharity: function(id) {
@@ -38,13 +38,16 @@ export default {
   // deleteCharities: function(id) {
   //   return axios.post("api/charities/" + id);
   // },
-
+  getCauseAthletes: function() {
+    return axios.get("api/causes/athletes");
+    
+  },
   getCauses: function() {
     return axios.get("api/causes");
     
   },
-  getSingleCause: function(id) {
-    return axios.post(baseURL + "api/causes/" + id);
+  getSingleCause: function() {
+    return axios.get(baseURL + "api/cause");
   }
 };
 

@@ -13,18 +13,26 @@ import "./style.css"
 export default function SingleCause() {
     const [athletes, setAthletes] = useState(null)
     const [charities, setCharities] = useState(null)
-    const [singleCause, setSingleCause] = useState({})
+    const [charity, setCharity] = useState(null)
+    const [singleCause, setSingleCause] = useState(null)
     const {id} = useParams()
     useEffect(() => {
-        API.getSingleCause(id).then(res => setSingleCause(res.data)).catch(err => console.log(err))
-   
-    
-        API.getCharities({}).then(res => setCharities(res.data)).catch(err => console.log(err))
-   
-    
-        API.getAthletes({}).then(res => setAthletes(res.data)).catch(err => console.log(err))
+        API.getSingleCause().then(res => setSingleCause(res.data)).catch(err => console.log(err))
+
+
+        API.getCharities().then(res => setCharities(res.data)).catch(err => console.log(err))
+        
+        // API.getCharity(id).then(res => setCharity(res.data)).catch(err => console.log(err))
+
+
+        API.getCauseAthletes(singleCause)
+        .then(res => console.log("athleteResponse", res.data))
+        .then(res => setAthletes(res.data))
+        .catch(err => console.log(err))
     }, [])
     console.log("athletes", athletes)
+    console.log("charities", charities)
+    console.log("singleCause", singleCause)
 
 
     // export default function SingleCause() {
@@ -46,10 +54,9 @@ export default function SingleCause() {
                     <Col size="md-2"/>
                     <Col size="md-8">
                         {/* <h1 className="text-center"> */}
-                            {/* {
+                        {/* {
                             charities._id
-                        // }</h1> */}
-                    </Col>
+                        // }</h1> */} </Col>
                     <Col size="md-2">
                         <button className="like btn" type="button">
                             <i className="fa fa-heart"></i>
@@ -62,7 +69,7 @@ export default function SingleCause() {
             </Container>
             <Container>
                 <Row>
-                    <CausesDesc/>
+                    <CausesDesc name={singleCause}/>
                 </Row>
             </Container>
 

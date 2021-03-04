@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function CausesDesc() {
+export default function CausesDesc({name}) {
     return (
         <>
         <div>
-            CAUSES DESC
+            {name}
         </div>
         </>
     )
