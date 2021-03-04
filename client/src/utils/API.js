@@ -19,8 +19,8 @@ export default {
     return axios.delete(baseURL + "/api/athletes/" + id);
   },
   // Saves a athlete to the database
-  saveathlete: function(athleteData) {
-    return axios.post(baseURL + "/api/athletes", athleteData);
+  createAthlete: function(athleteData) {
+    return axios.post(baseURL + "/api/athletes", {athleteData});
   },
   searchCharities: function(query) {
     return axios.post(baseURL + "/api/add-athlete", {query});

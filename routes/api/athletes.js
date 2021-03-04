@@ -14,4 +14,7 @@ router
   .put(athleteController.update)
   .delete(athleteController.remove);
 
+
+
+
 module.exports = router;
