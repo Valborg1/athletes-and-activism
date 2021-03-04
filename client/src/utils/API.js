@@ -22,6 +22,15 @@ export default {
   saveathlete: function(athleteData) {
     return axios.post(baseURL + "/api/athletes", athleteData);
   },
+  searchAthletes: function(query) {
+    console.log(query)
+    return axios.get(`${ATHURL}${query.search}`, {
+    headers: {
+      'x-rapidapi-key': APIKEY,
+      'x-rapidapi-host': 'thesportsdb.p.rapidapi.com',
+      useQueryString: true
+    }})
+  },
   searchCharities: function(query) {
     return axios.post(baseURL + "/api/add-athlete", {query});
   },
