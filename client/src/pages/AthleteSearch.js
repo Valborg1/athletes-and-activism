@@ -2,6 +2,7 @@ import React, { useState, useEffect, InputGroup, FormControl } from 'react'
 import { Row, Col, Container } from "../components/Grid"
 import AthleteBio from "../components/AthleteBio"
 import Image from 'react-bootstrap/Image'
+import {Link, useParams} from "react-router-dom";
 import AthleteCharities from '../components/AthleteCharities'
 import AthleteCauses from '../components/AthleteCauses'
 import "./style.css"
@@ -46,7 +47,7 @@ export default function Athletes(props) {
     // }
     function _createAthleteInDB() {
         const data = {
-            //playerid: athlete.idPlayer,
+            playerid: athlete.idPlayer,
             fullName: athlete.strPlayer,
             image: athlete.strCutout,
             sport: athlete.strSport,
@@ -54,10 +55,13 @@ export default function Athletes(props) {
             dob: athlete.dateBorn,
             bio: athlete.strDescriptionEN,
         }
+
         API.createAthlete(data)
             .then(res => {
                 console.log("create Athlete Response", res);
+                if (res.status === 200 ) { window.location=`/add-athlete/${res.data.playerid}`}
             })
+            
     }
 
     function _handleSubmit(event) {
