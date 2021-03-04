@@ -4,6 +4,7 @@ const charityController = require("../../controllers/charityController");
 // Matches with "/api/charities"
 router.route("/")
   .get(charityController.findAll)
+  .get(charityController.findById)
   .post(charityController.create);
 
 // Matches with "/api/charities/:id"

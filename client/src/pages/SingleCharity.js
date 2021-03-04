@@ -9,21 +9,35 @@ import API from "../utils/API";
 import "./style.css"
 
 export default function SingleCharity() {
+const [athletes, setAthletes] = useState(null)
+const [charities, setCharities] = useState(null)
+const [causes, setCauses] = useState({});
+const [singleCause, setSingleCause] = useState({})
 const [charity, setCharity] = useState(null)
-const params = useParams()
+
+const {id} = useParams()
 
 useEffect(() => {
-    console.log("params", params)
-    loadCharity()
+    API.getCauses()
+    .then(res =>  setCauses(res.data))
+    .catch((err) => console.log(err))
+
+    API.getCharity(id)
+        .then((res) => setCharity(res.data))
+        .catch((err) => console.log(err))
+    
+    API.getathlete({})
+    .then((res) => setAthletes(res.data))
+    .catch((err) => console.log(err))
 }, [])
 
-function loadCharity(){
-    API.getCharity()
-    .then(res => {
-      console.log(res)
-      setCharity(res.data)
-    })
-}
+// function loadCharity(){
+//     API.getCharity()
+//     .then(res => {
+//       console.log(res)
+//       setCharity(res.data)
+//     })
+// }
 
 
     return (
@@ -54,10 +68,10 @@ function loadCharity(){
     <Container title="no-background">
             <Row>
                 <Col size="md-6">
-                <AthleteList/>
+                <AthleteList athletes={athletes}/>
                 </Col>
                 <Col size="md-6">
-                    <AthleteCharities />
+                    <AthleteCharities charity={charity}/>
                 </Col>
             </Row>
             </Container>
