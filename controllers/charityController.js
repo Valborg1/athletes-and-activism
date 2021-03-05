@@ -2,20 +2,29 @@ const db = require("../models");
 
 // Defining methods for the CharitysController
 module.exports = {
-  findAll: function(req, res) {
-    db.Charity
+  findAll: function (req, res) {
+    db.Athlete
       .find(req.query)
       .sort({ date: -1 })
+      .then((dbModel) => {
+               console.log("FINDALL:", dbModel)
+                 res.json(dbModel)
+          })
+      .catch((err) => res.status(422).json(err));
+  },
+
+
+     findCharity: function(req, res) {
+     db.Charity
+      .find()
+      .where("charities.charityName").equals(req.body.charity) //req.body.charity
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  //  findCharity: function(req, res) {
-  //    db.Charity
-  //     .find()
-  //     .where("charities.charityName").equals(req.body.charity) //req.body.charity
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
+
+
+
+  
   findById: function(req, res) {
     db.Charity
       .findById(req.params.id)

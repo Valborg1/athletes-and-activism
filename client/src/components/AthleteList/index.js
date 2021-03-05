@@ -3,14 +3,14 @@ import { Container } from "../Grid"
 
 export default function AthleteList
 ({athletes}) {
-    console.log("test", athletes)
+    
     return (
        <div>
         <Container title="causes">
         {
             athletes?.length > 0 ?
             <>{athletes.map((athlete) => {
-                console.log(athlete)
+                
                 return (
             <h1>{athlete.fullName}</h1>
                 )
