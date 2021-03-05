@@ -26,14 +26,27 @@ export default {
     return axios.post(baseURL + "/api/add-athlete", {query});
   },
   
-  // Gets all Charities
-  getCharities: function() {
-    return axios.get("/api/charities");
-  },
-
+  // Gets all Single/ all Charities and causes
   getCharity: function(id) {
     return axios.post("api/charities/" + id);
   },
+  
+  getSingleAthletes: function() {
+    return axios.get("/api/charities/single-athletes");
+  },
+
+  getSingleCause: function() {
+    return axios.get("/api/causes/single-causes");
+  },
+
+  getCharities: function() {
+    return axios.get(baseURL + "/api/charities");
+  },
+
+ 
+
+ 
+
 
   // deleteCharities: function(id) {
   //   return axios.post("api/charities/" + id);
@@ -43,9 +56,7 @@ export default {
     return axios.get("api/causes");
     
   },
-  getSingleCause: function(id) {
-    return axios.post(baseURL + "api/causes/" + id);
-  },
+ 
 
 searchAthletes: function(query) {
   console.log(query)
