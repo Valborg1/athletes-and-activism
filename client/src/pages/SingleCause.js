@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Row, Col, Container } from "../components/Grid";
-import CausesDesc from "../components/CausesDesc";
-import AthleteCharities from "../components/AthleteCharities";
-import AthleteCauses from "../components/AthleteCauses";
 import AthleteList from "../components/AthleteList";
 import CharityList from "../components/CharityList";
-import CausesURL from "../components/CausesURL";
 import API from "../utils/API";
 import "./style.css";
 
@@ -83,7 +79,6 @@ export default function SingleCause() {
           <CausesDesc causes={causes}/>
         </Row>
       </Container>
-
       <Container>
         <Row>
           <CausesURL causes={causes}/>
@@ -103,14 +98,3 @@ export default function SingleCause() {
     </>
   );
 }
-
-
-// API.getSingleCause(id)
-// .then((res) => setSingleCause(res.data))
-// .catch((err) => console.log(err));
-
-// API.getCharities({})
-// .then((res) => setCharities(res.data))
-// .catch((err) => console.log(err));
-
-//   .catch((err) => console.log(err));

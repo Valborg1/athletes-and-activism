@@ -54,6 +54,10 @@ export default {
     return axios.get(baseURL + "/api/charities");
   },
 
+  addCharityAndCauseData: function(data) {
+    return axios.post(baseURL + "/api/add-athletes/charity-and-cause", {data})
+  },
+
  
 
  

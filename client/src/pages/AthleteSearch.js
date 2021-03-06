@@ -50,10 +50,10 @@ export default function Athletes(props) {
             playerid: athlete.idPlayer,
             fullName: athlete.strPlayer,
             image: athlete.strCutout,
-            sport: athlete.strSport,
-            team: athlete.strTeam,
-            dob: athlete.dateBorn,
-            bio: athlete.strDescriptionEN,
+            sport: athlete.sport,
+            team: athlete.team,
+            dob: athlete.dob,
+            bio: athlete.bio,
         }
 
         API.createAthlete(data)
@@ -77,13 +77,13 @@ export default function Athletes(props) {
                 console.log(res);
                 setAthlete({
                     idPlayer: res.data.player[0].idPlayer,
-                    dateBorn: res.data.player[0].dateBorn,
+                    dob: res.data.player[0].dateBorn,
                     strPlayer: res.data.player[0].strPlayer,
-                    strSport: res.data.player[0].strSport,
-                    strTeam: res.data.player[0].strTeam,
+                    sport: res.data.player[0].strSport,
+                    team: res.data.player[0].strTeam,
                     strCutout: res.data.player[0].strCutout,
                     strThumb: res.data.player[0].strThumb,
-                    strDescriptionEN: description,
+                    bio: description,
                 })
             })
     }
@@ -154,10 +154,7 @@ export default function Athletes(props) {
                     </Col>
                     <Col size="md-8">
                         <AthleteBio
-                            sport={athlete.strSport}
-                            team={athlete.strTeam}
-                            birth={athlete.dateBorn}
-                            description={athlete.strDescriptionEN}
+                            data={athlete}
                         />
                     </Col>
                 </Row>
