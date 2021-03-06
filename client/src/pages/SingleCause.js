@@ -59,29 +59,6 @@ export default function SingleCause() {
             
         }
 
-    // function loadSingleCharity() {
-    //     API.getCharities().then((res) => {
-    //         console.log("SingleCharity", res.data);
-    //         setCauses(res.data);
-    //       });
-    //     }
-   
-
-    
-
-    
-  
-  
- 
-
-  // export default function SingleCause() {
-  //     const [singleCause, setSingleCause] = useState({})
-  //     const {id}=useParams()
-  //     useEffect(() => {
-  //         API.getSingleCause(id)
-  //         .then(res => setSingleCause(res.data))
-  //         .catch(err => console.log(err))
-  //     }, [])
 
   return (
     <>
