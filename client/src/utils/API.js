@@ -11,12 +11,16 @@ export default {
     return axios.get(baseURL + "/api/athletes");
   },
   // Gets the athlete with the given id
-  getathlete: function(id) {
+  getAthlete: function(id) {
     return axios.get(baseURL + "/api/athletes/" + id);
   },
   // Deletes the athlete with the given id
   deleteathlete: function(id) {
     return axios.delete(baseURL + "/api/athletes/" + id);
+  },
+  // Saves a athlete to the database
+  createAthlete: function(athleteData) {
+    return axios.post(baseURL + "/api/athletes", {athleteData});
   },
   // Saves a athlete to the database
   saveathlete: function(athleteData) {
@@ -38,7 +42,16 @@ export default {
   // deleteCharities: function(id) {
   //   return axios.post("api/charities/" + id);
   // },
-
+  searchAthletes: function(query) {
+    console.log(query)
+    return axios.get(`${ATHURL}${query.search}`, {
+    headers: {
+      'x-rapidapi-key': APIKEY,
+      'x-rapidapi-host': 'thesportsdb.p.rapidapi.com',
+      useQueryString: true
+    }})
+  },
+  
   getCauses: function() {
     return axios.get("api/causes");
     

@@ -15,13 +15,10 @@ export default function SingleCause() {
     const [charities, setCharities] = useState(null)
     const [singleCause, setSingleCause] = useState({})
     const {id} = useParams()
+    
     useEffect(() => {
         API.getSingleCause(id).then(res => setSingleCause(res.data)).catch(err => console.log(err))
-   
-    
         API.getCharities({}).then(res => setCharities(res.data)).catch(err => console.log(err))
-   
-    
         API.getAthletes({}).then(res => setAthletes(res.data)).catch(err => console.log(err))
     }, [])
     console.log("athletes", athletes)

@@ -18,13 +18,16 @@ module.exports = {
   },
   findById: function(req, res) {
     db.Athlete
-      .findById(req.params.id)
+      // console.log("athlete req", req.params.id)
+      .findOne({ playerid : req.params.id })
+      // .where("athletes.playerid").equals(req.params.id)
+      // .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
     db.Athlete
-      .create(req.body)
+      .create(req.body.athleteData)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

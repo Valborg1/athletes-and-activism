@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, InputGroup, FormControl } from 'react'
 import { Row, Col, Container } from "../components/Grid"
 import AthleteBio from "../components/AthleteBio"
 import Image from 'react-bootstrap/Image'
-// import AthleteCharities from '../components/AthleteCharities'
-// import AthleteCauses from '../components/AthleteCauses'
+import {Link, useParams} from "react-router-dom";
+import AthleteCharities from '../components/AthleteCharities'
+import AthleteCauses from '../components/AthleteCauses'
 import "./style.css"
-// import AthleteBars from '../components/AthleteBars'
+import AthleteBars from '../components/AthleteBars'
 import API from "../utils/API"
+import CardBtn from "../components/CardBtn"
 
 export default function Athletes(props) {
+
     const [athlete, setAthlete] = useState({
         idPlayer: "",
         dateBorn: "",
@@ -20,36 +23,67 @@ export default function Athletes(props) {
         strThumb: "",
         strDescriptionEN: ""
     })
-
     const [search, setSearch] = useState({
         search: ""
     });
 
+    const [fullName, setFullName] = useState(
+        "testing"
+        // search.firstName + search.lastName
+    );
 
     useEffect(() => {
         // loadAthlete()
     }, [])
 
-    function _handleChange(event) {
+    function _handleNameChange(event) {
         const { name, value } = event.target;
-        setSearch({ ...search, [name]: value });
+        setSearch({ [name]: value });
     }
 
-    function _handleSubmit(event){
+    // function _handleLastNameChange(event) {
+    //     const { lastName, value } = event.target;
+    //     setSearch({ lastName: value });
+    // }
+    function _createAthleteInDB() {
+        const data = {
+            playerid: athlete.idPlayer,
+            fullName: athlete.strPlayer,
+            image: athlete.strCutout,
+            sport: athlete.strSport,
+            team: athlete.strTeam,
+            dob: athlete.dateBorn,
+            bio: athlete.strDescriptionEN,
+        }
+
+        API.createAthlete(data)
+            .then(res => {
+                console.log("create Athlete Response", res);
+                if (res.status === 200 ) { window.location=`/add-athlete/${res.data.playerid}`}
+            })
+            
+    }
+
+    function _handleSubmit(event) {
         event.preventDefault()
+
+        console.log("fullName", fullName)
+        console.log("firstName", search.firstName)
+        console.log("lastName", search.lastName)
+
         API.searchAthletes(search)
             .then(res => {
-                console.log(res)
+                var description = res.data.player[0].strDescriptionEN.split(" ").splice(0, 50).join(" ") + "...";
+                console.log(res);
                 setAthlete({
                     idPlayer: res.data.player[0].idPlayer,
                     dateBorn: res.data.player[0].dateBorn,
                     strPlayer: res.data.player[0].strPlayer,
                     strSport: res.data.player[0].strSport,
                     strTeam: res.data.player[0].strTeam,
-                    strPosition: res.data.player[0].strPosition,
                     strCutout: res.data.player[0].strCutout,
                     strThumb: res.data.player[0].strThumb,
-                    strDescriptionEN: res.data.player[0].strDescriptionEN
+                    strDescriptionEN: description,
                 })
             })
     }
@@ -74,19 +108,38 @@ export default function Athletes(props) {
                     </Col>
                     <Col size="md-6">
                         <form onSubmit={_handleSubmit}>
-                        <input 
-                        className="athlete-search" 
-                        placeholder="Enter athlete name"
-                        type="text"
-                        name="search"
-                        value={search.name}
-                        onChange={_handleChange} />
-                        <button className="btn btn-primary blue">Submit</button>
+                            <input
+                                className="athlete-search"
+                                placeholder="Enter first name"
+                                type="text"
+                                name="search"
+                                value={search.firstName}
+                                onChange={_handleNameChange} />
+                            <input
+                                className="athlete-search"
+                                placeholder="Enter last name"
+                                type="text"
+                                name="search"
+                                value={search.lastName}
+                                onChange={_handleNameChange} />
+                            <button className="btn btn-primary blue">Submit</button>
                         </form>
+                        {/* <InputGroup className="athlete-search">
+                            <InputGroup.Prepend>
+                                <InputGroup.Text>First and last name</InputGroup.Text>
+                            </InputGroup.Prepend>
+                            <FormControl 
+                                placeholder="Enter first name"
+                                type="text"
+                                name="search"
+                                value={search.name}
+                                onChange={_handleChange}/>
+                            <FormControl />
+                        </InputGroup> */}
                     </Col>
                 </Row>
             </Container>
-            <Container  title="title" >
+            <Container title="title" >
                 <Row>
                     <Col size="md-2" />
                     <Col size="md-8">
@@ -97,18 +150,31 @@ export default function Athletes(props) {
             <Container title="stats">
                 <Row>
                     <Col size="md-4">
-                        <Image className = "two img-fluid" alt="athlete" src={athlete.strCutout} roundedCircle />
+                        <Image className="two img-fluid" alt="athlete" src={athlete.strCutout} roundedCircle />
                     </Col>
                     <Col size="md-8">
-                        <AthleteBio 
-                            sport={athlete.strSport} 
+                        <AthleteBio
+                            sport={athlete.strSport}
                             team={athlete.strTeam}
                             birth={athlete.dateBorn}
                             description={athlete.strDescriptionEN}
-                            />
+                        />
                     </Col>
                 </Row>
             </Container>
+            <Container title="no-background">
+                <Row>
+                    <Col size="md-12">
+                        <button
+                            className="btn btn-primary blue"
+                            id="add-athlete-btn"
+                            onClick={ _createAthleteInDB }
+
+                        >Add athlete to the database</button>
+                    </Col>
+                </Row>
+            </Container>
+
         </>
     )
 };
