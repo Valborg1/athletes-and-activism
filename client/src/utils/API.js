@@ -83,7 +83,6 @@ export default {
  
 
 searchAthletes: function(query) {
-  console.log(query)
   return axios.get(`${ATHURL}${query.search}`, {
   headers: {
     'x-rapidapi-key': APIKEY,
