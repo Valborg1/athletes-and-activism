@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, ButtonGroup, Modal, Form } from "react-bootstrap";
-// import ButtonGroup from "react-bootstrap/ButtonGroup"
+import {useParams} from "react-router-dom";
 import { Row, Col, Container } from "../components/Grid";
 import AthleteBio from "../components/AthleteBio";
 import imagePath from "../../src/images/patrick.png";
@@ -10,12 +10,27 @@ import "./style.css";
 import AthleteBars from "../components/AthleteBars";
 import API from "../utils/API";
 
-export default function AddAthlete(props) {
+export default function AddAthlete() {
+  const {id} = useParams()
+
+
   const [show, setShow] = useState(false);
   const [charitySearch, setCharitySearch] = useState("");
   const [charities, setCharities] = useState([]);
-  const [selectedCharity, setSelectedCharity] = useState(null);
+  const [selectedCharity, setSelectedCharity] = useState("");
+  const [charityData, setCharityData] = useState([])
+  const [athlete, setAthlete] = useState({})
 
+  useEffect(() => {
+    API.getAthlete(id)
+      .then(res => {
+        console.log("single athlete res", res.data)
+          return res.data
+      })
+      .then(res => setAthlete(res))
+      .catch(err => console.log(err))
+}, [])
+  
   const handleClose = () => {
     setShow(false)
     setCharities([])
@@ -24,11 +39,6 @@ export default function AddAthlete(props) {
   
   const handleShow = () => setShow(true);
 
-  // useEffect(() => {
-  //     findCharities()
-  //   }, [])
-
-  //   Search all charities
   function findCharities(event) {
     event.preventDefault();
 
@@ -46,13 +56,37 @@ export default function AddAthlete(props) {
     setSelectedCharity(id)
   }
 
+  function read_prop(obj, prop) {
+    return obj[prop];
+  }
+
+  function addCharityToAthlete() {
+    let newCharityData = charities.filter((charity => {
+      return charity.ein === selectedCharity
+    }))
+
+    let data = {
+      charityName: newCharityData[0].charityName,
+      charityImage: newCharityData[0].cause.image,
+      charityBio: newCharityData[0].mission,
+      charityURL: newCharityData[0].websiteURL
+    }
+    setCharityData(data)
+    // PUT THE API CALL HERE
+
+
+      console.log("charity data test",data)
+    
+    handleClose();
+  }
+
   return (
     <>
       <Container title="title">
         <Row>
           <Col size="md-2" />
           <Col size="md-8">
-            <h1 className="text-center">PATRICK MAHOMES</h1>
+            <h1 className="text-center">{athlete.fullName}</h1>
           </Col>
           <Col size="md-2">
             <button className="like btn" type="button">
@@ -67,10 +101,12 @@ export default function AddAthlete(props) {
       <Container title="stats">
         <Row>
           <Col size="md-4">
-            <Image alt="Patrick" src={imagePath} roundedCircle />
+            <Image alt="Patrick" src={athlete.image} roundedCircle />
           </Col>
           <Col size="md-4">
-            <AthleteBio />
+            <AthleteBio 
+              data={athlete}
+            />
           </Col>
           <Col size="md-4">
             <AthleteBars />
@@ -151,7 +187,7 @@ export default function AddAthlete(props) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="info" onClick={handleClose}>
+          <Button variant="info" onClick={addCharityToAthlete}>
             Add This Information
           </Button>
         </Modal.Footer>

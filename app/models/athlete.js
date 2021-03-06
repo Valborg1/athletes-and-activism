@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const athleteSchema = new Schema({
+  playerid: { type: String},
   fullName: { type: String, required: true },
   image: { type: String },
   sport: { type: String },
@@ -19,4 +20,3 @@ const athleteSchema = new Schema({
 const Athlete = mongoose.model("Athlete", athleteSchema);
 
 module.exports = Athlete;
-

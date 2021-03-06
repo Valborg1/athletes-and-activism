@@ -16,7 +16,27 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findAthletes: function(req, res) {
+    db.Athlete
+     .find()
+     .where("causes._id").equals(req.body.id) //req.body.charity
+     .then(dbModel => res.json(dbModel))
+     .catch(err => res.status(422).json(err));
+ },
+ findCharities: function(req, res) {
+  db.Charity
+   .find()
+   .where("charities._id").equals(req.body.id) //req.body.charity
+   .then(dbModel => res.json(dbModel))
+   .catch(err => res.status(422).json(err));
+},
   findById: function(req, res) {
+    db.Cause
+      .findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  findOne: function(req, res) {
     db.Cause
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
