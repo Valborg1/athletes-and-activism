@@ -17,7 +17,7 @@ module.exports = {
      findCharity: function(req, res) {
      db.Charity
       .find()
-      .where("charities.charityName").equals(req.body.charity) //req.body.charity
+      // .where("charities.charityName").equals(req.body.charity) //req.body.charity
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
