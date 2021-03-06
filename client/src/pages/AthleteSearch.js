@@ -56,10 +56,18 @@ export default function Athletes(props) {
             bio: athlete.strDescriptionEN,
         }
 
+        // API.getathletes()
+        //     .then(res => {
+        //         if (data.playerid === res.data.data.playerid) {window.location=`/add-athlete/${res.data.playerid}`
+        //     }
+        //     else    
+        //         API.createAthlete(data);
+        //     })
+
         API.createAthlete(data)
             .then(res => {
                 console.log("create Athlete Response", res);
-                if (res.status === 200 ) { window.location=`/add-athlete/${res.data.playerid}`}
+                if (res.status === 200) { window.location=`/add-athlete/${res.data.playerid}`}
             })
             
     }
@@ -110,14 +118,7 @@ export default function Athletes(props) {
                         <form onSubmit={_handleSubmit}>
                             <input
                                 className="athlete-search"
-                                placeholder="Enter first name"
-                                type="text"
-                                name="search"
-                                value={search.firstName}
-                                onChange={_handleNameChange} />
-                            <input
-                                className="athlete-search"
-                                placeholder="Enter last name"
+                                placeholder="Enter athlete's full name"
                                 type="text"
                                 name="search"
                                 value={search.lastName}
