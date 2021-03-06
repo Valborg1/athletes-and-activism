@@ -10,6 +10,9 @@ router.route("/")
 //   .get(athleteController.searchAthletes)
 //   .post(athleteController.create);
 
+router.route("/charity-and-cause")
+  .post(addAthleteController.charityAndCause)
+
 
 // router.route("/asdasd")
 //   .post(addAthleteController.searchEIN)

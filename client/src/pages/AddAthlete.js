@@ -72,7 +72,11 @@ export default function AddAthlete() {
       charityURL: newCharityData[0].websiteURL
     }
     setCharityData(data)
-    // PUT THE API CALL HERE
+
+    API.addCharityAndCauseData(data)
+      // .then((res) => setCharities(res.data))
+      // .then(console.log("charities", charities))
+      .catch((err) => console.log(err));
 
 
       console.log("charity data test",data)
