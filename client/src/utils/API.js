@@ -35,8 +35,15 @@ export default {
     return axios.get("/api/charities/single-athletes");
   },
 
-  getSingleCause: function() {
-    return axios.get("/api/causes/single-causes");
+  getSingleCause: function(id) {
+    return axios.get(baseURL + "/api/causes/" + id);
+  },
+
+  getCauseAthletes: function(id) {
+    return axios.get(baseURL + "/api/causes/athletes", {id});
+  },
+  getCauseCharities: function(id) {
+    return axios.get(baseURL + "/api/causes/charities", {id});
   },
 
   getCharities: function() {

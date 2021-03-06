@@ -8,14 +8,20 @@ router
   .post(causesController.create);
 
 router
-  .route("/single-causes")
-  .get(causesController.findAll)
+  .route("/athletes")
+  .get(causesController.findAthletes)
+  // .get(causesController.searchCauses)
+  .post(causesController.create);
+
+  router
+  .route("/charities")
+  .get(causesController.findCharities)
   // .get(causesController.searchCauses)
   .post(causesController.create);
 
 router
   .route("/:id")
-  .post(causesController.findById)
+  .get(causesController.findById)
   .put(causesController.update)
   .delete(causesController.remove);
 

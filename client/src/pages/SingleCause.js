@@ -5,36 +5,66 @@ import CausesDesc from "../components/CausesDesc";
 import AthleteCharities from "../components/AthleteCharities";
 import AthleteCauses from "../components/AthleteCauses";
 import AthleteList from "../components/AthleteList";
+import CharityList from "../components/CharityList";
 import CausesURL from "../components/CausesURL";
 import API from "../utils/API";
 import "./style.css";
 
 export default function SingleCause() {
-  const [athletes, setAthletes] = useState(null);
-  const [causes, setCauses] = useState(null);
+  const [athletes, setCauseAthletes] = useState(null);
+  const [charities, setCauseCharities] = useState(null);
   const [singleCause, setSingleCause] = useState({});
   const { id } = useParams();
   
   
   useEffect(() => {
-        loadSingleAthlete()
+        loadSingleCause()
+        loadCauseAthletes()
+        loadCauseCharities()
     }, []);
 
-    function loadSingleAthlete() {
-        API.getAthletes()
-        .then((res) => {
-            console.log("athlete", res.data);
-            setAthletes(res.data)
-            loadSingleCharity();
-        });
+    function loadSingleCause() {
+       
+    API.getSingleCause(id)
+        .then(res => {
+        console.log("single cause", res.data)
+            return res.data
+        })
+        .then(res => setSingleCause(res))
+        .catch(err => console.log(err))
+        
     }
 
-    function loadSingleCharity() {
-        API.getCharities().then((res) => {
-            console.log("SingleCharity", res.data);
-            setCauses(res.data);
-          });
+    function loadCauseAthletes() {
+       
+        API.getCauseAthletes(id)
+            .then(res => {
+            console.log("cause athletes", res.data)
+                return res.data
+            })
+            .then(res => setCauseAthletes(res))
+            .catch(err => console.log(err))
+            
         }
+
+    function loadCauseCharities() {
+    
+        API.getCauseCharities(id)
+            .then(res => {
+            console.log("cause charities", res.data)
+                return res.data
+            })
+            .then(res => setCauseCharities(res))
+            .catch(err => console.log(err))
+            
+        }
+
+    // function loadSingleCharity() {
+    //     API.getCharities().then((res) => {
+    //         console.log("SingleCharity", res.data);
+    //         setCauses(res.data);
+    //       });
+    //     }
    
 
     
@@ -59,7 +89,7 @@ export default function SingleCause() {
         <Row>
           <Col size="md-2" />
           <Col size="md-8">
-          <h1 className="text-center">CAUSES</h1>
+          <h1 className="text-center">{singleCause.category}</h1>
           </Col>
           <Col size="md-2">
             <button className="like btn" type="button">
@@ -71,7 +101,7 @@ export default function SingleCause() {
           </Col>
         </Row>
       </Container>
-      <Container>
+      {/* <Container>
         <Row>
           <CausesDesc causes={causes}/>
         </Row>
@@ -81,14 +111,14 @@ export default function SingleCause() {
         <Row>
           <CausesURL causes={causes}/>
         </Row>
-      </Container>
+      </Container> */}
       <Container title="no-background">
         <Row>
           <Col size="md-6">
             <AthleteList athletes={athletes} />
           </Col>
           <Col size="md-6">
-            <AthleteCharities 
+            <CharityList charities={charities}
              />
           </Col>
         </Row>

@@ -12,10 +12,7 @@ mongoose.connect(
 const causesSeed = [
   {
     _id: ObjectId("603aa0663f970b2e287bf315"),
-    category: "Healthcare", 
-    causeURL:  "www.toysfortots.com",
-    causeBio: "We take toys from poor kids and give them to rich kids!",
-
+    category: "Healthcare"
   }
 ]
 
@@ -35,6 +32,7 @@ const charitySeed = [
 const athleteSeed = [
   {
     _id: ObjectId("603aa39831afa2083cc5045f"),
+    playerid: "1234567890",
   fullName: "John Johnson",
   image: "john image",
   sport: "Basketball",
