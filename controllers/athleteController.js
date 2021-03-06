@@ -18,10 +18,8 @@ module.exports = {
   },
   findById: function(req, res) {
     db.Athlete
-      // console.log("athlete req", req.params.id)
       .findOne({ playerid : req.params.id })
-      // .where("athletes.playerid").equals(req.params.id)
-      // .findById(req.params.id)
+      .populate({path: "charities", populate:{path: "cause"}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

@@ -10,4 +10,6 @@ router.use(function(req, res) {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
+console.log("router stack", router.stack)
+
 module.exports = router;

@@ -22,14 +22,19 @@ export default function AddAthlete() {
   const [athlete, setAthlete] = useState({})
 
   useEffect(() => {
-    API.getAthlete(id)
-      .then(res => {
-        console.log("single athlete res", res.data)
-          return res.data
-      })
-      .then(res => setAthlete(res))
-      .catch(err => console.log(err))
+    getAthlete()
 }, [])
+
+
+  function getAthlete() {
+    API.getAthlete(id)
+    .then(res => {
+      console.log("single athlete res", res.data)
+        return res.data
+    })
+    .then(res => setAthlete(res))
+    .catch(err => console.log(err))
+ }
   
   const handleClose = () => {
     setShow(false)
@@ -56,10 +61,6 @@ export default function AddAthlete() {
     setSelectedCharity(id)
   }
 
-  function read_prop(obj, prop) {
-    return obj[prop];
-  }
-
   function addCharityToAthlete() {
     let newCharityData = charities.filter((charity => {
       return charity.ein === selectedCharity
@@ -70,11 +71,13 @@ export default function AddAthlete() {
       charityImage: newCharityData[0].cause.image,
       charityBio: newCharityData[0].mission,
       charityURL: newCharityData[0].websiteURL,
-      cause: newCharityData[0].category.categoryName
+      cause: newCharityData[0].category.categoryName,
+      playerid: id
     }
     // setCharityData(data)
 
     API.addCharityAndCauseData(data)
+      .then(getAthlete)
       // .then((res) => setCharities(res.data))
       // .then(console.log("charities", charities))
       .catch((err) => console.log(err));

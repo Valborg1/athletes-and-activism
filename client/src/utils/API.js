@@ -55,7 +55,7 @@ export default {
   },
 
   addCharityAndCauseData: function(data) {
-    return axios.post(baseURL + "/api/add-athletes/charity-and-cause", {data})
+    return axios.post(baseURL + "/api/add-athlete/charity-and-cause", {data})
   },
 
  
