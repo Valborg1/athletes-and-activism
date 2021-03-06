@@ -1,22 +1,22 @@
 import React, { Fragment } from 'react'
 import { Container } from "../Grid"
 
-export default function AthleteList
-({athletes}) {
+export default function CharityList
+({charities}) {
     
     return (
        <div>
         <Container title="causes">
         {
-            athletes?.length > 0 ?
-            <>{athletes.map((athlete) => {
+            charities?.length > 0 ?
+            <>{charities.map((charity) => {
                 
                 return (
-            <a href={`/add-athlete/${athlete.playerid}`}>
-                {athlete.fullName}</a>
+            <a href={`/charities/${charity._id}`}>
+                {charity.charity.charityName}</a>
                 )
             })}</> 
-    :<><h1>No Athlete Found</h1></>
+    :<><h1>No Charity Found</h1></>
         }
 
         </Container>

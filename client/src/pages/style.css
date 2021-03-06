@@ -166,3 +166,6 @@ h3.carouselText {
     background-color: lavenderblush;
 }
 
+#add-athlete-btn {
+    float: right;
+}
