@@ -50,10 +50,10 @@ export default function Athletes(props) {
             playerid: athlete.idPlayer,
             fullName: athlete.strPlayer,
             image: athlete.strCutout,
-            sport: athlete.strSport,
-            team: athlete.strTeam,
-            dob: athlete.dateBorn,
-            bio: athlete.strDescriptionEN,
+            sport: athlete.sport,
+            team: athlete.team,
+            dob: athlete.dob,
+            bio: athlete.bio,
         }
 
         API.createAthlete(data)
