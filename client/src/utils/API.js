@@ -11,7 +11,7 @@ export default {
     return axios.get(baseURL + "/api/athletes");
   },
   // Gets the athlete with the given id
-  getathlete: function(id) {
+  getAthlete: function(id) {
     return axios.get(baseURL + "/api/athletes/" + id);
   },
   // Deletes the athlete with the given id
@@ -22,30 +22,65 @@ export default {
   createAthlete: function(athleteData) {
     return axios.post(baseURL + "/api/athletes", {athleteData});
   },
+  // Saves a athlete to the database
+  saveathlete: function(athleteData) {
+    return axios.post(baseURL + "/api/athletes", athleteData);
+  },
   searchCharities: function(query) {
     return axios.post(baseURL + "/api/add-athlete", {query});
   },
   
-  // Gets all Charities
-  getCharities: function() {
-    return axios.get("/api/charities");
-  },
-
+  // Gets all Single/ all Charities and causes
   getCharity: function(id) {
     return axios.post("api/charities/" + id);
   },
+  
+  getSingleAthletes: function() {
+    return axios.get("/api/charities/single-athletes");
+  },
+
+  getSingleCause: function(id) {
+    return axios.get(baseURL + "/api/causes/" + id);
+  },
+
+  getCauseAthletes: function(id) {
+    return axios.get(baseURL + "/api/causes/athletes", {id});
+  },
+  getCauseCharities: function(id) {
+    return axios.get(baseURL + "/api/causes/charities", {id});
+  },
+
+  getCharities: function() {
+    return axios.get(baseURL + "/api/charities");
+  },
+
+  addCharityAndCauseData: function(data) {
+    return axios.post(baseURL + "/api/add-athletes/charity-and-cause", {data})
+  },
+
+ 
+
+ 
+
 
   // deleteCharities: function(id) {
   //   return axios.post("api/charities/" + id);
   // },
-
+  searchAthletes: function(query) {
+    console.log(query)
+    return axios.get(`${ATHURL}${query.search}`, {
+    headers: {
+      'x-rapidapi-key': APIKEY,
+      'x-rapidapi-host': 'thesportsdb.p.rapidapi.com',
+      useQueryString: true
+    }})
+  },
+  
   getCauses: function() {
     return axios.get("api/causes");
     
   },
-  getSingleCause: function(id) {
-    return axios.post(baseURL + "api/causes/" + id);
-  },
+ 
 
 searchAthletes: function(query) {
   return axios.get(`${ATHURL}${query.search}`, {

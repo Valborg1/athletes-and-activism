@@ -1,15 +1,28 @@
 const router = require("express").Router();
 const causesController = require("../../controllers/causesController");
 
-router.route("/")
-    .get(causesController.findAll)
-    // .get(causesController.searchCauses)
-    .post(causesController.create);
+router
+  .route("/")
+  .get(causesController.findAll)
+  // .get(causesController.searchCauses)
+  .post(causesController.create);
 
 router
-    .route("/:id")
-    .post(causesController.findById)
-    .put(causesController.update)
-    .delete(causesController.remove);
+  .route("/athletes")
+  .get(causesController.findAthletes)
+  // .get(causesController.searchCauses)
+  .post(causesController.create);
+
+  router
+  .route("/charities")
+  .get(causesController.findCharities)
+  // .get(causesController.searchCauses)
+  .post(causesController.create);
+
+router
+  .route("/:id")
+  .get(causesController.findById)
+  .put(causesController.update)
+  .delete(causesController.remove);
 
 module.exports = router;

@@ -32,6 +32,7 @@ const charitySeed = [
 const athleteSeed = [
   {
     _id: ObjectId("603aa39831afa2083cc5045f"),
+    playerid: "1234567890",
   fullName: "John Johnson",
   image: "john image",
   sport: "Basketball",
