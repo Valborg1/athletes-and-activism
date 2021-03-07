@@ -1,11 +1,15 @@
 require('dotenv').config()
 
 const express = require("express");
-
+const config = require("./config/database");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const { User } = require("./app/models");
 const cors = require('cors')
 const app = express();
+
+require("dotenv").config();
+
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
@@ -16,17 +20,14 @@ app.use(cors());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+require("./config/passport")(User);
+
 // Add routes, both API and view
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/athletes-and-activism",
-{
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
-});
+mongoose.connect(config.database);
 
 // Start the API server
 app.listen(PORT, function() {

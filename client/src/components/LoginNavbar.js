@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import { apiAuth } from "../../utils/LoginApi";
-import { useAuth } from "../../utils/context";
-import { Container } from "../Container";
+import { apiAuth } from "../utils/LoginApi";
+import { useAuth } from "../utils/context";
+import { Container } from "./Container";
 
-export default function Nav() {
+export function LoginNavbar() {
   const { auth, setAuth } = useAuth();
 
   function _logout() {
@@ -31,8 +31,8 @@ export default function Nav() {
             <NavLink className="nav-link" exact to="/">
                 HOME
             </NavLink>
-            <NavLink className="nav-link" exact to="/search-athlete">
-                ATHLETES SEARCH
+            <NavLink className="nav-link" exact to="/athletes">
+                ATHLETES
             </NavLink>
             <NavLink className="nav-link" exact to="/charities">
                 CHARITIES
