@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const db = require("../models");
+const db = require("../app/models");
 const ObjectId = mongoose.Types.ObjectId;
 
     // ({ _id: ObjectId("603aa0663f970b2e287bf316")},{$push: {cause: ObjectId("603aa0663f970b2e287bf315")}},{new: true})

@@ -136,6 +136,12 @@ h3.carouselText {
     color: white;
     text-align: center;
     height: 500px;
+    font-size: 100px;
+}
+
+a.carouselText{
+    color: white;
+    text-decoration: none;
 }
 
 .charitySearch {

@@ -95,11 +95,6 @@ export default function Athletes(props) {
             {console.log(athlete)}
             <Container>
                 <Row>
-                    <Col size="md-12">
-                        <h2 className="text-center">Top sports players</h2>
-                    </Col>
-                </Row>
-                <Row>
                     <div className="popularPlayers" id="topPlayers">
                     </div>
                 </Row>
@@ -117,7 +112,7 @@ export default function Athletes(props) {
                                 name="search"
                                 value={search.lastName}
                                 onChange={_handleNameChange} />
-                            <button className="btn btn-primary blue">Submit</button>
+                            <button className="btn btn-primary blue">Search</button>
                         </form>
                         {/* <InputGroup className="athlete-search">
                             <InputGroup.Prepend>
