@@ -17,23 +17,30 @@ module.exports = {
         return res.json(err)
       }
     },
-    test: function(req, res) {
-      console.log("this is a test")
-    },
     charityAndCause: async function(req, res) { 
-      console.log("charity and cause req", req)
+      // console.log("charity and cause req", req.body)
       try {
-        
-      const cause = await db.Cause.create(req.body.cause)
+        const {data} = req.body
+        // console.log("asldkjasdlaskdn data", data)
+      const cause = await db.Cause.create({category: data.cause})
       const charity = await db.Charity.create({
-        charityName: req.body.name,
-        charityImage: req.body.image,
-        charityBio: req.body.bio,
-        charityURL: req.body.url,
+      charity: {
+        charityName: data.charityName,
+        charityImage: data.charityImage,
+        charityBio: data.charityBio,
+        charityURL: data.charityURL,
+        }
       })
-      
-    await db.Charity.findOneAndUpdate({charity: charity._id}, { $push: { cause: cause._id } }, { new: true })
-    await db.Athlete.findOneAndUpdate({athlete: body.playerid}, { $push: { charity: charity._id } }, { new: true })
+    
+      charity.cause.push(cause._id)
+      await charity.save()
+
+      const athlete = await db.Athlete.findOne({playerid : data.playerid}).exec()
+      athlete.charities.push(charity._id)
+      await athlete.save()
+
+    // await db.Charity.findOneAndUpdate({charity: charity._id}, { $push: { cause: cause._id } }, { new: true })
+    // await db.Athlete.findOneAndUpdate({athlete: body.playerid}, { $push: { charity: charity._id } }, { new: true })
       return res.json({})
       }
       catch(err) {
