@@ -18,10 +18,10 @@ module.exports = {
       }
     },
     charityAndCause: async function(req, res) { 
-      console.log("charity and cause req", req.body)
+      // console.log("charity and cause req", req.body)
       try {
         const {data} = req.body
-        console.log("asldkjasdlaskdn data", data)
+        // console.log("asldkjasdlaskdn data", data)
       const cause = await db.Cause.create({category: data.cause})
       const charity = await db.Charity.create({
       charity: {

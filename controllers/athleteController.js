@@ -24,7 +24,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log("data being imported", req.body.athleteData);
+    // console.log("data being imported", req.body.athleteData);
     db.Athlete
       .create(req.body.athleteData)
       .then(dbModel => res.json(dbModel))

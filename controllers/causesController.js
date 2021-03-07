@@ -1,4 +1,6 @@
 const db = require("../models");
+// import mongoose from ('mongoose')
+const mongoose = require ('mongoose')
 
 // Defining methods for the.CausesController
 module.exports = {
@@ -19,14 +21,14 @@ module.exports = {
   findAthletes: function(req, res) {
     db.Athlete
      .find()
-     .where("causes._id").equals(req.body.id) 
+    //  .where("causes._id").equals(req.body.id) 
+     .populate({path: "charities", populate:{path: "cause"}})
      .then(dbModel => res.json(dbModel))
      .catch(err => res.status(422).json(err));
  },
  findCharities: function(req, res) {
   db.Charity
-   .find()
-   .where("charities._id").equals(req.body.id) 
+   .find({cause: mongoose.Types.ObjectId(req.body.id)})
    .then(dbModel => res.json(dbModel))
    .catch(err => res.status(422).json(err));
 },

@@ -44,10 +44,10 @@ export default {
   },
 
   getCauseAthletes: function(id) {
-    return axios.get(baseURL + "/api/causes/athletes", {id});
+    return axios.post(baseURL + "/api/causes/athletes", {id});
   },
   getCauseCharities: function(id) {
-    return axios.get(baseURL + "/api/causes/charities", {id});
+    return axios.post(baseURL + "/api/causes/charities", {id});
   },
 
   getCharities: function() {

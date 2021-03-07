@@ -3,6 +3,8 @@ import { Button, ButtonGroup, Modal, Form } from "react-bootstrap";
 import {useParams} from "react-router-dom";
 import { Row, Col, Container } from "../components/Grid";
 import AthleteBio from "../components/AthleteBio";
+import AthleteCharities from "../components/AthleteCharities";
+import AthleteCauses from "../components/AthleteCauses";
 import imagePath from "../../src/images/patrick.png";
 import Image from "react-bootstrap/Image";
 import CharityResponse from "../components/CharityResponse"
@@ -118,6 +120,17 @@ export default function AddAthlete() {
           </Col>
           <Col size="md-4">
             <AthleteBars />
+          </Col>
+        </Row>
+      </Container>
+
+      <Container title="no-background">
+        <Row>
+          <Col size="md-6">
+            <AthleteCharities charities={athlete.charities} />
+          </Col>
+          <Col size="md-6">
+            <AthleteCauses data={athlete.charities} />
           </Col>
         </Row>
       </Container>
