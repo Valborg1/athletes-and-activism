@@ -1,0 +1,171 @@
+
+/* CSS FOR ATHLETE PAGE */
+.container {
+    background-color: #f7f7f7;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+button.like {
+    border: none;
+    background-color: #dfdfdf;   
+    float: right; 
+}
+
+button.update {
+    border: none;
+    background-color: #dfdfdf; 
+    float: right;   
+}
+
+button.blue {
+    border: none;
+    background-color: blue;
+    float: right;
+}
+
+.fa-heart {
+    padding-top: 5px;
+    font-size: 25px;
+    color: #b6332b;
+}
+
+.fa-plus {
+    padding-top: 5px;
+    font-size: 25px;
+    color: #4CAF50;
+    display: none;
+}
+
+.title:hover .fa-plus{
+    display: block;
+    /* color: red; */
+  }
+
+
+.title {
+    background-color: #dfdfdf;
+    margin-bottom: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.stats {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.padding-10 {
+    padding: 10px;
+}
+
+/* ATHLETE BARS */
+* {box-sizing:border-box}
+
+/* Container for skill bars */
+
+div.skills {
+  text-align: left; /* Right-align text */
+  padding-top: 10px; /* Add top padding */
+  padding-left: 10px;
+  padding-bottom: 10px; /* Add bottom padding */
+  color: white; /* White text color */
+}
+
+.causesBar {background-color: #4CAF50;} /* Green */
+.charitiesBar {background-color: #369;} /* Blue */
+
+
+/* Container for Causes and Charities */
+
+.charities {
+    padding-right: 5px;
+}
+
+.causes {
+    padding-left: 5px;
+}
+
+.no-background {
+    background-color: white;
+}
+
+div.col-md-6 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.grid {
+    text-align: center;
+}
+
+a.causeLink, a.charityLink {
+    color: #2196F3;
+}
+
+/* Add an Athlete Page */
+.addCC, .saveCC, .cancelCC {
+    float: right
+}
+
+.saveCC {
+    margin-left: 10px;
+}
+
+/* css for homepage */
+
+.center {
+        text-align: center;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: auto;  
+}
+
+.jumbotron {
+    min-height: 500px;
+    width: 100%;
+    background-size: cover;
+    margin: auto;
+    background-image: url("https://cdn.wallpapersafari.com/80/61/yc6Qre.jpg");
+}
+
+h3.carouselText {
+    color: white;
+    text-align: center;
+    height: 500px;
+}
+
+.charitySearch {
+    float: left;
+}
+
+
+.hide{
+    display: none;
+}
+
+.show {
+    display: contents;
+}
+
+.two {
+    width: auto;
+    height: auto;
+}
+
+
+#searchbtn {
+    float: inline-end;
+    margin-top: 30px;
+}
+
+.bg-selected {
+    background-color: lavenderblush;
+}
+
+#add-athlete-btn {
+    float: right;
+}
