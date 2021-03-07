@@ -1,0 +1,28 @@
+h1 {
+    font-size: largest;
+    font-style: bold;
+    color: rgb(15, 15, 20);
+}
+a {
+   font-size: xx-large;
+   color:rgb(15, 15, 20); 
+   font-family:'Times New Roman', Times, serif;
+}
+/* .container undefined {
+    background-color: red;
+} */
+.row {
+    background-color: black; 
+}
+/* .button{
+    font-style: bold;
+} */
+/* .container title {
+    background-color: red;
+} */
+.p-10 {
+    background-color: rgb(126, 121, 121);
+}
+.container causes {
+    background-color: rgb(126, 121, 121);
+}

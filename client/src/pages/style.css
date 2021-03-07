@@ -169,3 +169,28 @@ h3.carouselText {
 #add-athlete-btn {
     float: right;
 }
+
+/* Cause */
+h1 {
+    font-size: largest;
+    font-style: bold;
+    color: rgb(15, 15, 20);
+}
+a {
+   font-size: xx-large;
+   color:rgb(15, 15, 20); 
+   font-family:'Times New Roman', Times, serif;
+}
+.p-10 {
+    background-color: rgb(126, 121, 121);
+}
+.col-md-6 {
+    background-color: opacity;
+}
+
+.container causes {
+    background-color: pink;
+}
+/* .row {
+    background-color: black; 
+} */

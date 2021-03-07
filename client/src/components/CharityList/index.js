@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { Container } from "../Grid"
+// import "../listStyle.css"
 
 export default function CharityList
 ({charities}) {
@@ -23,15 +24,3 @@ export default function CharityList
        </div>
     )
 }
-
-            {/* <h1>ATHLETES</h1>           
-            <div className="grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gridGap: 20 }}>
-                <div><a className="causeLink" href="">Column 1</a></div>
-                <div><a className="causeLink" href="">Column 1</a></div>
-                <div><a className="causeLink" href="">Column 1</a></div>
-                <div><a className="causeLink" href="">Column 1</a></div>
-                <div><a className="causeLink" href="">Column 1</a></div>
-                <div><a className="causeLink" href="">Column 1</a></div>
-                <div><a className="causeLink" href="">Column 1</a></div>
-                <div><a className="causeLink" href="">Column 1</a></div>
-            </div> */}

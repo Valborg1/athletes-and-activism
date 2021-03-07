@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react'
 import { Container } from "../Grid"
+// import "./listStyles.css"
+// import "./style.css"
 
 export default function AthleteList
 ({athletes}) {
