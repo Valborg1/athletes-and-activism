@@ -27,11 +27,6 @@ export default function Athletes(props) {
         search: ""
     });
 
-    const [fullName, setFullName] = useState(
-        "testing"
-        // search.firstName + search.lastName
-    );
-
     useEffect(() => {
         // loadAthlete()
     }, [])
@@ -41,10 +36,7 @@ export default function Athletes(props) {
         setSearch({ [name]: value });
     }
 
-    // function _handleLastNameChange(event) {
-    //     const { lastName, value } = event.target;
-    //     setSearch({ lastName: value });
-    // }
+   
     function _createAthleteInDB() {
         const data = {
             playerid: athlete.idPlayer,
@@ -55,17 +47,7 @@ export default function Athletes(props) {
             dob: athlete.dob,
             bio: athlete.bio,
         }
-
-        // API.getAthlete(playerid)
-        //     .then(res => {
-        //         console.log("single athlete res", res.data)
-        //         if (res.data.idPlayer[0] === playerid){
-        //             window.location = `/add-athlete/${res.data.playerid}`
-        //         }
-        //         return res.data
-        //     })
             
-
         API.createAthlete(data)
             .then(res => {
                 console.log("create Athlete Response", res);
@@ -77,16 +59,24 @@ export default function Athletes(props) {
     function _handleSubmit(event) {
         event.preventDefault()
 
-        console.log("fullName", fullName)
-        console.log("firstName", search.firstName)
-        console.log("lastName", search.lastName)
+        // console.log("fullName", fullName)
+        // console.log("firstName", search.firstName)
+        // console.log("lastName", search.lastName)
+        // API.getAthlete()
+        // .then(res => {
+        //     console.log("single athlete res", res.data)
+        //     // if (res.data === search.name){
+        //     //     window.location = `/add-athlete/${res.data.playerid}`
+        //     // }
+        //      return res.data
+        // })
 
         API.searchAthletes(search)
             .then(res => {
                 var description = res.data.player[0].strDescriptionEN.split(" ").splice(0, 50).join(" ") + "...";
                 //var playerid = res.data.idPlayer[0];
                 console.log(res);
-                // getAthlete(playerid);
+                // getAthlete();
                 setAthlete({
                     idPlayer: res.data.player[0].idPlayer,
                     dob: res.data.player[0].dateBorn,
