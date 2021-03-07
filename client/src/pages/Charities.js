@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Component } from "react";
+import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import { Row, Col, Container } from "../components/Grid";
 import { Form, Button } from "react-bootstrap";
@@ -80,11 +80,10 @@ export default function Charities() {
                 {" "}
                 <Link
                   to={"/charities/" + charity._id}
-                  id={charity._id}>
-                
+                  id={charity._id}
+                >
                   {charity.causes}
                   {charity.charity.charityName}
-                  
                 </Link>
               </h2>
             ))}

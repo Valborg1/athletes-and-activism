@@ -43,7 +43,7 @@ console.log(auth)
       <Route exact path={["/",]} component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/athletes" component={Athlete} />
-          <Route exact path="/add-athlete" component={AddAthlete} />
+          <Route exact path="/add-athlete/:id" component={AddAthlete} />
           <Route exact path="/causes" component={Causes} />
           <Route exact path="/causes/:id" component={SingleCause} />
           <Route exact path="/charities" component={Charities} />

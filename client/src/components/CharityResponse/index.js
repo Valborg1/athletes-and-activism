@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Button } from 'react-bootstrap'
+import React from 'react'
+// import { Button } from 'react-bootstrap'
 import {Container, Col, Row} from '../Grid'
 import './style.css'
 
