@@ -1,22 +1,26 @@
 import React from 'react'
 import {Container} from "../Grid"
 
-export default function AthleteCauses() {
+export default function AthleteCauses({data}) {
+    // const data =  {charities}
+
+    console.log("data", {data})
     return (
-        <>
-        <Container title="causes">
-            <h1>CAUSES</h1>           
-            <div className="grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gridGap: 20 }}>
-                <div><a className="causeLink" href="/">Column 1</a></div>
-                <div><a className="causeLink" href="/">Column 1</a></div>
-                <div><a className="causeLink" href="/">Column 1</a></div>
-                <div><a className="causeLink" href="/">Column 1</a></div>
-                <div><a className="causeLink" href="/">Column 1</a></div>
-                <div><a className="causeLink" href="/">Column 1</a></div>
-                <div><a className="causeLink" href="/">Column 1</a></div>
-                <div><a className="causeLink" href="/">Column 1</a></div>
-            </div>
-        </Container>
-        </>
-    )
-}
+        <div>
+         <Container title="causes">
+             <h4>Causes</h4>
+         {
+             data?.length > 0 ?
+             <>{data.map((item) => {
+                 
+                 return (
+             <p><a href={`/causes/${item.cause[0]._id}`}>{item.cause[0].category}</a></p>
+                 )
+             })}</> 
+     :<><h1>No Charity Found</h1></>
+         }
+ 
+         </Container>
+        </div>
+     )
+ }
