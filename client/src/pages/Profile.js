@@ -18,7 +18,7 @@ export default function Profile() {
       apiUsers
         .getProfile()
         .then((res) => {
-          console.log(res)
+          console.log("res", res.data)
           if (res.data._id) {
             // For local read/update/delete
             setState({ ...state, user: res.data });
@@ -54,7 +54,7 @@ export default function Profile() {
           <h1 className="text-center">Welcome {state.user.username}</h1>
             <h3>Favorite Athletes</h3>
             <ul>
-              <li>{state.user.username}</li>
+              <li>{state.user._id}</li>
             </ul>
           </>
           }

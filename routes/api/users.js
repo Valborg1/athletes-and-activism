@@ -13,7 +13,7 @@ router.get(
     try {
       var token = decode(getToken(req.headers));
       if (token) {
-        console.log(token)
+        console.log("token", token)
         User.findById(token.id, {password: 0}, function (err, user) {
           return res.json(user);
         });

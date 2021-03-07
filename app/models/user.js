@@ -17,8 +17,6 @@ const UserSchema = new Schema({
       type: Schema.Types.ObjectId, ref:"Athlete"
     }
   ]
-  
-  
 });
 
 UserSchema.pre("save", function (next) {
