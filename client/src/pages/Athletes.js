@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import {Row, Col, Container} from "../components/Grid"
 import AthleteBio from "../components/AthleteBio"
 import imagePath from "../../src/images/patrick.png"
@@ -7,9 +8,22 @@ import AthleteCharities from '../components/AthleteCharities'
 import AthleteCauses from '../components/AthleteCauses'
 import "./style.css"
 import AthleteBars from '../components/AthleteBars'
-
+import API from "../utils/API"
 
 export default function Athletes(props) {
+    const [favAthlete, setFavAthlete] = useState(null)
+    const { id } = useParams();
+
+    function handleAdd(){
+        API.addFavAthlete(id)
+        .then(res => {
+            console.log("Fav Athlete", res.data)
+                return res.data
+            })
+            .then(res => setFavAthlete(res))
+            .catch(err => console.log(err))
+    }
+
     return (
         <>
         <Container title="title">
@@ -20,7 +34,7 @@ export default function Athletes(props) {
                 </Col>
                 <Col size="md-2">
                     <button className="like btn" type="button"><i className="fa fa-heart"></i></button>
-                    <button className="update btn" type="button"><i className="fa fa-plus"></i></button>
+                    <button className="update btn" type="button" onClick={handleAdd}><i className="fa fa-plus"></i></button>
                 </Col>
             </Row>
         </Container>
