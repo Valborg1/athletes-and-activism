@@ -2,7 +2,7 @@ import React, { useState, useEffect, InputGroup, FormControl } from 'react'
 import { Row, Col, Container } from "../components/Grid"
 import AthleteBio from "../components/AthleteBio"
 import Image from 'react-bootstrap/Image'
-import {Link, useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import AthleteCharities from '../components/AthleteCharities'
 import AthleteCauses from '../components/AthleteCauses'
 import "./style.css"
@@ -50,18 +50,28 @@ export default function Athletes(props) {
             playerid: athlete.idPlayer,
             fullName: athlete.strPlayer,
             image: athlete.strCutout,
-            sport: athlete.strSport,
-            team: athlete.strTeam,
-            dob: athlete.dateBorn,
-            bio: athlete.strDescriptionEN,
+            sport: athlete.sport,
+            team: athlete.team,
+            dob: athlete.dob,
+            bio: athlete.bio,
         }
+
+        // API.getAthlete(playerid)
+        //     .then(res => {
+        //         console.log("single athlete res", res.data)
+        //         if (res.data.idPlayer[0] === playerid){
+        //             window.location = `/add-athlete/${res.data.playerid}`
+        //         }
+        //         return res.data
+        //     })
+            
 
         API.createAthlete(data)
             .then(res => {
                 console.log("create Athlete Response", res);
-                if (res.status === 200 ) { window.location=`/add-athlete/${res.data.playerid}`}
+                if (res.status === 200) { window.location = `/add-athlete/${res.data.playerid}` }
             })
-            
+
     }
 
     function _handleSubmit(event) {
@@ -74,16 +84,18 @@ export default function Athletes(props) {
         API.searchAthletes(search)
             .then(res => {
                 var description = res.data.player[0].strDescriptionEN.split(" ").splice(0, 50).join(" ") + "...";
+                //var playerid = res.data.idPlayer[0];
                 console.log(res);
+                // getAthlete(playerid);
                 setAthlete({
                     idPlayer: res.data.player[0].idPlayer,
-                    dateBorn: res.data.player[0].dateBorn,
+                    dob: res.data.player[0].dateBorn,
                     strPlayer: res.data.player[0].strPlayer,
-                    strSport: res.data.player[0].strSport,
-                    strTeam: res.data.player[0].strTeam,
+                    sport: res.data.player[0].strSport,
+                    team: res.data.player[0].strTeam,
                     strCutout: res.data.player[0].strCutout,
                     strThumb: res.data.player[0].strThumb,
-                    strDescriptionEN: description,
+                    bio: description,
                 })
             })
     }
@@ -110,14 +122,7 @@ export default function Athletes(props) {
                         <form onSubmit={_handleSubmit}>
                             <input
                                 className="athlete-search"
-                                placeholder="Enter first name"
-                                type="text"
-                                name="search"
-                                value={search.firstName}
-                                onChange={_handleNameChange} />
-                            <input
-                                className="athlete-search"
-                                placeholder="Enter last name"
+                                placeholder="Enter athlete's full name"
                                 type="text"
                                 name="search"
                                 value={search.lastName}
@@ -154,10 +159,7 @@ export default function Athletes(props) {
                     </Col>
                     <Col size="md-8">
                         <AthleteBio
-                            sport={athlete.strSport}
-                            team={athlete.strTeam}
-                            birth={athlete.dateBorn}
-                            description={athlete.strDescriptionEN}
+                            data={athlete}
                         />
                     </Col>
                 </Row>
@@ -168,7 +170,7 @@ export default function Athletes(props) {
                         <button
                             className="btn btn-primary blue"
                             id="add-athlete-btn"
-                            onClick={ _createAthleteInDB }
+                            onClick={_createAthleteInDB}
 
                         >Add athlete to the database</button>
                     </Col>

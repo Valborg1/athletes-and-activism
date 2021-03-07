@@ -2,7 +2,6 @@ const router = require("express").Router();
 const addAthleteController = require("../../app/controllers/addAthleteController");
 
 
-
 // Matches with "/api/add-athlete"
 
 router.route("/")
@@ -10,11 +9,8 @@ router.route("/")
 //   .get(athleteController.searchAthletes)
 //   .post(athleteController.create);
 
-
-// router.route("/asdasd")
-//   .post(addAthleteController.searchEIN)
-//   .get(athleteController.searchAthletes)
-//   .post(athleteController.create);
-
+router.route("/charity-and-cause")
+  // .post(addAthleteController.test)
+  .post(addAthleteController.charityAndCause)
 
 module.exports = router;

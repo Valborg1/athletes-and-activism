@@ -16,8 +16,32 @@ module.exports = {
         console.log("err", err)
         return res.json(err)
       }
-    }
+    },
+    test: function(req, res) {
+      console.log("this is a test")
+    },
+    charityAndCause: async function(req, res) { 
+      console.log("charity and cause req", req)
+      try {
+        
+      const cause = await db.Cause.create(req.body.cause)
+      const charity = await db.Charity.create({
+        charityName: req.body.name,
+        charityImage: req.body.image,
+        charityBio: req.body.bio,
+        charityURL: req.body.url,
+      })
+      
+    await db.Charity.findOneAndUpdate({charity: charity._id}, { $push: { cause: cause._id } }, { new: true })
+    await db.Athlete.findOneAndUpdate({athlete: body.playerid}, { $push: { charity: charity._id } }, { new: true })
+      return res.json({})
+      }
+      catch(err) {
+      return res.json(err)
+      }
+    },
 };
+
 
 // The routes we built with mike and eric did nothing
 // app.post("/submit", async ({ body }, res) => { 
@@ -38,6 +62,3 @@ module.exports = {
 //   return res.json(err)
 //   }
 // });
-
-
-

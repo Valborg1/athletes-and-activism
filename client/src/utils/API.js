@@ -63,6 +63,10 @@ export default {
     return axios.get(baseURL + "/api/charities");
   },
 
+  addCharityAndCauseData: function(data) {
+    return axios.post(baseURL + "/api/add-athletes/charity-and-cause", {data})
+  },
+
  
 
  
@@ -88,7 +92,6 @@ export default {
  
 
 searchAthletes: function(query) {
-  console.log(query)
   return axios.get(`${ATHURL}${query.search}`, {
   headers: {
     'x-rapidapi-key': APIKEY,

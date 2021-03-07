@@ -18,7 +18,7 @@ export default function AddAthlete() {
   const [charitySearch, setCharitySearch] = useState("");
   const [charities, setCharities] = useState([]);
   const [selectedCharity, setSelectedCharity] = useState("");
-  const [charityData, setCharityData] = useState([])
+  // const [charityData, setCharityData] = useState([])
   const [athlete, setAthlete] = useState({})
 
   useEffect(() => {
@@ -69,10 +69,15 @@ export default function AddAthlete() {
       charityName: newCharityData[0].charityName,
       charityImage: newCharityData[0].cause.image,
       charityBio: newCharityData[0].mission,
-      charityURL: newCharityData[0].websiteURL
+      charityURL: newCharityData[0].websiteURL,
+      cause: newCharityData[0].category.categoryName
     }
-    setCharityData(data)
-    // PUT THE API CALL HERE
+    // setCharityData(data)
+
+    API.addCharityAndCauseData(data)
+      // .then((res) => setCharities(res.data))
+      // .then(console.log("charities", charities))
+      .catch((err) => console.log(err));
 
 
       console.log("charity data test",data)
