@@ -33,5 +33,15 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  updateFav: function (req, res) {
+    let favorite = {
+      _id:req.params.id,
+      favorites: req.user.id
+    }
+    User
+    .findByIdAndUpdate(favorite._id, {$push:{favorite:favorite.favorites}})
+    .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err))
   }
 };

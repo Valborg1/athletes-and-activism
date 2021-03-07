@@ -60,4 +60,11 @@ router
     usersController.remove
   );
 
+  router
+  .route("/favorites/:id")
+  .post(
+    withAuth,
+    usersController.updateFav
+  );
+
 module.exports = router;
