@@ -46,7 +46,7 @@ export default function Login() {
       })
       .catch((err) => {
         // Choose your error notification
-        // console.log("err", err);
+        alert("No User Registered.  Please register for an account")
       });
   }
 
