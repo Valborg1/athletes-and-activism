@@ -69,6 +69,7 @@ export default {
     return axios.post(baseURL + "/api/charities/cause", {causeId});
   },
 
+
   // getCharities: function() {
   //   return axios.get(baseURL + "/api/charities");
   // },
@@ -76,6 +77,7 @@ export default {
   addCharityAndCauseData: function(data) {
     return axios.post(baseURL + "/api/add-athlete/charity-and-cause", {data})
   },
+
 
 
   // deleteCharities: function(id) {
@@ -97,9 +99,11 @@ export default {
     return axios.get("api/causes");
     
   },
+
   getCharities: function() {
     return axios.get("api/charities");
   },
+
 };
 
 
