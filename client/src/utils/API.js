@@ -66,27 +66,14 @@ export default {
   addCharityAndCauseData: function(data) {
     return axios.post(baseURL + "/api/add-athlete/charity-and-cause", {data})
   },
-
-
-  // deleteCharities: function(id) {
-  //   return axios.post("api/charities/" + id);
-  // },
-
-  
-  searchAthletes: function(query) {
-    console.log(query)
-    return axios.get(`${ATHURL}${query.search}`, {
-    headers: {
-      'x-rapidapi-key': APIKEY,
-      'x-rapidapi-host': 'thesportsdb.p.rapidapi.com',
-      useQueryString: true
-    }})
-  },
   
   getCauses: function() {
     return axios.get("api/causes");
-    
   },
+
+  addFavAthlete: function(id){
+     return axios.post("/api/users/favorites/" + id) 
+  }
 };
 
 

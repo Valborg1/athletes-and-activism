@@ -29,8 +29,8 @@ export default function AddAthlete() {
   }, [])
 
   function handleAdd() {
-    console.log(id)
-    API.addFavAthlete(id)
+  
+    API.addFavAthlete(athlete._id)
       .then(res => {
         console.log("Fav Athlete", res.data)
         return res.data
@@ -44,6 +44,7 @@ export default function AddAthlete() {
     API.getAthlete(id)
       .then(res => {
         console.log("single athlete res", res.data)
+        
         return res.data
       })
       .then(res => setAthlete(res))
