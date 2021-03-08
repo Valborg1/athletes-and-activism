@@ -51,7 +51,7 @@ export default {
   getSingleCause: function(id) {
     return axios.get(baseURL + "/api/causes/" + id);
   },
-
+  
   getCauseAthletes: function(id) {
     return axios.post(baseURL + "/api/causes/athletes", {id});
   },

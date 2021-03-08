@@ -34,6 +34,9 @@ export default function Nav() {
             <NavLink className="nav-link" exact to="/search-athlete">
                 ATHLETES SEARCH
             </NavLink>
+            <NavLink className="nav-link" exact to="/athletes">
+                ATHLETES
+            </NavLink>
             <NavLink className="nav-link" exact to="/charities">
                 CHARITIES
             </NavLink>

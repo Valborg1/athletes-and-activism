@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, ButtonGroup, Modal, Form } from "react-bootstrap";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Row, Col, Container } from "../components/Grid";
 import AthleteBio from "../components/AthleteBio";
 import AthleteCharities from "../components/AthleteCharities";
@@ -13,7 +13,7 @@ import AthleteBars from "../components/AthleteBars";
 import API from "../utils/API";
 
 export default function AddAthlete() {
-  const {id} = useParams()
+  const { id } = useParams()
 
 
   const [show, setShow] = useState(false);
@@ -22,28 +22,40 @@ export default function AddAthlete() {
   const [selectedCharity, setSelectedCharity] = useState("");
   // const [charityData, setCharityData] = useState([])
   const [athlete, setAthlete] = useState({})
+  const [favAthlete, setFavAthlete] = useState(null)
 
   useEffect(() => {
     getAthlete()
-}, [])
+  }, [])
+
+  function handleAdd() {
+    console.log(id)
+    API.addFavAthlete(id)
+      .then(res => {
+        console.log("Fav Athlete", res.data)
+        return res.data
+      })
+      .then(res => setFavAthlete(res))
+      .catch(err => console.log(err))
+  }
 
 
   function getAthlete() {
     API.getAthlete(id)
-    .then(res => {
-      console.log("single athlete res", res.data)
+      .then(res => {
+        console.log("single athlete res", res.data)
         return res.data
-    })
-    .then(res => setAthlete(res))
-    .catch(err => console.log(err))
- }
-  
+      })
+      .then(res => setAthlete(res))
+      .catch(err => console.log(err))
+  }
+
   const handleClose = () => {
     setShow(false)
     setCharities([])
     setCharitySearch("")
   }
-  
+
   const handleShow = () => setShow(true);
 
   function findCharities(event) {
@@ -85,8 +97,8 @@ export default function AddAthlete() {
       .catch((err) => console.log(err));
 
 
-      console.log("charity data test",data)
-    
+    console.log("charity data test", data)
+
     handleClose();
   }
 
@@ -99,7 +111,7 @@ export default function AddAthlete() {
             <h1 className="text-center">{athlete.fullName}</h1>
           </Col>
           <Col size="md-2">
-            <button className="like btn" type="button">
+            <button className="like btn" onClick={handleAdd} type="button">
               <i className="fa fa-heart"></i>
             </button>
             <button className="update btn" type="button">
@@ -114,7 +126,7 @@ export default function AddAthlete() {
             <Image alt="Patrick" src={athlete.image} roundedCircle />
           </Col>
           <Col size="md-4">
-            <AthleteBio 
+            <AthleteBio
               data={athlete}
             />
           </Col>
@@ -123,7 +135,6 @@ export default function AddAthlete() {
           </Col>
         </Row>
       </Container>
-
       <Container title="no-background">
         <Row>
           <Col size="md-6">
@@ -152,7 +163,7 @@ export default function AddAthlete() {
         </Modal.Header>
         <Modal.Body>
           <Form>
-          <Form.Row className="align-items-center">
+            <Form.Row className="align-items-center">
               <Col size="md-10">
 
 
@@ -161,48 +172,48 @@ export default function AddAthlete() {
                   type="search"
                   placeholder="charity name"
                   onChange={handleChange}
-                  value={charitySearch}   
+                  value={charitySearch}
                 />
-  
+
               </Col>
 
               <Col size="md-2">
-                <Button 
+                <Button
                   id="searchbtn"
-                  variant="primary" 
+                  variant="primary"
                   type="submit"
                   onClick={findCharities}
-                  >
-                Search
+                >
+                  Search
               </Button>
-            </Col>
+              </Col>
 
-          </Form.Row>
+            </Form.Row>
           </Form>
-          <br/>
-          
+          <br />
+
           <ButtonGroup toggle>
-          {charities.length ? (
-            <div>
-              {charities.map(charity => (
-                <CharityResponse
-                  id={charity.ein}
-                  name={charity.charityName}
-                  tagline={charity.tagLine}
-                  img={charity.cause.image}
-                  mission={charity.mission}
-                  url={charity.websiteURL}
-                  selectedCharity={selectedCharity === charity.ein}
-                  onClick={selectCharity}
-                >  
-                </CharityResponse>
-              ))}
-            </div>
-          ) : (
-            <div/>
+            {charities.length ? (
+              <div>
+                {charities.map(charity => (
+                  <CharityResponse
+                    id={charity.ein}
+                    name={charity.charityName}
+                    tagline={charity.tagLine}
+                    img={charity.cause.image}
+                    mission={charity.mission}
+                    url={charity.websiteURL}
+                    selectedCharity={selectedCharity === charity.ein}
+                    onClick={selectCharity}
+                  >
+                  </CharityResponse>
+                ))}
+              </div>
+            ) : (
+              <div />
             )}
           </ButtonGroup>
-          
+
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
