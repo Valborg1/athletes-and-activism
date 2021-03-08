@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function CausesURL() {
+export default function CausesURL({data}) {
     return (
         <div>
-            URL: https....
+            <a href={data} target="_blank">
+                {data}
+            </a>
         </div>
     )
 }
