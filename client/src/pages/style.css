@@ -217,6 +217,15 @@ a {
 .update.btn.icon {
     background-color: #146a95;
 }
+
+.favoriteDiv{
+    background-color: rgb(156,149,149);
+    margin-top: 20px;
+}
+
+.test.undefined{
+    margin-top: 20px;
+
 .urlContainer {
     background-color: rgb(156, 149, 149);
 }
