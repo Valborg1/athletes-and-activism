@@ -10,6 +10,10 @@ export default {
   getAthletes: function() {
     return axios.get(baseURL + "/api/athletes");
   },
+  // Gets the athlete with the given name
+  getAthleteDB: function(query){
+    return axios.get(baseURL + "/api/athletes", {query});
+  },
   // Gets the athlete with the given id
   getAthlete: function(id) {
     return axios.get(baseURL + "/api/athletes/" + id);

@@ -5,6 +5,7 @@ const athleteController = require("../../app/controllers/athleteController");
 router.route("/")
   .get(athleteController.findAll)
   .get(athleteController.searchAthletes)
+  .get(athleteController.findByName)
   .post(athleteController.create);
 
 // Matches with "/api/athletes/:id"

@@ -16,6 +16,15 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findByName: function(req, res){
+    console.log("athlete name", req.params.fullName)
+    db.Athlete
+      console.log("athlete req", req.body.fullName)
+      .find()
+      .where("athlete.fullName").equals(req.body.athlete.fullName)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   findById: function(req, res) {
     db.Athlete
       .findOne({ playerid : req.params.id })
