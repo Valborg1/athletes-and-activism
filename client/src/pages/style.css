@@ -151,6 +151,7 @@ a.carouselText{
     color: white;
     text-decoration: none;
     font-size: 80px;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 .charitySearch {
