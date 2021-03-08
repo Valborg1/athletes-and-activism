@@ -47,7 +47,7 @@ export default function Profile() {
           <Col size="md-2" />
         </Row>
       </Container>
-      <Container className="mt-5">
+      <Container title="favoriteDiv" className="mt-5">
         <Row>
           <Column>
             {state.user &&
