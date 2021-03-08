@@ -12,7 +12,7 @@ export default function AthleteCharities({charities}) {
              <>{charities.map((charity) => {
                  
                  return (
-             <p><a href="/">{charity.charity.charityName}</a></p>
+             <p><a href={`/charities/${charity._id}`}>{charity.charity.charityName}</a></p>
                  )
              })}</> 
      :<><h1>No Charity Found</h1></>

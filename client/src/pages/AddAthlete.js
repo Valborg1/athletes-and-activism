@@ -20,8 +20,18 @@ export default function AddAthlete() {
   const [charitySearch, setCharitySearch] = useState("");
   const [charities, setCharities] = useState([]);
   const [selectedCharity, setSelectedCharity] = useState("");
-  // const [charityData, setCharityData] = useState([])
-  const [athlete, setAthlete] = useState({})
+  const [athlete, setAthlete] = useState(
+    {  
+      playerid: "",
+      fullName: "",
+      image: "",
+      sport: "",
+      team: "",
+      dob: "",
+      bio: "",
+      charities: []
+    }
+  )
 
   useEffect(() => {
     getAthlete()
@@ -119,7 +129,9 @@ export default function AddAthlete() {
             />
           </Col>
           <Col size="md-4">
-            <AthleteBars />
+            <AthleteBars 
+              data={athlete.charities}
+            />
           </Col>
         </Row>
       </Container>

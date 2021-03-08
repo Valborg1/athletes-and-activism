@@ -1,18 +1,25 @@
 import React from 'react'
 import {Container} from "../Grid"
 
-export default function AthleteBars() {
-    return (
-        <>
-            {/* <p>CHARITIES</p> */}
-            <Container title="skills">
-            <div className="skills charitiesBar" style={{width: "90%"}}><b>CHARITIES: 5+</b></div>
-            </Container>
+export default function AthleteBars({data}) {
+let len = data.length;
 
-            {/* <p>CAUSES</p> */}
-            <Container title="skills">
-            <div className="skills causesBar" style={{width: "50%"}}><b>CAUSES</b></div>
-            </Container>
-        </>
-    )
+var dynamicWidth = 'calc(400% / ' + len + ')'
+
+return (
+
+    <>
+    <Container title="skills">
+    <div className="skills charitiesBar" style={{width: dynamicWidth, maxWidth: "100%"}}><b>CHARITIES: {len}</b></div>
+    </Container>
+
+    <Container title="skills">
+    <div className="skills causesBar" style={{width: dynamicWidth, maxWidth: "100%"}}><b>CAUSES: {len}</b></div>
+    </Container>
+    </>
+
+ )
 }
+
+
+

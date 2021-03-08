@@ -59,18 +59,6 @@ export default function Athletes(props) {
     function _handleSubmit(event) {
         event.preventDefault()
 
-        // console.log("fullName", fullName)
-        // console.log("firstName", search.firstName)
-        // console.log("lastName", search.lastName)
-        // API.getAthlete()
-        // .then(res => {
-        //     console.log("single athlete res", res.data)
-        //     // if (res.data === search.name){
-        //     //     window.location = `/add-athlete/${res.data.playerid}`
-        //     // }
-        //      return res.data
-        // })
-
         API.searchAthletes(search)
             .then(res => {
                 var description = res.data.player[0].strDescriptionEN.split(" ").splice(0, 50).join(" ") + "...";

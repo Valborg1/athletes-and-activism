@@ -9,7 +9,6 @@ import "./style.css";
 export default function SingleCause() {
   const [athletes, setCauseAthletes] = useState(null);
   const [charities, setCauseCharities] = useState(null);
-  // const [charityIDs, setCharityIDs] = useState(null);
   const [singleCause, setSingleCause] = useState({});
   const { id } = useParams();
   
