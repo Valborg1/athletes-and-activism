@@ -51,7 +51,7 @@ export default function Register() {
   }
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-5 loginDivs">
       <Row>
         <Column className="col-md-6 offset-md-3">
           <h1 className="mb-4">Register</h1>
