@@ -33,8 +33,11 @@ module.exports = {
 
     findCause: function(req, res) {
       db.Cause
-       .findById(req.body.causeId)
-       .then(dbModel => res.json(dbModel))
+       .find(req.query.causeId)
+       .then((dbModel) => {
+         console.log("findcause", dbModel);
+         res.json(dbModel)
+       })
        .catch(err => res.status(422).json(err));
     },
   
