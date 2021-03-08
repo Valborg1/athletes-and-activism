@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button} from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import {Row, Col, Container} from "../components/Grid"
 import AthleteBio from "../components/AthleteBio"
@@ -15,6 +16,7 @@ export default function Athletes(props) {
     const { id } = useParams();
 
     function handleAdd(){
+        console.log(id)
         API.addFavAthlete(id)
         .then(res => {
             console.log("Fav Athlete", res.data)
@@ -33,8 +35,8 @@ export default function Athletes(props) {
                     <h1 className="text-center">PATRICK MAHOMES</h1>
                 </Col>
                 <Col size="md-2">
-                    <button className="like btn" type="button"><i className="fa fa-heart"></i></button>
-                    <button className="update btn" type="button" onClick={handleAdd}><i className="fa fa-plus"></i></button>
+                    <Button className="like btn" type="button" onClick={handleAdd}><i className="fa fa-heart"></i></Button>
+                    <button className="update btn" type="button" ><i className="fa fa-plus"></i></button>
                 </Col>
             </Row>
         </Container>

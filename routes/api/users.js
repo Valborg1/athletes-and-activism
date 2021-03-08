@@ -15,6 +15,7 @@ router.get(
       if (token) {
         console.log("token", token)
         User.findById(token.id, {password: 0}, function (err, user) {
+          console.log("user", user)
           return res.json(user);
         });
       } else {
