@@ -181,7 +181,8 @@ a.carouselText{
 h1 {
     font-size: largest;
     font-style: bold;
-    color: rgb(15, 15, 20);
+    color: rgb(243, 235, 235);
+    
 }
 a {
    font-size: xx-large;
@@ -196,6 +197,7 @@ a {
     background-color: #146a95;
     color: rgb(243, 235, 235);
     margin-top: 20px;
+    
 }
 
 .container.title {
@@ -214,4 +216,7 @@ a {
 
 .update.btn.icon {
     background-color: #146a95;
+}
+.urlContainer {
+    background-color: rgb(156, 149, 149);
 }
