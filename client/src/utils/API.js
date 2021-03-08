@@ -12,7 +12,7 @@ export default {
   },
   // Gets the athlete with the given name
   getAthleteDB: function(query){
-    return axios.get(baseURL + "/api/add-athlete", {query});
+    return axios.get(baseURL + "/api/athletes", {query});
   },
   // Gets the athlete with the given id
   getAthlete: function(id) {
@@ -89,15 +89,15 @@ export default {
   // },
 
   
-  searchAthletes: function(query) {
-    console.log(query)
-    return axios.get(`${ATHURL}${query.search}`, {
-    headers: {
-      'x-rapidapi-key': APIKEY,
-      'x-rapidapi-host': 'thesportsdb.p.rapidapi.com',
-      useQueryString: true
-    }})
-  },
+  // searchAthletes: function(query) {
+  //   console.log(query)
+  //   return axios.get(`${ATHURL}${query.search}`, {
+  //   headers: {
+  //     'x-rapidapi-key': APIKEY,
+  //     'x-rapidapi-host': 'thesportsdb.p.rapidapi.com',
+  //     useQueryString: true
+  //   }})
+  // },
   
   getCauses: function() {
     return axios.get("api/causes");

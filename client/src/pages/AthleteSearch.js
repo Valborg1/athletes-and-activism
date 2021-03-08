@@ -19,17 +19,18 @@ export default function Athletes(props) {
         strDescriptionEN: "",
     })
 
-    const [athleteDB, setAthleteDB] = useState({
-        idPlayer: "",
-        dateBorn: "",
-        strPlayer: "",
-        strSport: "",
-        strTeam: "",
-        strPosition: "",
-        strCutout: "",
-        strThumb: "",
-        strDescriptionEN: "",
-    })
+    // const [athleteDB, setAthleteDB] = useState({
+    //     idPlayer: "",
+    //     dateBorn: "",
+    //     strPlayer: "",
+    //     strSport: "",
+    //     strTeam: "",
+    //     strPosition: "",
+    //     strCutout: "",
+    //     strThumb: "",
+    //     strDescriptionEN: "",
+    // })
+
     const [search, setSearch] = useState({
         search: ""
     });
@@ -74,31 +75,31 @@ export default function Athletes(props) {
         event.preventDefault()
 
         
-        API.getAthleteDB(search)
-            .then(res => { 
-                setAthlete(res.data);
-                console.log("search", search); 
-                console.log("Database results", res);
-                if (res.status === 200) {window.location = `/add-athlete/${res.data[0].playerid}`}
-        })
+        // API.getAthleteDB(search)
+        //     .then(res => { 
+        //         setAthlete(res.data);
+        //         console.log("search", search); 
+        //         console.log("Database results", res);
+        //         if (res.status === 200) {window.location = `/add-athlete/${res.data[0].playerid}`}
+        // })
 
-        // API.searchAthletes(search)
-        //     .then(res => {
-        //         var description = res.data.player[0].strDescriptionEN.split(" ").splice(0, 50).join(" ") + "...";
-        //         setAthlete({
-        //             idPlayer: res.data.player[0].idPlayer,
-        //             dob: res.data.player[0].dateBorn,
-        //             strPlayer: res.data.player[0].strPlayer,
-        //             sport: res.data.player[0].strSport,
-        //             team: res.data.player[0].strTeam,
-        //             strCutout: res.data.player[0].strCutout,
-        //             strThumb: res.data.player[0].strThumb,
-        //             bio: description,
-        //         })
-        //         setShow({
-        //             isActive: true
-        //         })
-        //     })
+        API.searchAthletes(search)
+            .then(res => {
+                var description = res.data.player[0].strDescriptionEN.split(" ").splice(0, 50).join(" ") + "...";
+                setAthlete({
+                    idPlayer: res.data.player[0].idPlayer,
+                    dob: res.data.player[0].dateBorn,
+                    strPlayer: res.data.player[0].strPlayer,
+                    sport: res.data.player[0].strSport,
+                    team: res.data.player[0].strTeam,
+                    strCutout: res.data.player[0].strCutout,
+                    strThumb: res.data.player[0].strThumb,
+                    bio: description,
+                })
+                setShow({
+                    isActive: true
+                })
+            })
     }
 
     return (
