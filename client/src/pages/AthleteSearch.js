@@ -2,6 +2,7 @@ import React, { useState, useEffect, InputGroup, FormControl } from 'react'
 import { Row, Col, Container } from "../components/Grid"
 import AthleteBio from "../components/AthleteBio"
 import Image from 'react-bootstrap/Image'
+import imagePath from "../../src/images/defaultPerson.png";
 import { Link, useParams } from "react-router-dom";
 import AthleteCharities from '../components/AthleteCharities'
 import AthleteCauses from '../components/AthleteCauses'
@@ -148,7 +149,7 @@ export default function Athletes(props) {
                     <Col size="md-4">
                         <Image className="adjust-picture img-fluid" 
                         placeholder="https://via.placeholder.com/25" 
-                        src={athlete.strCutout} roundedCircle />
+                        src={athlete.strCutout ? athlete.strCutout : imagePath} roundedCircle />
                     </Col>
                     <Col size="md-8">
                         <AthleteBio
