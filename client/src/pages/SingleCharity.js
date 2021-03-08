@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import { useParams } from "react-router-dom";
 import { Row, Col, Container } from "../components/Grid";
-import CharityDesc from "../components/CharityDesc";
+// import CharityDesc from "../components/CharityDesc";
 import AthleteCauses from "../components/AthleteCauses";
 import AthleteList from "../components/AthleteList";
 import CharityURL from "../components/CharityURL";
@@ -54,7 +54,7 @@ return (
     </Container>
     <Container>
       <Row>
-        <CharityDesc />
+        {/* <CharityDesc /> */}
       </Row>
     </Container>
     <br></br>

@@ -21,21 +21,22 @@ export default function AthleteCharities({ charities }) {
   );
 }
 
-{
-  /* // <>
-        // <Container title="charities">
-        //     <h1>CHARITIES</h1>
-        //     <div className="grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gridGap: 20 }}>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //     </div>
-        // </Container>
-        // </> */
-}
+//     return (
+//         <div>
+//          <Container title="charities">
+//              <h4>Charities</h4>
+//          {
+//              charities?.length > 0 ?
+//              <>{charities.map((charity) => {
+                 
+//                  return (
+//              <p><a href="/">{charity.charity.charityName}</a></p>
+//                  )
+//              })}</> 
+//      :<><h1>No Charity Found</h1></>
+//          }
+ 
+//          </Container>
+//         </div>
+//      )
+//  }

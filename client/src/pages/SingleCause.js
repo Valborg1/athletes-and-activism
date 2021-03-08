@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Row, Col, Container } from "../components/Grid";
 import AthleteList from "../components/AthleteList";
 import CharityList from "../components/CharityList";
@@ -9,6 +9,7 @@ import "./style.css";
 export default function SingleCause() {
   const [athletes, setCauseAthletes] = useState(null);
   const [charities, setCauseCharities] = useState(null);
+  // const [charityIDs, setCharityIDs] = useState(null);
   const [singleCause, setSingleCause] = useState({});
   const { id } = useParams();
 
@@ -20,23 +21,47 @@ export default function SingleCause() {
 
   function loadSingleCause() {
     API.getSingleCause(id)
-      .then((res) => {
-        console.log("single cause", res.data);
-        return res.data;
-      })
-      .then((res) => setSingleCause(res))
-      .catch((err) => console.log(err));
-  }
+        .then(res => {
+        console.log("single cause", res.data)
+            return res.data
+        })
+        .then(res => setSingleCause(res))
+        .catch(err => console.log(err))
+        
+    }
 
-  function loadCauseAthletes() {
-    API.getCauseAthletes(id)
-      .then((res) => {
-        console.log("cause athletes", res.data);
-        return res.data;
-      })
-      .then((res) => setCauseAthletes(res))
-      .catch((err) => console.log(err));
-  }
+    function loadCauseAthletes() {
+
+      let supportingAthletes = []
+       
+        API.getCauseAthletes(id)
+            .then(res => {
+            console.log("cause athletes", res.data)
+                return res.data
+            })
+            .then(res => res.forEach((item) => {
+              item.charities.forEach((charity) => {
+              if (charity.cause[0]._id === id) {
+                supportingAthletes.push(item)
+                console.log("supporting athletes", supportingAthletes)
+              }
+            })
+          })
+            )
+            .then(res => setCauseAthletes(supportingAthletes))
+            .catch(err => console.log(err))
+            
+        }
+
+  // function loadCauseAthletes() {
+  //   API.getCauseAthletes(id)
+  //     .then((res) => {
+  //       console.log("cause athletes", res.data);
+  //       return res.data;
+  //     })
+  //     .then((res) => setCauseAthletes(res))
+  //     .catch((err) => console.log(err));
+  // }
 
   function loadCauseCharities() {
     API.getCauseCharities(id)

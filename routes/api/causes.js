@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const causesController = require("../../controllers/causesController");
+const causesController = require("../../app/controllers/causesController");
 
 router
   .route("/")
@@ -9,13 +9,13 @@ router
 
 router
   .route("/athletes")
-  .get(causesController.findAthletes)
+  .post(causesController.findAthletes)
   // .get(causesController.searchCauses)
   .post(causesController.create);
 
-  router
+router
   .route("/charities")
-  .get(causesController.findCharities)
+  .post(causesController.findCharities)
   // .get(causesController.searchCauses)
   .post(causesController.create);
 

@@ -3,6 +3,8 @@ import { Button, ButtonGroup, Modal, Form } from "react-bootstrap";
 import {useParams} from "react-router-dom";
 import { Row, Col, Container } from "../components/Grid";
 import AthleteBio from "../components/AthleteBio";
+import AthleteCharities from "../components/AthleteCharities";
+import AthleteCauses from "../components/AthleteCauses";
 import imagePath from "../../src/images/patrick.png";
 import Image from "react-bootstrap/Image";
 import CharityResponse from "../components/CharityResponse"
@@ -18,18 +20,23 @@ export default function AddAthlete() {
   const [charitySearch, setCharitySearch] = useState("");
   const [charities, setCharities] = useState([]);
   const [selectedCharity, setSelectedCharity] = useState("");
-  const [charityData, setCharityData] = useState([])
+  // const [charityData, setCharityData] = useState([])
   const [athlete, setAthlete] = useState({})
 
   useEffect(() => {
-    API.getAthlete(id)
-      .then(res => {
-        console.log("single athlete res", res.data)
-          return res.data
-      })
-      .then(res => setAthlete(res))
-      .catch(err => console.log(err))
+    getAthlete()
 }, [])
+
+
+  function getAthlete() {
+    API.getAthlete(id)
+    .then(res => {
+      console.log("single athlete res", res.data)
+        return res.data
+    })
+    .then(res => setAthlete(res))
+    .catch(err => console.log(err))
+ }
   
   const handleClose = () => {
     setShow(false)
@@ -56,10 +63,6 @@ export default function AddAthlete() {
     setSelectedCharity(id)
   }
 
-  function read_prop(obj, prop) {
-    return obj[prop];
-  }
-
   function addCharityToAthlete() {
     let newCharityData = charities.filter((charity => {
       return charity.ein === selectedCharity
@@ -69,10 +72,17 @@ export default function AddAthlete() {
       charityName: newCharityData[0].charityName,
       charityImage: newCharityData[0].cause.image,
       charityBio: newCharityData[0].mission,
-      charityURL: newCharityData[0].websiteURL
+      charityURL: newCharityData[0].websiteURL,
+      cause: newCharityData[0].category.categoryName,
+      playerid: id
     }
-    setCharityData(data)
-    // PUT THE API CALL HERE
+    // setCharityData(data)
+
+    API.addCharityAndCauseData(data)
+      .then(getAthlete)
+      // .then((res) => setCharities(res.data))
+      // .then(console.log("charities", charities))
+      .catch((err) => console.log(err));
 
 
       console.log("charity data test",data)
@@ -110,6 +120,17 @@ export default function AddAthlete() {
           </Col>
           <Col size="md-4">
             <AthleteBars />
+          </Col>
+        </Row>
+      </Container>
+
+      <Container title="no-background">
+        <Row>
+          <Col size="md-6">
+            <AthleteCharities charities={athlete.charities} />
+          </Col>
+          <Col size="md-6">
+            <AthleteCauses data={athlete.charities} />
           </Col>
         </Row>
       </Container>

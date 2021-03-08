@@ -1,64 +1,67 @@
-import React from 'react'
-import { Link } from "react-router-dom";
-import { Navbar, Nav } from 'react-bootstrap';
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
+import { apiAuth } from "../../utils/LoginApi";
+import { useAuth } from "../../utils/context";
+import { Container } from "../Container";
 
-export default function index() {
-    return (
-        <Navbar expand="lg">
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="m-auto">
-                <Link to="/home"
-                        className={
-                            window.location.pathname === "/home"
-                                ? "nav-link active"
-                                : "nav-link"
-                        }
-                    >
-                        HOME
-                    </Link>
-                    <Link
-                        to="/search-athlete"
-                        className={
-                            window.location.pathname === "/athletes"
-                                ? "nav-link active"
-                                : "nav-link"
-                        }
-                    >
-                        ATHLETE SEARCH
-                    </Link>
-                    <Link
-                        to="/charities"
-                        className={
-                            window.location.pathname === "/charities"
-                                ? "nav-link active"
-                                : "nav-link"
-                        }
-                    >
-                        CHARITIES
-                    </Link>
-                    <Link to="/causes"
-                        className={
-                            window.location.pathname === "/causes"
-                                ? "nav-link active"
-                                : "nav-link"
-                        }
-                    >
-                        CAUSES
-                    </Link>
-                    <Link to="/profile"
-                        className={
-                            window.location.pathname === "/profile"
-                                ? "nav-link active"
-                                : "nav-link"
-                        }
-                    >
-                        PROFILE
-                    </Link>
-                </Nav>
-            </Navbar.Collapse>
-        </Navbar>
+export default function Nav() {
+  const { auth, setAuth } = useAuth();
 
-    )
+  function _logout() {
+    apiAuth.logout();
+    setAuth(null);
+  }
+
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <Container>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+            <NavLink className="nav-link" exact to="/">
+                HOME
+            </NavLink>
+            <NavLink className="nav-link" exact to="/search-athlete">
+                ATHLETES SEARCH
+            </NavLink>
+            <NavLink className="nav-link" exact to="/charities">
+                CHARITIES
+            </NavLink>
+            <NavLink className="nav-link" exact to="/causes">
+                CAUSES
+            </NavLink>
+            {auth ? (
+              <>
+              <NavLink className="nav-link" exact to="/profile">
+                PROFILE
+              </NavLink>
+              <NavLink className="nav-link" exact to="/profile" onClick={_logout}>
+                LOGOUT
+              </NavLink>
+              </>
+            ) : (
+              <>
+                {" "}
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/login">
+                    LOGIN
+                  </NavLink>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+      </Container>
+    </nav>
+  );
 }
-

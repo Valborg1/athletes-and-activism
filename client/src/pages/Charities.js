@@ -5,6 +5,7 @@ import { Form, Button } from "react-bootstrap";
 import "./style.css";
 import { Link } from "react-router-dom";
 
+
 export default function Charities() {
   const [charities, setCharities] = useState({});
 

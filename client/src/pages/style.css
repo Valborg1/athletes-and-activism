@@ -188,8 +188,10 @@ a {
     background-color: opacity;
 }
 
-.container causes {
-    background-color: pink;
+.container.undefined {
+    background-color: #004466;
+    color: white;
+    margin-top: 20px;
 }
 /* .row {
     background-color: black; 
