@@ -10,6 +10,7 @@ import API from "../utils/API";
 import "./style.css";
 
 export default function SingleCharity() {
+
     const [athletes, setCharityAthletes] = useState();
     const [causeId, setCauseId] = useState();
     const [cause, setCharityCause] = useState();
@@ -28,6 +29,7 @@ export default function SingleCharity() {
         loadCharityAthletes();
         loadCharityCause();
     }, []);
+
 
     function loadSingleCharity() {
         API.getSingleCharity(id).then((res) => {
