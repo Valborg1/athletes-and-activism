@@ -34,9 +34,11 @@ export default function Athletes(props) {
         search: ""
     });
 
+
     const [show, setShow] = useState({
         isActive: false
     })
+
 
     useEffect(() => {
         // loadAthlete()

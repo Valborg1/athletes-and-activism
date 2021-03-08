@@ -12,7 +12,7 @@ export default {
   },
   // Gets the athlete with the given name
   getAthleteDB: function(query){
-    return axios.get(baseURL + "/api/athletes");
+    return axios.get(baseURL + "/api/add-athlete", {query});
   },
   // Gets the athlete with the given id
   getAthlete: function(id) {
@@ -44,32 +44,44 @@ export default {
   },
   
   // Gets all Single/ all Charities and causes
-  getCharity: function(id) {
-    return axios.post("api/charities/" + id);
-  },
-  
-  getSingleAthletes: function() {
-    return axios.get("/api/charities/single-athletes");
-  },
 
   getSingleCause: function(id) {
     return axios.get(baseURL + "/api/causes/" + id);
   },
 
-  getCauseAthletes: function(id) {
-    return axios.get(baseURL + "/api/causes/athletes", {id});
-  },
-  getCauseCharities: function(id) {
-    return axios.get(baseURL + "/api/causes/charities", {id});
+  getSingleCharity: function(id) {
+    return axios.get(baseURL + "/api/charities/" + id);
   },
 
-  getCharities: function() {
-    return axios.get(baseURL + "/api/charities");
+  getCauseAthletes: function(id) {
+    return axios.post(baseURL + "/api/causes/athletes", {id});
   },
+
+  getCharityAthletes: function(id) {
+    return axios.post(baseURL + "/api/charities/athletes", {id});
+  },
+
+  getCauseCharities: function(id) {
+    return axios.post(baseURL + "/api/causes/charities", {id});
+  },
+  
+  // getCharityAthletes: function(id) {
+  //   return axios.post(baseURL + "/api/causes/athletes", {id});
+  // },
+  getCharityCause: function(causeId) {
+    console.log("APIcheck", causeId)
+    return axios.post(baseURL + "/api/charities/cause", {causeId});
+  },
+
+
+  // getCharities: function() {
+  //   return axios.get(baseURL + "/api/charities");
+  // },
 
   addCharityAndCauseData: function(data) {
-    return axios.post(baseURL + "/api/add-athletes/charity-and-cause", {data})
+    return axios.post(baseURL + "/api/add-athlete/charity-and-cause", {data})
   },
+
 
 
   // deleteCharities: function(id) {
@@ -91,6 +103,11 @@ export default {
     return axios.get("api/causes");
     
   },
+
+  getCharities: function() {
+    return axios.get("api/charities");
+  },
+
 };
 
 

@@ -7,13 +7,14 @@ export default function AthleteList
     return (
        <div>
         <Container title="causes">
+        <h4>Athletes</h4>
         {
             athletes?.length > 0 ?
             <>{athletes.map((athlete) => {
                 
                 return (
-            <a href={`/add-athlete/${athlete.playerid}`}>
-                {athlete.fullName}</a>
+            <p><a href={`/add-athlete/${athlete.playerid}`}>
+                {athlete.fullName}</a></p>
                 )
             })}</> 
     :<><h1>No Athlete Found</h1></>
