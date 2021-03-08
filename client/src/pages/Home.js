@@ -36,7 +36,7 @@ export default function Home(props) {
           <div className="popularPlayers" id="topPlayers"></div>
         </Row>
       </Container>
-      <Container>
+      {/* <Container>
         <Row>
           <Col size="md-5"></Col>
           <Col size="md-2">
@@ -48,7 +48,7 @@ export default function Home(props) {
           </Col>
           <Col size="md-5"></Col>
         </Row>
-      </Container>
+      </Container> */}
     </>
   );
 }
