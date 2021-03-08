@@ -75,7 +75,7 @@ export default function SingleCharity() {
                 </Row>
             </Container>
             <br></br>
-            <Container>
+            <Container title="urlContainer">
                 <Row>
                     <CharityURL data={
                         singleCharity.charity.charityURL
