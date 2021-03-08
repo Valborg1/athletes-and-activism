@@ -35,7 +35,7 @@ export default function AddAthlete() {
         console.log("Fav Athlete", res.data)
         return res.data
       })
-      .then(res => setFavAthlete(res))
+      .then(res => setFavAthlete(res), alert("Athlete added to favorites"))
       .catch(err => console.log(err))
   }
 
