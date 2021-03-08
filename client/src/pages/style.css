@@ -218,4 +218,9 @@ a {
 
 .favoriteDiv{
     background-color: rgb(156,149,149);
+    margin-top: 20px;
+}
+
+.test.undefined{
+    margin-top: 20px;
 }

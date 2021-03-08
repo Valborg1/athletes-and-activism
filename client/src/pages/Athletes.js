@@ -24,7 +24,7 @@ export default function Athletes(props) {
     return (
         <>
         {console.log(athletes)}
-            <Container title="title">
+            <Container title="test undefined">
                 <Row>
                     <Col size="md-2" />
                     <Col size="md-8">
