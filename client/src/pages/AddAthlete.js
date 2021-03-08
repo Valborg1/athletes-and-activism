@@ -5,7 +5,7 @@ import { Row, Col, Container } from "../components/Grid";
 import AthleteBio from "../components/AthleteBio";
 import AthleteCharities from "../components/AthleteCharities";
 import AthleteCauses from "../components/AthleteCauses";
-import imagePath from "../../src/images/patrick.png";
+import imagePath from "../../src/images/defaultPerson.png";
 import Image from "react-bootstrap/Image";
 import CharityResponse from "../components/CharityResponse"
 import "./style.css";
@@ -124,7 +124,7 @@ export default function AddAthlete() {
       <Container title="stats">
         <Row>
           <Col size="md-4">
-            <Image alt="Athlete Image" src={athlete.image} roundedCircle />
+            <Image alt="Athlete Image" src={athlete.image ? athlete.image : imagePath} roundedCircle />
           </Col>
           <Col size="md-4">
             <AthleteBio
