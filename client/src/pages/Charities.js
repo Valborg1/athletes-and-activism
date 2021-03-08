@@ -29,12 +29,6 @@ export default function Charities() {
             <h1 className="text-center">CHARITY</h1>
           </Col>
           <Col size="md-2">
-            <button className="like btn" type="button">
-              <i className="fa fa-heart"></i>
-            </button>
-            <button className="update btn" type="button">
-              <i className="fa fa-plus"></i>
-            </button>
           </Col>
         </Row>
       </Container>
@@ -59,7 +53,6 @@ export default function Charities() {
 
                   <Col size="md-2">
                     <Button
-                      // onChange={handleInputChange}
                       name="search"
                       type="submit"
                       className="mb-2"
