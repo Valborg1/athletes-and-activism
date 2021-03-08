@@ -5,13 +5,14 @@ export default function AthleteCharities({charities}) {
 
     return (
         <div>
-         <Container title="causes">
+         <Container title="charities">
+             <h4>Charities</h4>
          {
              charities?.length > 0 ?
              <>{charities.map((charity) => {
                  
                  return (
-             <h1>{charity.charity.charityName}</h1>
+             <p><a href="/">{charity.charity.charityName}</a></p>
                  )
              })}</> 
      :<><h1>No Charity Found</h1></>
@@ -21,20 +22,3 @@ export default function AthleteCharities({charities}) {
         </div>
      )
  }
-
-{/* // <>
-        // <Container title="charities">
-        //     <h1>CHARITIES</h1>
-        //     <div className="grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gridGap: 20 }}>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //         <div><a className="charityLink" href="/">Example Charity</a></div>
-        //     </div>
-        // </Container>
-        // </> */}

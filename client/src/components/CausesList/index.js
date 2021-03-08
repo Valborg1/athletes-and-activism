@@ -1,22 +1,28 @@
-import React from 'react';
-import { Row, Container } from '../Grid';
+import React, { Fragment } from 'react'
+import { Container } from "../Grid"
 
-export default function CausesList() {
+export default function CharityList
+({causes}) {
+
+    console.log("causes data test", {causes})
+    
     return (
-        <>
+       <div>
         <Container title="causes">
-        <h1>CAUSES</h1>           
-        <div className="grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gridGap: 20 }}>
-            <div><a className="causeLink" href="">Column 1</a></div>
-            <div><a className="causeLink" href="">Column 1</a></div>
-            <div><a className="causeLink" href="">Column 1</a></div>
-            <div><a className="causeLink" href="">Column 1</a></div>
-            <div><a className="causeLink" href="">Column 1</a></div>
-            <div><a className="causeLink" href="">Column 1</a></div>
-            <div><a className="causeLink" href="">Column 1</a></div>
-            <div><a className="causeLink" href="">Column 1</a></div>
-        </div>
-    </Container>
-    </>
+        <h4>Causes</h4>
+        {
+            causes?.length > 0 ?
+            <>{causes.map((cause) => {
+                
+                return (
+            <p><a href={`/causes/${cause._id}`}>
+                {cause.category}</a></p>
+                )
+            })}</> 
+    :<><h1>No Causes Found</h1></>
+        }
+
+        </Container>
+       </div>
     )
 }

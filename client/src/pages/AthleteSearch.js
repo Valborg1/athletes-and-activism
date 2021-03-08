@@ -27,9 +27,11 @@ export default function Athletes(props) {
         search: ""
     });
 
+
     const [show, setShow] = useState({
         isActive: false
     })
+
 
     useEffect(() => {
         // loadAthlete()
@@ -79,6 +81,7 @@ export default function Athletes(props) {
         API.searchAthletes(search)
             .then(res => {
                 var description = res.data.player[0].strDescriptionEN.split(" ").splice(0, 50).join(" ") + "...";
+
                 setAthlete({
                     idPlayer: res.data.player[0].idPlayer,
                     dob: res.data.player[0].dateBorn,

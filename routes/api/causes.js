@@ -9,13 +9,13 @@ router
 
 router
   .route("/athletes")
-  .get(causesController.findAthletes)
+  .post(causesController.findAthletes)
   // .get(causesController.searchCauses)
   .post(causesController.create);
 
-  router
+router
   .route("/charities")
-  .get(causesController.findCharities)
+  .post(causesController.findCharities)
   // .get(causesController.searchCauses)
   .post(causesController.create);
 
