@@ -23,6 +23,7 @@ button.blue {
     border: none;
     background-color: blue;
     float: right;
+    color: white;
 }
 
 .fa-heart {
@@ -149,7 +150,7 @@ a.carouselText{
 }
 
 
-.hide{
+.hidden {
     display: none;
 }
 
@@ -157,7 +158,7 @@ a.carouselText{
     display: contents;
 }
 
-.two {
+.adjust-picture {
     width: auto;
     height: auto;
 }
