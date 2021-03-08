@@ -2,6 +2,7 @@ import React, { useState, useEffect, InputGroup, FormControl } from 'react'
 import { Row, Col, Container } from "../components/Grid"
 import AthleteBio from "../components/AthleteBio"
 import Image from 'react-bootstrap/Image'
+import imagePath from "../../src/images/defaultPerson.png";
 import { Link, useParams } from "react-router-dom";
 import AthleteCharities from '../components/AthleteCharities'
 import AthleteCauses from '../components/AthleteCauses'
@@ -21,11 +22,17 @@ export default function Athletes(props) {
         strPosition: "",
         strCutout: "",
         strThumb: "",
-        strDescriptionEN: ""
+        strDescriptionEN: "",
     })
     const [search, setSearch] = useState({
         search: ""
     });
+
+
+    const [show, setShow] = useState({
+        isActive: false
+    })
+
 
     useEffect(() => {
         // loadAthlete()
@@ -55,16 +62,15 @@ export default function Athletes(props) {
             })
 
     }
+    
 
-    function _handleSubmit(event) {
+    function _handleSearch(event) {
         event.preventDefault()
 
         API.searchAthletes(search)
             .then(res => {
                 var description = res.data.player[0].strDescriptionEN.split(" ").splice(0, 50).join(" ") + "...";
-                //var playerid = res.data.idPlayer[0];
-                console.log(res);
-                // getAthlete();
+
                 setAthlete({
                     idPlayer: res.data.player[0].idPlayer,
                     dob: res.data.player[0].dateBorn,
@@ -75,37 +81,31 @@ export default function Athletes(props) {
                     strThumb: res.data.player[0].strThumb,
                     bio: description,
                 })
+                setShow({
+                    isActive: true
+                })
+            }).catch((err) => {
+                alert("No Athlete Found. Check Spelling.")
             })
     }
 
     return (
         <>
-            {console.log(athlete)}
-            <Container>
-                <Row>
-                    <Col size="md-12">
-                        <h2 className="text-center">Top sports players</h2>
-                    </Col>
-                </Row>
-                <Row>
-                    <div className="popularPlayers" id="topPlayers">
-                    </div>
-                </Row>
-            </Container>
             <Container>
                 <Row>
                     <Col size="md-3">
                     </Col>
                     <Col size="md-6">
-                        <form onSubmit={_handleSubmit}>
+                        <form onSubmit={_handleSearch}>
                             <input
                                 className="athlete-search"
                                 placeholder="Enter athlete's full name"
                                 type="text"
+                                size="65"
                                 name="search"
                                 value={search.lastName}
                                 onChange={_handleNameChange} />
-                            <button className="btn btn-primary blue">Submit</button>
+                            <button className="btn blue">Search</button>
                         </form>
                         {/* <InputGroup className="athlete-search">
                             <InputGroup.Prepend>
@@ -122,18 +122,22 @@ export default function Athletes(props) {
                     </Col>
                 </Row>
             </Container>
-            <Container title="title" >
+            {  show.isActive &&
+            <Container title="title">
                 <Row>
-                    <Col size="md-2" />
+                    <Col size="md-2"/>
                     <Col size="md-8">
                         <h1 className="text-center">{athlete.strPlayer}</h1>
                     </Col>
                 </Row>
-            </Container>
-            <Container title="stats">
+            </Container>}
+            {  show.isActive && <Container 
+                title="stats">   
                 <Row>
                     <Col size="md-4">
-                        <Image className="two img-fluid" alt="athlete" src={athlete.strCutout} roundedCircle />
+                        <Image className="adjust-picture img-fluid" 
+                        placeholder="https://via.placeholder.com/25" 
+                        src={athlete.strCutout ? athlete.strCutout : imagePath} roundedCircle />
                     </Col>
                     <Col size="md-8">
                         <AthleteBio
@@ -141,19 +145,20 @@ export default function Athletes(props) {
                         />
                     </Col>
                 </Row>
-            </Container>
+            </Container> }
+            {  show.isActive &&
             <Container title="no-background">
                 <Row>
                     <Col size="md-12">
                         <button
-                            className="btn btn-primary blue"
+                            className="btn blue"
                             id="add-athlete-btn"
                             onClick={_createAthleteInDB}
 
                         >Add athlete to the database</button>
                     </Col>
                 </Row>
-            </Container>
+            </Container> }
 
         </>
     )

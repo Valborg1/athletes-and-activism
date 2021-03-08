@@ -1,9 +1,12 @@
 import React from 'react'
+import "./style.css"
 
-export default function CausesURL() {
+export default function CausesURL({data}) {
     return (
         <div>
-            URL: https....
+            <a href={data} target="_blank">
+                {data}
+            </a>
         </div>
     )
 }

@@ -23,6 +23,7 @@ button.blue {
     border: none;
     background-color: blue;
     float: right;
+    color: white;
 }
 
 .fa-heart {
@@ -136,6 +137,12 @@ h3.carouselText {
     color: white;
     text-align: center;
     height: 500px;
+    font-size: 100px;
+}
+
+a.carouselText{
+    color: white;
+    text-decoration: none;
 }
 
 .charitySearch {
@@ -143,7 +150,7 @@ h3.carouselText {
 }
 
 
-.hide{
+.hidden {
     display: none;
 }
 
@@ -151,7 +158,7 @@ h3.carouselText {
     display: contents;
 }
 
-.two {
+.adjust-picture {
     width: auto;
     height: auto;
 }
@@ -168,4 +175,62 @@ h3.carouselText {
 
 #add-athlete-btn {
     float: right;
+}
+
+/* Cause */
+h1 {
+    font-size: largest;
+    font-style: bold;
+    color: rgb(243, 235, 235);
+    
+}
+a {
+   font-size: xx-large;
+   color:rgb(15, 15, 20); 
+   font-family:'Times New Roman', Times, serif;
+}
+.p-10 {
+    background-color: rgb(156, 149, 149);
+}
+
+.container.undefined {
+    background-color: #146a95;
+    color: rgb(243, 235, 235);
+    margin-top: 20px;
+    
+}
+
+.container.title {
+    background-color: #146a95;
+    color: rgb(243, 235, 235);
+    margin-top: 20px;
+}
+
+.text-center {
+    color: rgb(243, 235, 235);
+}
+
+.like.btn.icon {
+    background-color: #146a95;
+}
+
+.update.btn.icon {
+    background-color: #146a95;
+}
+
+.favoriteDiv{
+    background-color: rgb(156,149,149);
+    margin-top: 20px;
+}
+
+.test.undefined{
+    margin-top: 20px;
+}
+
+.urlContainer {
+    background-color: rgb(156, 149, 149);
+}
+
+.loginDivs {
+    background-color: rgb(156, 149, 149);
 }

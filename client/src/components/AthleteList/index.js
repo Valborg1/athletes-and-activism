@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react'
 import { Container } from "../Grid"
+// import "./listStyles.css"
+import "./style.css"
 
 export default function AthleteList
 ({athletes}) {
     
     return (
-       <div>
-        <Container title="causes">
+       <div >
+        <Container title="causes"id="athlete">
         <h4>Athletes</h4>
         {
             athletes?.length > 0 ?
@@ -25,14 +27,3 @@ export default function AthleteList
     )
 }
 
-            {/* <h1>ATHLETES</h1>           
-            <div className="grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gridGap: 20 }}>
-                <div><a className="causeLink" href="">Column 1</a></div>
-                <div><a className="causeLink" href="">Column 1</a></div>
-                <div><a className="causeLink" href="">Column 1</a></div>
-                <div><a className="causeLink" href="">Column 1</a></div>
-                <div><a className="causeLink" href="">Column 1</a></div>
-                <div><a className="causeLink" href="">Column 1</a></div>
-                <div><a className="causeLink" href="">Column 1</a></div>
-                <div><a className="causeLink" href="">Column 1</a></div>
-            </div> */}
