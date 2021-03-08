@@ -19,7 +19,7 @@ module.exports = {
   findByName: function(req, res){
     console.log("athlete name", req.params.fullName)
     db.Athlete
-      console.log("athlete req", req.body.fullName)
+      //console.log("athlete req", req.body.fullName)
       .find()
       .where("athlete.fullName").equals(req.body.athlete.fullName)
       .then(dbModel => res.json(dbModel))
