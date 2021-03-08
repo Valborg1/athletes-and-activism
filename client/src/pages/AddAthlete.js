@@ -99,10 +99,10 @@ export default function AddAthlete() {
             <h1 className="text-center">{athlete.fullName}</h1>
           </Col>
           <Col size="md-2">
-            <button className="like btn" type="button">
+            <button className="like btn icon" type="button">
               <i className="fa fa-heart"></i>
             </button>
-            <button className="update btn" type="button">
+            <button className="update btn icon" type="button">
               <i className="fa fa-plus"></i>
             </button>
           </Col>

@@ -200,3 +200,11 @@ a {
 .text-center {
     color: white;
 }
+
+.like.btn.icon {
+    background-color: #146a95;
+}
+
+.update.btn.icon {
+    background-color: #146a95;
+}
