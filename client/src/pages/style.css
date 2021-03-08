@@ -187,18 +187,18 @@ a {
 
 .container.undefined {
     background-color: #146a95;
-    color: white;
+    color: rgb(243, 235, 235);
     margin-top: 20px;
 }
 
 .container.title {
     background-color: #146a95;
-    color: white;
+    color: rgb(243, 235, 235);
     margin-top: 20px;
 }
 
 .text-center {
-    color: white;
+    color: rgb(243, 235, 235);
 }
 
 .like.btn.icon {
