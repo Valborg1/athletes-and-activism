@@ -55,9 +55,7 @@ export default function Athletes(props) {
                 console.log("create Athlete Response", res);
                 if (res.status === 200) { window.location = `/add-athlete/${res.data.playerid}` }
             })
-
     }
-
 
     function _handleSearch(event) {
         event.preventDefault()
