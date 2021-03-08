@@ -1,4 +1,9 @@
 .container.causes {
-    background-color: rgb(71, 68, 68);
+    background-color: rgb(156, 149, 149);
+    color: white;
+}
+
+.container.stats {
+    background-color: rgb(156, 149, 149);
     color: white;
 }

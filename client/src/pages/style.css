@@ -182,17 +182,21 @@ a {
    font-family:'Times New Roman', Times, serif;
 }
 .p-10 {
-    background-color: rgb(126, 121, 121);
-}
-.col-md-6 {
-    background-color: opacity;
+    background-color: rgb(156, 149, 149);
 }
 
 .container.undefined {
-    background-color: #004466;
+    background-color: #146a95;
     color: white;
     margin-top: 20px;
 }
-/* .row {
-    background-color: black; 
-} */
+
+.container.title {
+    background-color: #146a95;
+    color: white;
+    margin-top: 20px;
+}
+
+.text-center {
+    color: white;
+}
