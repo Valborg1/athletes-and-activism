@@ -95,6 +95,8 @@ export default function Athletes(props) {
                 setShow({
                     isActive: true
                 })
+            }).catch((err) => {
+                alert("No Athlete Found. Check Spelling.")
             })
     }
 
