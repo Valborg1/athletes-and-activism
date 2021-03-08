@@ -14,9 +14,12 @@ router.get(
       var token = decode(getToken(req.headers));
       if (token) {
         console.log("token", token)
-        User.findById(token.id, {password: 0}, function (err, user) {
+
+        User.findById(token.id, { password: 0}).populate('favorites').exec((err, user) => {
           return res.json(user);
         });
+
+    
       } else {
         return res.status(403).send({ success: false, msg: "Unauthorized." });
       }
