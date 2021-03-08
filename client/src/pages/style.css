@@ -136,26 +136,25 @@ a.causeLink, a.charityLink {
 h3.carouselText {
     color: white;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 500px;
-    font-size: 100px;
+}
+
+a.carouselText:hover{
+    color: white;
+    text-decoration: none;
 }
 
 a.carouselText{
     color: white;
     text-decoration: none;
+    font-size: 80px;
 }
 
 .charitySearch {
     float: left;
-}
-
-
-.hidden {
-    display: none;
-}
-
-.show {
-    display: contents;
 }
 
 .adjust-picture {
@@ -225,6 +224,7 @@ a {
 
 .test.undefined{
     margin-top: 20px;
+}
 
 .urlContainer {
     background-color: rgb(156, 149, 149);
