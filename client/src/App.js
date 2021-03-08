@@ -23,7 +23,7 @@ function App() {
     isReady: false,
   });
   const { auth, setAuth } = useAuth();
-console.log(auth)
+console.log("Authorization", auth)
   useEffect(() => {
     const res = apiAuth.getAuth();
     if (res) {

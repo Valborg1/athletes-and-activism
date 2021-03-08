@@ -37,31 +37,40 @@ export default function Profile() {
 
   return (
     <>
-    <Container title="title">
+      {console.log(state)}
+      <Container title="title">
         <Row>
           <Col size="md-2" />
           <Col size="md-8">
-          <h1 className="text-center">Profile</h1>
+            <h1 className="text-center">Profile</h1>
           </Col>
-          <Col size="md-2"/>
+          <Col size="md-2" />
         </Row>
       </Container>
-    <Container className="mt-5">
-      <Row>
-        <Column>
-          {state.user && 
-          <>
-          <h1 className="text-center">Welcome {state.user.username}</h1>
-            <h3>Favorite Athletes</h3>
-            <ul>
-              <li>{state.user._id}</li>
-            </ul>
-          </>
-          }
-          
-        </Column>
-      </Row>
-    </Container>
+      <Container title="favoriteDiv" className="mt-5">
+        <Row>
+          <Column>
+            {state.user &&
+              <>
+                <h1 className="text-center">Welcome {state.user.username}</h1>
+                <h3>Favorite Athletes</h3>
+                <div>
+                  {state.user.favorites.length &&
+                    state.user.favorites?.map((favorite) => (
+                      <h2>
+                        {" "}
+                        <a href={`/add-athlete/${favorite.playerid}`} id={favorite.playerid}>
+                          {favorite.fullName}
+                        </a>
+                      </h2>
+                    ))}
+                </div>
+              </>
+            }
+
+          </Column>
+        </Row>
+      </Container>
     </>
   );
 }

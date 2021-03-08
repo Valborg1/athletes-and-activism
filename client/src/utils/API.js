@@ -10,6 +10,10 @@ export default {
   getAthletes: function() {
     return axios.get(baseURL + "/api/athletes");
   },
+  // Gets the athlete with the given name
+  getAthleteDB: function(query){
+    return axios.get(baseURL + "/api/athletes", {query});
+  },
   // Gets the athlete with the given id
   getAthlete: function(id) {
     return axios.get(baseURL + "/api/athletes/" + id);
@@ -69,6 +73,7 @@ export default {
     return axios.post(baseURL + "/api/charities/cause", {causeId});
   },
 
+
   // getCharities: function() {
   //   return axios.get(baseURL + "/api/charities");
   // },
@@ -76,13 +81,6 @@ export default {
   addCharityAndCauseData: function(data) {
     return axios.post(baseURL + "/api/add-athlete/charity-and-cause", {data})
   },
-
-
-  // deleteCharities: function(id) {
-  //   return axios.post("api/charities/" + id);
-  // },
-
-  
   searchAthletes: function(query) {
     console.log(query)
     return axios.get(`${ATHURL}${query.search}`, {
@@ -95,11 +93,15 @@ export default {
   
   getCauses: function() {
     return axios.get("api/causes");
-    
+  },
+
+  addFavAthlete: function(id){
+     return axios.post("/api/users/favorites/" + id) 
   },
   getCharities: function() {
     return axios.get("api/charities");
   },
+
 };
 
 

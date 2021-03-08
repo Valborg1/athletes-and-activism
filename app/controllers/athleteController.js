@@ -5,7 +5,7 @@ module.exports = {
   findAll: function(req, res) {
     db.Athlete
       .find(req.query)
-      .sort({ date: -1 })
+      .sort({ fullName: 1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -13,6 +13,15 @@ module.exports = {
      db.Athlete
       .find()
       .where("charities.charityName").equals(req.body.charity) //req.body.charity
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  findByName: function(req, res){
+    console.log("athlete name", req.params.fullName)
+    db.Athlete
+      console.log("athlete req", req.body.fullName)
+      .find()
+      .where("athlete.fullName").equals(req.body.athlete.fullName)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
