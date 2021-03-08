@@ -22,18 +22,12 @@ export default function Causes() {
   return (
     <>
       <Container title="title">
-        <Row>
+        <Row >
           <Col size="md-2" />
           <Col size="md-8">
             <h1 className="text-center">CAUSES</h1>
           </Col>
           <Col size="md-2">
-            <button className="like btn" type="button">
-              <i className="fa fa-heart"></i>
-            </button>
-            <button className="update btn" type="button">
-              <i className="fa fa-plus"></i>
-            </button>
           </Col>
         </Row>
       </Container>
@@ -67,7 +61,7 @@ export default function Causes() {
           </Row>
         </Container>
         <div className="p-10 lg:pt-48 container mx-auto relative">
-          <h1 className="text-6xl text-300 mb-4">Cause results</h1>
+          {/* <h1 className="text-6xl text-300 mb-4">Cause results</h1> */}
           {/*         
         app.get('/api', (req, res) => {
           causesSeed.find({}, (err, data) => {

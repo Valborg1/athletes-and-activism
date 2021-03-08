@@ -112,10 +112,10 @@ export default function AddAthlete() {
             <h1 className="text-center">{athlete.fullName}</h1>
           </Col>
           <Col size="md-2">
-            <button className="like btn" onClick={handleAdd} type="button">
+            <button className="like btn icon" onClick={handleAdd} type="button">
               <i className="fa fa-heart"></i>
             </button>
-            <button className="update btn" type="button">
+            <button className="update btn icon" type="button">
               <i className="fa fa-plus"></i>
             </button>
           </Col>
@@ -124,7 +124,7 @@ export default function AddAthlete() {
       <Container title="stats">
         <Row>
           <Col size="md-4">
-            <Image alt="Patrick" src={athlete.image} roundedCircle />
+            <Image alt="Athlete Image" src={athlete.image} roundedCircle />
           </Col>
           <Col size="md-4">
             <AthleteBio
