@@ -9,6 +9,7 @@ import "./style.css";
 export default function SingleCause() {
   const [athletes, setCauseAthletes] = useState(null);
   const [charities, setCauseCharities] = useState(null);
+  // const [charityIDs, setCharityIDs] = useState(null);
   const [singleCause, setSingleCause] = useState({});
   const { id } = useParams();
   
@@ -32,13 +33,24 @@ export default function SingleCause() {
     }
 
     function loadCauseAthletes() {
+
+      let supportingAthletes = []
        
         API.getCauseAthletes(id)
             .then(res => {
             console.log("cause athletes", res.data)
                 return res.data
             })
-            .then(res => setCauseAthletes(res))
+            .then(res => res.forEach((item) => {
+              item.charities.forEach((charity) => {
+              if (charity.cause[0]._id === id) {
+                supportingAthletes.push(item)
+                console.log("supporting athletes", supportingAthletes)
+              }
+            })
+          })
+            )
+            .then(res => setCauseAthletes(supportingAthletes))
             .catch(err => console.log(err))
             
         }
