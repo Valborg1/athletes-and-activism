@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function CharityDesc() {
+export default function CharityDesc({data}) {
     return (
         <>
         <div>
-            CHARITY DESC
+            {data}
         </div>
         </>
     )
