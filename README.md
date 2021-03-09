@@ -8,7 +8,7 @@ This application uses the MERN model (MongoDB, Express, React, Node) to create a
 ---
 ## Links
 
-Video Demo: 
+Video Demo: https://drive.google.com/file/d/13Q7ydXATVxR2859V0OHYoBF2jAEksBC_/view
 
 Live App: https://athletes-and-activism.herokuapp.com/
 
