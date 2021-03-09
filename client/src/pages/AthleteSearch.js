@@ -91,13 +91,13 @@ export default function Athletes(props) {
                         <form onSubmit={_handleSearch}>
                             <input
                                 className="athlete-search"
-                                placeholder="Enter athlete's full name"
+                                placeholder="Enter Athlete's Full Name"
                                 type="text"
                                 size="65"
                                 name="search"
                                 value={search.lastName}
                                 onChange={_handleNameChange} />
-                            <button className="btn blue">Search</button>
+                            <button className="btn btn-primary">Search</button>
                         </form>
                     </Col>
                 </Row>

@@ -8,8 +8,6 @@ const { User } = require("./app/models");
 const cors = require('cors')
 const app = express();
 
-require("dotenv").config();
-
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
@@ -27,7 +25,15 @@ require("./config/passport")(User);
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(config.database);
+// mongoose.connect(config.database);
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/athletes-and-activism",
+{
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+});
 
 // Start the API server
 app.listen(PORT, function() {
