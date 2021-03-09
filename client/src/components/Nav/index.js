@@ -29,19 +29,19 @@ export default function Nav() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
             <NavLink className="nav-link" exact to="/">
-                HOME
+                HOME | 
             </NavLink>
             <NavLink className="nav-link" exact to="/search-athlete">
-                ATHLETES SEARCH
+                SEARCH | 
             </NavLink>
             <NavLink className="nav-link" exact to="/athletes">
-                ATHLETES
+                ATHLETES | 
             </NavLink>
             <NavLink className="nav-link" exact to="/charities">
-                CHARITIES
+                CHARITIES | 
             </NavLink>
             <NavLink className="nav-link" exact to="/causes">
-                CAUSES
+                CAUSES | 
             </NavLink>
             {auth ? (
               <>

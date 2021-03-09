@@ -32,7 +32,7 @@ export default function AddAthlete() {
       charities: []
     }
   )
-  const [athlete, setAthlete] = useState({})
+  
   const [favAthlete, setFavAthlete] = useState(null)
 
   useEffect(() => {
